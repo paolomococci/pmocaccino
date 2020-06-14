@@ -19,11 +19,52 @@
 package local.example.crm.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import local.example.crm.model.entity.status.ReferentStatus;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "referent")
 public class ReferentEntity 
 		extends TemplateEntity {
 
+	@NotNull
+	@NotEmpty
+	@Getter
+	@Setter
+	private String firstName;
+
+	@NotNull
+	@NotEmpty
+	@Getter
+	@Setter
+	private String lastName;
+
+	@Email
+	@NotNull
+	@NotEmpty
+	@Getter
+	@Setter
+	private String email;
+
+	@NotNull
+	@Getter
+	@Setter
+	@Enumerated(EnumType.STRING)
+	private ReferentStatus status;
+
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private CustomerEntity customer;
 }
