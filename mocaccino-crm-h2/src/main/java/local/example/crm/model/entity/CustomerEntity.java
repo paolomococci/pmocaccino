@@ -18,7 +18,12 @@
 
 package local.example.crm.model.entity;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,4 +31,6 @@ import javax.persistence.Table;
 public class CustomerEntity 
 		extends TemplateEntity {
 
+	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+	private List<ReferentEntity> referents = new LinkedList<>();
 }
