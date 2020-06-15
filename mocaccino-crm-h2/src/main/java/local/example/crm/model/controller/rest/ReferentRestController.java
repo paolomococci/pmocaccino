@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import local.example.crm.model.assembler.ReferentRepresentationModelAssembler;
 import local.example.crm.model.repository.rest.ReferentRestRepository;
 
 @RepositoryRestController
@@ -31,4 +32,6 @@ public class ReferentRestController {
 	@Autowired
 	ReferentRestRepository referentRestRepository;
 
+	@Autowired
+	ReferentRepresentationModelAssembler referentRepresentationModelAssembler;
 }
