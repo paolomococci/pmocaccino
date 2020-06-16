@@ -26,11 +26,16 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "customer")
 public class CustomerEntity 
 		extends TemplateEntity {
 
+	@Getter
+	@Setter
 	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
 	private List<ReferentEntity> referents = new LinkedList<>();
 }
