@@ -107,7 +107,9 @@ public class CustomerRestController {
 					if (customerUpdated.getName() != null) {
 						customer.setName(customerUpdated.getName());
 					}
-					// TODO
+					if (customerUpdated.getReferents() != null) {
+						customer.setReferents(customerUpdated.getReferents());
+					}
 					return customerRestRepository.save(customer);
 				}).orElseGet(() -> {
 					return customerRestRepository.save(customerUpdated);
@@ -116,6 +118,16 @@ public class CustomerRestController {
 		entityModelOfCustomer = customerRepresentationModelAssembler
 				.toModel(temporaryEntityOfCustomer);
 		return new ResponseEntity<>(entityModelOfCustomer, HttpStatus.OK);
+	}
+
+	public ResponseEntity<?> addReferent() {
+		// TODO
+		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);		
+	}
+
+	public ResponseEntity<?> removeReferent() {
+		// TODO
+		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);		
 	}
 
 	@DeleteMapping(path = "/{id}")
