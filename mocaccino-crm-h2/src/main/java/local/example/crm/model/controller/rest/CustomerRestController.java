@@ -107,6 +107,7 @@ public class CustomerRestController {
 					if (customerUpdated.getName() != null) {
 						customer.setName(customerUpdated.getName());
 					}
+					// TODO
 					return customerRestRepository.save(customer);
 				}).orElseGet(() -> {
 					return customerRestRepository.save(customerUpdated);
