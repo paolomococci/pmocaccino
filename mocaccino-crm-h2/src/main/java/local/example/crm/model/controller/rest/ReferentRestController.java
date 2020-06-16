@@ -107,7 +107,21 @@ public class ReferentRestController {
 					if (referentUpdated.getName() != null) {
 						referent.setName(referentUpdated.getName());
 					}
-					// TODO
+					if (referentUpdated.getFirstName() != null) {
+						referent.setFirstName(referentUpdated.getFirstName());
+					}
+					if (referentUpdated.getLastName() != null) {
+						referent.setLastName(referentUpdated.getLastName());
+					}
+					if (referentUpdated.getEmail() != null) {
+						referent.setEmail(referentUpdated.getEmail());
+					}
+					if (referentUpdated.getStatus() != null) {
+						referent.setStatus(referentUpdated.getStatus());
+					}
+					if (referentUpdated.getCustomer() != null) {
+						referent.setCustomer(referentUpdated.getCustomer());
+					}
 					return referentRestRepository.save(referent);
 				}).orElseGet(() -> {
 					return referentRestRepository.save(referentUpdated);
