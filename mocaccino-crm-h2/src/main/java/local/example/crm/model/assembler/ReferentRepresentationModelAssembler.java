@@ -18,11 +18,17 @@
 
 package local.example.crm.model.assembler;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
+import java.net.URISyntaxException;
+
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
+import local.example.crm.model.controller.rest.ReferentRestController;
 import local.example.crm.model.entity.ReferentEntity;
 
 @Component
@@ -31,8 +37,15 @@ public class ReferentRepresentationModelAssembler
 
 	@Override
 	public EntityModel<ReferentEntity> toModel(ReferentEntity referent) {
-		// TODO
-		return null;
+		try {
+			EntityModel<ReferentEntity> entityModelOfReferent = EntityModel.of(referent, 
+					linkTo(methodOn(ReferentRestController.class).read(referent.getId())).withSelfRel(), 
+					linkTo(methodOn(ReferentRestController.class).readAll()).withRel("referents"));
+			return entityModelOfReferent;
+		} catch (URISyntaxException uriException) {
+			uriException.printStackTrace();
+		}
+		return EntityModel.of(new ReferentEntity());
 	}
 
 	@Override
@@ -40,5 +53,4 @@ public class ReferentRepresentationModelAssembler
 			Iterable<? extends ReferentEntity> referents) {
 		return RepresentationModelAssembler.super.toCollectionModel(referents);
 	}
-
 }
