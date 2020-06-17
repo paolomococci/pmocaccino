@@ -18,10 +18,12 @@
 
 package local.example.crm.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import local.example.crm.model.repository.CustomerRepository;
+import local.example.crm.model.entity.ReferentEntity;
 import local.example.crm.model.repository.ReferentRepository;
 
 @Service
@@ -30,8 +32,31 @@ public class ReferentService {
 	@Autowired
 	ReferentRepository referentRepository;
 
-	@Autowired
-	CustomerRepository customerRepository;
+	public List<ReferentEntity> findAll() {
+		return this.referentRepository.findAll();
+	}
 
-	// TODO
+	public List<ReferentEntity> findAll(String text) {
+		if (text == null) {
+			return this.referentRepository.findAll();
+		} else if (text.isEmpty() || text.isBlank()) {
+			return this.referentRepository.findAll();
+		} else {
+			return this.referentRepository.search(text);
+		}
+	}
+
+	public long count() {
+		return this.referentRepository.count();
+	}
+
+	public void save(ReferentEntity referent) {
+		if (referent != null) {
+			this.referentRepository.save(referent);
+		}
+	}
+
+	public void delete(ReferentEntity referent) {
+		this.referentRepository.delete(referent);
+	}
 }
