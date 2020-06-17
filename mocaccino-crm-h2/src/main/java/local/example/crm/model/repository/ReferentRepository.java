@@ -18,6 +18,8 @@
 
 package local.example.crm.model.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -27,4 +29,6 @@ import local.example.crm.model.entity.ReferentEntity;
 public interface ReferentRepository 
 		extends JpaRepository<ReferentEntity, Long>{
 
+	// TODO
+	List<ReferentEntity> search(String text);
 }
