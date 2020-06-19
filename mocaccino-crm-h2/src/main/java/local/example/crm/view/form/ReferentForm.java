@@ -18,12 +18,47 @@
 
 package local.example.crm.view.form;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.textfield.EmailField;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.BeanValidationBinder;
+import com.vaadin.flow.data.binder.Binder;
+
+import local.example.crm.model.entity.CustomerEntity;
+import local.example.crm.model.entity.ReferentEntity;
+import local.example.crm.model.entity.status.ReferentStatus;
 
 public class ReferentForm 
 		extends FormLayout {
 
 	private static final long serialVersionUID = 757894659328506777L;
 
-	// TODO
+	TextField name, firstName, lastName;
+	EmailField email;
+	ComboBox<ReferentStatus> status;
+	ComboBox<CustomerEntity> customer;
+	Button save, delete, cancel;
+
+	Binder<ReferentEntity> referentBinder;
+
+	@Autowired
+	public ReferentForm(List<CustomerEntity> customers) {
+		super();
+		this.name = new TextField();
+		this.firstName = new TextField();
+		this.lastName = new TextField();
+		this.email = new EmailField();
+		this.status = new ComboBox<>();
+		this.customer = new ComboBox<>();
+		this.referentBinder = new BeanValidationBinder<>(ReferentEntity.class);
+		this.save = new Button();
+		this.delete = new Button();
+		this.cancel = new Button();
+	}
 }
