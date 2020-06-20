@@ -52,7 +52,6 @@ public class WebSecurityConfiguration
 			"/styles/**", 
 			"/h2-console/**"
 			};
-	private static final String RESTFUL_PATTERN = "/rest/api/**";
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) 
@@ -76,8 +75,7 @@ public class WebSecurityConfiguration
 			.and().formLogin().loginPage(LOGIN_URL).permitAll()
 			.loginProcessingUrl(LOGIN_URL)
 			.failureUrl(LOGIN_FAILURE_URL)
-			.and().logout().logoutSuccessUrl(LOGIN_URL)
-			.and().authorizeRequests().antMatchers(RESTFUL_PATTERN).hasRole("USER");
+			.and().logout().logoutSuccessUrl(LOGIN_URL);
 	}
 
 	@Override
