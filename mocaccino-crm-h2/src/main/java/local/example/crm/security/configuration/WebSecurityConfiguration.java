@@ -20,6 +20,7 @@ package local.example.crm.security.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -52,6 +53,7 @@ public class WebSecurityConfiguration
 			"/styles/**", 
 			"/h2-console/**"
 			};
+	private static final String RESTFUL_PATTERN = "/rest/api/**";
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) 
@@ -67,14 +69,19 @@ public class WebSecurityConfiguration
 	protected void configure(HttpSecurity httpSecurity) 
 			throws Exception {
 		httpSecurity
-			.csrf().disable()
-			.requestCache().requestCache(new CustomizedRequestCache())
+			.csrf().disable().requestCache().requestCache(new CustomizedRequestCache())
 			.and().authorizeRequests()
-			.requestMatchers(SecurityUtil::isFrameworkInternalRequest)
-			.permitAll().anyRequest().authenticated()
+				.antMatchers(HttpMethod.GET ,RESTFUL_PATTERN).hasRole("USER")
+				.antMatchers(HttpMethod.POST ,RESTFUL_PATTERN).hasRole("ADMIN")
+				.antMatchers(HttpMethod.PUT ,RESTFUL_PATTERN).hasRole("ADMIN")
+				.antMatchers(HttpMethod.PATCH ,RESTFUL_PATTERN).hasRole("ADMIN")
+				.antMatchers(HttpMethod.DELETE ,RESTFUL_PATTERN).hasRole("ADMIN")
+			.and().authorizeRequests()
+				.requestMatchers(SecurityUtil::isFrameworkInternalRequest)
+				.permitAll().anyRequest().authenticated()
 			.and().formLogin().loginPage(LOGIN_URL).permitAll()
-			.loginProcessingUrl(LOGIN_URL)
-			.failureUrl(LOGIN_FAILURE_URL)
+				.loginProcessingUrl(LOGIN_URL)
+				.failureUrl(LOGIN_FAILURE_URL)
 			.and().logout().logoutSuccessUrl(LOGIN_URL);
 	}
 
@@ -88,10 +95,10 @@ public class WebSecurityConfiguration
 	@Override
 	protected UserDetailsService userDetailsService() {
 		UserDetails userDetails = User
-			.withUsername("guest")
+			.withUsername("paul")
 			.password(this.passwordEncoder()
-			.encode("guest"))
-			.roles("USER")
+			.encode("qwerty123"))
+			.roles("ADMIN")
 			.build();
 		return new InMemoryUserDetailsManager(userDetails);
 	}
