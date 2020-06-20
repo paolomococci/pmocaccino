@@ -42,7 +42,7 @@ public class ReferentService {
 		} else if (text.isEmpty() || text.isBlank()) {
 			return this.referentRepository.findAll();
 		} else {
-			return this.referentRepository.search(text);
+			return null; // TODO
 		}
 	}
 
