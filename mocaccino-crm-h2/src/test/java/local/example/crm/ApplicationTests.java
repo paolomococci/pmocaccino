@@ -18,6 +18,9 @@
 
 package local.example.crm;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -25,6 +28,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ApplicationTests {
 
 	@Test
-	void voidTest() {
+	void sampleAssertTest() 
+			throws Exception {
+		assertAll("math", 
+				() -> assertEquals(2, 1+1),
+				() -> assertEquals(4, 2*2)
+			);
 	}
 }
