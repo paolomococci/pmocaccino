@@ -41,7 +41,7 @@ import local.example.crm.model.exception.CustomerNotFoundException;
 import local.example.crm.model.repository.rest.CustomerRestRepository;
 
 @RepositoryRestController
-@RequestMapping(path = "/api/customers")
+@RequestMapping(path = "/rest/api/customers")
 public class CustomerRestController {
 
 	@Autowired
