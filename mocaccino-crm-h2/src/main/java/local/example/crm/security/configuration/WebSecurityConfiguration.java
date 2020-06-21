@@ -98,7 +98,7 @@ public class WebSecurityConfiguration
 			.withUsername("paul")
 			.password(this.passwordEncoder()
 			.encode("qwerty123"))
-			.roles("ADMIN")
+			.roles("USER", "ADMIN")
 			.build();
 		return new InMemoryUserDetailsManager(userDetails);
 	}
