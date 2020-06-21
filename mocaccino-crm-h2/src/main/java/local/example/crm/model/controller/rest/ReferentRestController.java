@@ -41,7 +41,7 @@ import local.example.crm.model.exception.ReferentNotFoundException;
 import local.example.crm.model.repository.rest.ReferentRestRepository;
 
 @RepositoryRestController
-@RequestMapping(path = "/api/referents")
+@RequestMapping(path = "/rest/api/referents")
 public class ReferentRestController {
 
 	@Autowired
