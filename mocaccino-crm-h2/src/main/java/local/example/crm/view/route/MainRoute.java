@@ -25,7 +25,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
@@ -40,11 +47,8 @@ public class MainRoute
 
 	private static final long serialVersionUID = -6602780017976528238L;
 
-	@SuppressWarnings("unused")
 	private Tabs tabs;
-	@SuppressWarnings("unused")
 	private Map<Tab, Component> workspace;
-	@SuppressWarnings("unused")
 	private Label title;
 
 	@Autowired
@@ -52,6 +56,58 @@ public class MainRoute
 		super();
 		this.title = new Label("mocaccino crm");
 		this.workspace = new HashMap<>();
-		this.tabs = new Tabs();
+		this.tabs = new Tabs(
+				this.blank(),
+				this.help(), 
+				this.overview(), 
+				this.editor(), 
+				this.logout());
+		this.tabs.setOrientation(Tabs.Orientation.VERTICAL);
+		this.tabs.addSelectedChangeListener(listener -> {
+			final Tab selected = listener.getSelectedTab();
+			final Component component = this.workspace.get(selected);
+			this.setContent(component);
+		});
+		this.addToNavbar(new DrawerToggle(), this.title);
+		this.addToDrawer(tabs);
+	}
+
+	private Tab blank() {
+		final Span span = new Span("blank");
+		final Icon icon = VaadinIcon.DOT_CIRCLE.create();
+		final Tab tab = new Tab(new HorizontalLayout(icon, span));
+		this.workspace.put(tab, new VerticalLayout(new Label("")));
+		return tab;
+	}
+
+	private Tab help() {
+		final Span span = new Span("help");
+		final Icon icon = VaadinIcon.BOOK.create();
+		final Tab tab = new Tab(new HorizontalLayout(icon, span));
+		//this.workspace.put(tab, TODO);
+		return tab;
+	}
+
+	private Tab overview() {
+		final Span span = new Span("overview");
+		final Icon icon = VaadinIcon.OPEN_BOOK.create();
+		final Tab tab = new Tab(new HorizontalLayout(icon, span));
+		//this.workspace.put(tab, TODO);
+		return tab;
+	}
+
+	private Tab editor() {
+		final Span span = new Span("edit");
+		final Icon icon = VaadinIcon.EDIT.create();
+		final Tab tab = new Tab(new HorizontalLayout(icon, span));
+		//this.workspace.put(tab, TODO);
+		return tab;
+	}
+
+	private Tab logout() {
+		final Anchor logout = new Anchor("login", "sign out");
+		final Icon icon = VaadinIcon.SIGN_OUT.create();
+		final Tab tab = new Tab(new HorizontalLayout(icon, logout));
+		return tab;
 	}
 }
