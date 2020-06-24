@@ -57,8 +57,7 @@ public class WebSecurityConfiguration
 			"/icons/**", 
 			"/images/**", 
 			"/styles/**", 
-			"/h2-console/**"
-			};
+			"/h2-console/**"};
 	private static final String RESTFUL_PATTERN = "/rest/api/**";
 
 	@Override
