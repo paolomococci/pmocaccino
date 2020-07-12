@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.main-view {
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+.data-grid {
+	padding: 10 px;
+}
