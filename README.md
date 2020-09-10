@@ -1,2 +1,2 @@
-# mocaccino-crm
-Customer Relationship Management demo application
+# pmocaccino
+a group of applications for operations management
