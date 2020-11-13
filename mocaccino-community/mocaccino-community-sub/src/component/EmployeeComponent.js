@@ -30,8 +30,8 @@ export default class EmployeeComponent extends Component {
     }
 
     async componentDidMount() {
-        await fetch('http://localhost:8000/rest/employees')
-            .then(response=>response.setHeader('Access-Control-Allow-Methods', 'GET').json())
+        await fetch('http://localhost:8000/rest/employees', {mode: 'no-cors'})
+            .then(response=>response.json())
             .then((data)=>{this.setState({employees: data})})
             .catch(console.log)
     }
