@@ -30,8 +30,8 @@ export default class CompanyComponent extends Component {
     }
 
     async componentDidMount() {
-        await fetch('http://localhost:8000/rest/companies')
-            .then(response=>response.setHeader('Access-Control-Allow-Methods', 'GET').json())
+        await fetch('http://localhost:8000/rest/companies', {mode: 'no-cors'})
+            .then(response=>response.json())
             .then((data)=>{this.setState({companies: data})})
             .catch(console.log)
     }
