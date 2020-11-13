@@ -30,8 +30,8 @@ export default class ContestComponent extends Component {
     }
 
     async componentDidMount() {
-        await fetch('http://localhost:8000/rest/contests')
-            .then(response=>response.setHeader('Access-Control-Allow-Methods', 'GET').json())
+        await fetch('http://localhost:8000/rest/contests', {mode: 'no-cors'})
+            .then(response=>response.json())
             .then((data)=>{this.setState({contests: data})})
             .catch(console.log)
     }
