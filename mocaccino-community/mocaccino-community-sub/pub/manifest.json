@@ -1,8 +1,0 @@
-{
-  "short_name": "mocaccino community subscriber",
-  "name": "mocaccino community subscriber",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000",
-  "background_color": "#fff"
-}
