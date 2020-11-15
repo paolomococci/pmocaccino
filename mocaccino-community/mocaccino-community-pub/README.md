@@ -4,12 +4,12 @@
 
 ### employee entity:
 ```
-$ curl -v -i http://localhost:8080/rest/employees
+$ curl -v -i http://localhost:8090/rest/employees
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/employees HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -35,13 +35,13 @@ Date: Wed, 11 Nov 2020 19:42:43 GMT
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/rest/employees"
+      "href" : "http://localhost:8090/rest/employees"
     },
     "profile" : {
-      "href" : "http://localhost:8080/rest/profile/employees"
+      "href" : "http://localhost:8090/rest/profile/employees"
     },
     "search" : {
-      "href" : "http://localhost:8080/rest/employees/search"
+      "href" : "http://localhost:8090/rest/employees/search"
     }
   },
   "page" : {
@@ -52,12 +52,12 @@ Date: Wed, 11 Nov 2020 19:42:43 GMT
   }
 * Connection #0 to host localhost left intact
 }
-$ curl -v -i http://localhost:8080/rest/profile/employees
+$ curl -v -i http://localhost:8090/rest/profile/employees
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/profile/employees HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -82,7 +82,7 @@ Date: Wed, 11 Nov 2020 19:44:28 GMT
     "version" : "1.0",
     "descriptor" : [ {
       "id" : "employee-representation",
-      "href" : "http://localhost:8080/rest/profile/employees",
+      "href" : "http://localhost:8090/rest/profile/employees",
       "descriptor" : [ {
         "name" : "name",
         "type" : "SEMANTIC"
@@ -188,12 +188,12 @@ Date: Wed, 11 Nov 2020 19:44:28 GMT
   }
 * Connection #0 to host localhost left intact
 }
-$ curl -v -i http://localhost:8080/rest/employees/search
+$ curl -v -i http://localhost:8090/rest/employees/search
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/employees/search HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -216,23 +216,23 @@ Date: Wed, 11 Nov 2020 19:45:19 GMT
 {
   "_links" : {
     "likeByEmail" : {
-      "href" : "http://localhost:8080/rest/employees/search/likeByEmail{?email}",
+      "href" : "http://localhost:8090/rest/employees/search/likeByEmail{?email}",
       "templated" : true
     },
     "likeBySurname" : {
-      "href" : "http://localhost:8080/rest/employees/search/likeBySurname{?surname}",
+      "href" : "http://localhost:8090/rest/employees/search/likeBySurname{?surname}",
       "templated" : true
     },
     "likeByName" : {
-      "href" : "http://localhost:8080/rest/employees/search/likeByName{?name}",
+      "href" : "http://localhost:8090/rest/employees/search/likeByName{?name}",
       "templated" : true
     },
     "likeByUsername" : {
-      "href" : "http://localhost:8080/rest/employees/search/likeByUsername{?username}",
+      "href" : "http://localhost:8090/rest/employees/search/likeByUsername{?username}",
       "templated" : true
     },
     "self" : {
-      "href" : "http://localhost:8080/rest/employees/search"
+      "href" : "http://localhost:8090/rest/employees/search"
     }
   }
 * Connection #0 to host localhost left intact
@@ -241,12 +241,12 @@ Date: Wed, 11 Nov 2020 19:45:19 GMT
 
 ### company entity:
 ```
-$ curl -v -i http://localhost:8080/rest/companies
+$ curl -v -i http://localhost:8090/rest/companies
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/companies HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -272,13 +272,13 @@ Date: Wed, 11 Nov 2020 19:47:08 GMT
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/rest/companies"
+      "href" : "http://localhost:8090/rest/companies"
     },
     "profile" : {
-      "href" : "http://localhost:8080/rest/profile/companies"
+      "href" : "http://localhost:8090/rest/profile/companies"
     },
     "search" : {
-      "href" : "http://localhost:8080/rest/companies/search"
+      "href" : "http://localhost:8090/rest/companies/search"
     }
   },
   "page" : {
@@ -289,12 +289,12 @@ Date: Wed, 11 Nov 2020 19:47:08 GMT
   }
 * Connection #0 to host localhost left intact
 }
-$ curl -v -i http://localhost:8080/rest/profile/companies
+$ curl -v -i http://localhost:8090/rest/profile/companies
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/profile/companies HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -319,18 +319,18 @@ Date: Wed, 11 Nov 2020 19:47:39 GMT
     "version" : "1.0",
     "descriptor" : [ {
       "id" : "company-representation",
-      "href" : "http://localhost:8080/rest/profile/companies",
+      "href" : "http://localhost:8090/rest/profile/companies",
       "descriptor" : [ {
         "name" : "name",
         "type" : "SEMANTIC"
       }, {
         "name" : "contests",
         "type" : "SAFE",
-        "rt" : "http://localhost:8080/rest/profile/contests#contest-representation"
+        "rt" : "http://localhost:8090/rest/profile/contests#contest-representation"
       }, {
         "name" : "employee",
         "type" : "SAFE",
-        "rt" : "http://localhost:8080/rest/profile/employees#employee-representation"
+        "rt" : "http://localhost:8090/rest/profile/employees#employee-representation"
       } ]
     }, {
       "id" : "get-companies",
@@ -400,12 +400,12 @@ Date: Wed, 11 Nov 2020 19:47:39 GMT
   }
 * Connection #0 to host localhost left intact
 }
-$ curl -v -i http://localhost:8080/rest/companies/search
+$ curl -v -i http://localhost:8090/rest/companies/search
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/companies/search HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -428,11 +428,11 @@ Date: Wed, 11 Nov 2020 19:48:23 GMT
 {
   "_links" : {
     "likeByName" : {
-      "href" : "http://localhost:8080/rest/companies/search/likeByName{?name}",
+      "href" : "http://localhost:8090/rest/companies/search/likeByName{?name}",
       "templated" : true
     },
     "self" : {
-      "href" : "http://localhost:8080/rest/companies/search"
+      "href" : "http://localhost:8090/rest/companies/search"
     }
   }
 * Connection #0 to host localhost left intact
@@ -441,12 +441,12 @@ Date: Wed, 11 Nov 2020 19:48:23 GMT
 
 ### contest entity:
 ```
-$ curl -v -i http://localhost:8080/rest/contests
+$ curl -v -i http://localhost:8090/rest/contests
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/contests HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -472,13 +472,13 @@ Date: Wed, 11 Nov 2020 19:49:12 GMT
   },
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/rest/contests"
+      "href" : "http://localhost:8090/rest/contests"
     },
     "profile" : {
-      "href" : "http://localhost:8080/rest/profile/contests"
+      "href" : "http://localhost:8090/rest/profile/contests"
     },
     "search" : {
-      "href" : "http://localhost:8080/rest/contests/search"
+      "href" : "http://localhost:8090/rest/contests/search"
     }
   },
   "page" : {
@@ -489,12 +489,12 @@ Date: Wed, 11 Nov 2020 19:49:12 GMT
   }
 * Connection #0 to host localhost left intact
 }
-$ curl -v -i http://localhost:8080/rest/profile/contests
+$ curl -v -i http://localhost:8090/rest/profile/contests
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/profile/contests HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -519,7 +519,7 @@ Date: Wed, 11 Nov 2020 19:49:44 GMT
     "version" : "1.0",
     "descriptor" : [ {
       "id" : "contest-representation",
-      "href" : "http://localhost:8080/rest/profile/contests",
+      "href" : "http://localhost:8090/rest/profile/contests",
       "descriptor" : [ {
         "name" : "name",
         "type" : "SEMANTIC"
@@ -535,7 +535,7 @@ Date: Wed, 11 Nov 2020 19:49:44 GMT
       }, {
         "name" : "participants",
         "type" : "SAFE",
-        "rt" : "http://localhost:8080/rest/profile/employees#employee-representation"
+        "rt" : "http://localhost:8090/rest/profile/employees#employee-representation"
       } ]
     }, {
       "id" : "get-contests",
@@ -612,12 +612,12 @@ Date: Wed, 11 Nov 2020 19:49:44 GMT
   }
 * Connection #0 to host localhost left intact
 }
-$ curl -v -i http://localhost:8080/rest/contests/search
+$ curl -v -i http://localhost:8090/rest/contests/search
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 8080 (#0)
+* Connected to localhost (127.0.0.1) port 8090 (#0)
 > GET /rest/contests/search HTTP/1.1
-> Host: localhost:8080
+> Host: localhost:8090
 > User-Agent: curl/7.58.0
 > Accept: */*
 > 
@@ -640,15 +640,15 @@ Date: Wed, 11 Nov 2020 19:50:27 GMT
 {
   "_links" : {
     "likeByName" : {
-      "href" : "http://localhost:8080/rest/contests/search/likeByName{?name}",
+      "href" : "http://localhost:8090/rest/contests/search/likeByName{?name}",
       "templated" : true
     },
     "likeByTitle" : {
-      "href" : "http://localhost:8080/rest/contests/search/likeByTitle{?title}",
+      "href" : "http://localhost:8090/rest/contests/search/likeByTitle{?title}",
       "templated" : true
     },
     "self" : {
-      "href" : "http://localhost:8080/rest/contests/search"
+      "href" : "http://localhost:8090/rest/contests/search"
     }
   }
 * Connection #0 to host localhost left intact
