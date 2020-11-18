@@ -26,6 +26,6 @@ public class IndexController {
 
     @GetMapping(path = {"", "/", "/index", "home"})
     private String index() {
-        return "redirect:home.html";
+        return "redirect:index.html";
     }
 }
