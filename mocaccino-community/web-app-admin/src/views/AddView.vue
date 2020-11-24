@@ -1,6 +1,6 @@
 <template>
   <section>
-    <adding message="this is adding page"/>
+    <add message="on this page you can add an employee to the database"/>
   </section>
 </template>
 
@@ -10,7 +10,7 @@ import AddEmployeeComponent from '@/components/AddEmployeeComponent'
 export default {
   name: 'AddView',
   components: {
-    adding: AddEmployeeComponent
+    add: AddEmployeeComponent
   }
 }
 </script>
