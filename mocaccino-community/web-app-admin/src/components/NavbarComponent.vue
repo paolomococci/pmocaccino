@@ -18,7 +18,8 @@
           <template #button-content>
             <em>menu</em>
           </template>
-          <b-dropdown-item to="/about">about</b-dropdown-item>
+          <b-dropdown-item to="/add">add</b-dropdown-item>
+          <b-dropdown-item to="/list">list</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
