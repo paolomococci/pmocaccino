@@ -1,19 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomeView',
+    component: HomeView
   },
   {
     path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    name: 'AboutView',
+    component: () => import('../views/AboutView.vue')
+  },
+  {
+    path: '/add',
+    name: 'AddEmployeeView',
+    component: () => import('../views/AddEmployeeView.vue')
+  },
+  {
+    path: '/list',
+    name: 'ListEmployeesView',
+    component: () => import('../views/ListEmployeesView.vue')
   }
 ];
 
@@ -21,4 +31,4 @@ const router = new VueRouter({
   routes
 });
 
-export default router
+export default router;
