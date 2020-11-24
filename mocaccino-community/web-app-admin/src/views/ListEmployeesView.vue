@@ -8,7 +8,7 @@
 import ListEmployeesComponent from '@/components/ListEmployeesComponent'
 
 export default {
-  name: 'ListView',
+  name: 'ListEmployeesView',
   components: {
     listing: ListEmployeesComponent
   }
