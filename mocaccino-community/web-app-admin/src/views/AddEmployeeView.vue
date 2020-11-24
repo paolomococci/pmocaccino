@@ -8,7 +8,7 @@
 import AddEmployeeComponent from '@/components/AddEmployeeComponent'
 
 export default {
-  name: 'AddView',
+  name: 'AddEmployeeView',
   components: {
     add: AddEmployeeComponent
   }
