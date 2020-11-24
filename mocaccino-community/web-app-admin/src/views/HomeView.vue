@@ -8,7 +8,7 @@
 import Welcome from '@/components/Welcome'
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
     welcome: Welcome
   }
