@@ -26,7 +26,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 @RepositoryRestResource
-public interface ArticleRepository
+public interface ArticleRestRepository
         extends JpaRepository<Article, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM ARTICLE WHERE TITLE LIKE ?1%")
