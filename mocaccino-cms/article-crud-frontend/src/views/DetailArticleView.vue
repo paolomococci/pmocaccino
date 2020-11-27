@@ -1,16 +1,16 @@
 <template>
   <section>
-    <welcome msg="detail page"/>
+    <detailArticle/>
   </section>
 </template>
 
 <script>
-import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import DetailArticleComponent from '@/components/DetailArticleComponent.vue'
 
 export default {
   name: 'DetailArticleView',
   components: {
-    welcome: WelcomeComponent
+    detailArticle: DetailArticleComponent
   }
 }
 </script>
