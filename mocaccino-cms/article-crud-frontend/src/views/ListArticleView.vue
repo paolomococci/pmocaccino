@@ -1,16 +1,16 @@
 <template>
   <section>
-    <welcome msg="list page"/>
+    <listArticle/>
   </section>
 </template>
 
 <script>
-import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import ListArticleComponent from '@/components/ListArticleComponent.vue'
 
 export default {
   name: 'ListArticleView',
   components: {
-    welcome: WelcomeComponent
+    listArticle: ListArticleComponent
   }
 }
 </script>
