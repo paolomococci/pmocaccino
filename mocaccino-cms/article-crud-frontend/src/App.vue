@@ -1,8 +1,10 @@
 <template>
   <section id="app">
     <section id="nav">
-      <router-link to="/">home</router-link> |
-      <router-link to="/about">about</router-link>
+      <router-link to="/">home</router-link> &#173; 
+      <router-link to="/add">add</router-link> &#173; 
+      <router-link to="/list">list</router-link> &#173; 
+      <router-link to="/detail">detail</router-link>
     </section>
     <router-view/>
   </section>
