@@ -1,5 +1,5 @@
 <template>
-  <section class="hello">
+  <section>
     <mark>{{msg}}</mark>
   </section>
 </template>
@@ -24,7 +24,7 @@ a {
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'WelcomeComponent',
   props: {
     msg: String
   }
