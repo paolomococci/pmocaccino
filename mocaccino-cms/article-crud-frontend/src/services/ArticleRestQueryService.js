@@ -1,29 +1,29 @@
-import query-config from '../config/query-config.js'
+import query from '../config/query-config.js'
 
 class ArticleRestQueryService {
 
   create(article) {
-    // TODO
+    return query.post("/articles", article);
   }
 
   read(id) {
-    // TODO
+    return query.get(`/articles/${id}`);
   }
 
   readAll() {
-    // TODO
+    return query.get("/articles")
   }
 
   update(id, article) {
-    // TODO
+    return query.put(`/articles/${id}`, article);
   }
 
   delete(id) {
-    // TODO
+    return query.delete(`/articles/${id}`);
   }
 
   find(title) {
-    // TODO
+    return query.get(`/articles/search/likeByTitle?title=${title}`);
   }
 
   constructor() {
