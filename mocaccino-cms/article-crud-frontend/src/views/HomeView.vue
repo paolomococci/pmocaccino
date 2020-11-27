@@ -1,16 +1,16 @@
 <template>
   <section class="home">
-    <hello msg="home page"/>
+    <welcome msg="home page"/>
   </section>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import WelcomeComponent from '@/components/WelcomeComponent.vue'
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
-    hello: HelloWorld
+    welcome: WelcomeComponent
   }
 }
 </script>
