@@ -2,11 +2,11 @@ import query-config from '../config/query-config.js'
 
 class ArticleRestQueryService {
 
-  create() {
+  create(article) {
     // TODO
   }
 
-  read() {
+  read(id) {
     // TODO
   }
 
@@ -14,15 +14,15 @@ class ArticleRestQueryService {
     // TODO
   }
 
-  update() {
+  update(id, article) {
     // TODO
   }
 
-  delete() {
+  delete(id) {
     // TODO
   }
 
-  find() {
+  find(title) {
     // TODO
   }
 
