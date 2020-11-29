@@ -269,3 +269,87 @@ Date: Thu, 26 Nov 2020 05:09:14 GMT
 * Connection #0 to host localhost left intact
 }
 ```
+
+## Cross-Origin Resource Sharing test with curl
+```
+$ curl -H "Origin: http://localhost:8010" -H "Access-Control-Request-Method: GET" -H "Access-Control-Request-Headers: X-Requested-With" -X GET --verbose http://localhost:8090/rest/articles
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8090 (#0)
+> GET /rest/articles HTTP/1.1
+> Host: localhost:8090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Origin: http://localhost:8010
+> Access-Control-Request-Method: GET
+> Access-Control-Request-Headers: X-Requested-With
+> 
+< HTTP/1.1 200 
+< Vary: Origin
+< Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+< Date: Sun, 29 Nov 2020 17:33:03 GMT
+< 
+{
+  "_embedded" : {
+    "articles" : [ {
+      "title" : "first",
+      "description" : "some description of first article",
+      "published" : true,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8090/rest/articles/1"
+        },
+        "article" : {
+          "href" : "http://localhost:8090/rest/articles/1"
+        }
+      }
+    }, {
+      "title" : "second",
+      "description" : "some description of second article",
+      "published" : true,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8090/rest/articles/2"
+        },
+        "article" : {
+          "href" : "http://localhost:8090/rest/articles/2"
+        }
+      }
+    }, {
+      "title" : "third",
+      "description" : "some description of third article",
+      "published" : true,
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8090/rest/articles/3"
+        },
+        "article" : {
+          "href" : "http://localhost:8090/rest/articles/3"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8090/rest/articles"
+    },
+    "profile" : {
+      "href" : "http://localhost:8090/rest/profile/articles"
+    },
+    "search" : {
+      "href" : "http://localhost:8090/rest/articles/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 3,
+    "totalPages" : 1,
+    "number" : 0
+  }
+* Connection #0 to host localhost left intact
+}
+```
