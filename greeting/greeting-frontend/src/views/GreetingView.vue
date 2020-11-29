@@ -1,6 +1,6 @@
 <template>
   <section>
-    <greeting msg="greeting page todo"/>
+    <greeting msg="greeting page"/>
   </section>
 </template>
 
