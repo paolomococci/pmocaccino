@@ -654,3 +654,93 @@ Date: Wed, 11 Nov 2020 19:50:27 GMT
 * Connection #0 to host localhost left intact
 }
 ```
+
+## Cross-Origin Resource Sharing test with curl
+```
+$ curl -H "Origin: http://localhost:8010" -H "Access-Control-Request-Method: GET" -H "Access-Control-Request-Headers: X-Requested-With" -X GET --verbose http://localhost:8090/rest/employees
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8090 (#0)
+> GET /rest/employees HTTP/1.1
+> Host: localhost:8090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Origin: http://localhost:8010
+> Access-Control-Request-Method: GET
+> Access-Control-Request-Headers: X-Requested-With
+> 
+< HTTP/1.1 200 
+< Vary: Origin
+< Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+< Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+< Date: Sun, 29 Nov 2020 17:25:29 GMT
+< 
+{
+  "_embedded" : {
+    "employees" : [ {
+      "name" : "John",
+      "surname" : "Doe",
+      "email" : "john.doe@example.local",
+      "profession" : "developer",
+      "username" : "johndoe",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8090/rest/employees/4"
+        },
+        "employee" : {
+          "href" : "http://localhost:8090/rest/employees/4"
+        }
+      }
+    }, {
+      "name" : "Zoe",
+      "surname" : "Write",
+      "email" : "zoe.write@example.local",
+      "profession" : "designer",
+      "username" : "zoewrite",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8090/rest/employees/5"
+        },
+        "employee" : {
+          "href" : "http://localhost:8090/rest/employees/5"
+        }
+      }
+    }, {
+      "name" : "Liz",
+      "surname" : "Gone",
+      "email" : "liz.gone@example.local",
+      "profession" : "manager",
+      "username" : "lizgone",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8090/rest/employees/6"
+        },
+        "employee" : {
+          "href" : "http://localhost:8090/rest/employees/6"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8090/rest/employees"
+    },
+    "profile" : {
+      "href" : "http://localhost:8090/rest/profile/employees"
+    },
+    "search" : {
+      "href" : "http://localhost:8090/rest/employees/search"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 3,
+    "totalPages" : 1,
+    "number" : 0
+  }
+* Connection #0 to host localhost left intact
+}
+```
