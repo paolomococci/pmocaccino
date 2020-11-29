@@ -122,3 +122,32 @@ Date: Sun, 29 Nov 2020 08:11:05 GMT
 * Connection #0 to host localhost left intact
 {"id":2,"message":"Hi, user!"}
 ```
+
+## Cross-Origin Resource Sharing test with curl
+
+```
+$ curl -H "Origin: http://localhost:8010" -H "Access-Control-Request-Method: GET" -H "Access-Control-Request-Headers: X-Requested-With" -X GET --verbose http://localhost:8090/api/greeting?name=John
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 8090 (#0)
+> GET /api/greeting?name=John HTTP/1.1
+> Host: localhost:8090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Origin: http://localhost:8010
+> Access-Control-Request-Method: GET
+> Access-Control-Request-Headers: X-Requested-With
+> 
+< HTTP/1.1 200 
+< Vary: Origin
+< Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+< Access-Control-Allow-Origin: *
+< Content-Type: application/json
+< Transfer-Encoding: chunked
+< Date: Sun, 29 Nov 2020 17:10:34 GMT
+< 
+* Connection #0 to host localhost left intact
+{"id":1,"message":"Hi, John!"}
+```
