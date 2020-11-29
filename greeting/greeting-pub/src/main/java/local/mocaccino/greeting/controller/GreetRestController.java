@@ -25,14 +25,12 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(maxAge = 3600)
 public class GreetRestController {
 
     private static final String template = "Hi, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/greeting")
-    @CrossOrigin(origins = "http://127.0.0.1:8010")
     public Greet greeting(@RequestParam(required = false, defaultValue = "user") String name) {
         return new Greet(counter.incrementAndGet(), String.format(template, name));
     }
