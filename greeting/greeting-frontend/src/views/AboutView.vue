@@ -1,7 +1,7 @@
 <template>
-  <section class="about">
-    <welcome msg="about page"/>
-  </section>
+  <article class="about">
+    <welcome msg="about view"/>
+  </article>
 </template>
 
 <script>
