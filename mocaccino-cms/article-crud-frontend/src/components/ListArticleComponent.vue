@@ -31,7 +31,7 @@ export default {
   data: () => ({
     url: 'http://localhost:8090/rest/articles',
     articles: [],
-    currentArticle: {id: 0, title: '', description: '', publisched: false},
+    currentArticle: {id: 0, title: '', description: '', published: false},
     currentIndex: -1,
     title: ''
   }),
