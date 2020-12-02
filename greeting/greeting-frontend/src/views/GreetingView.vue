@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <greeting msg="greeting page"/>
-  </section>
+  <article>
+    <greeting msg="greeting view"/>
+  </article>
 </template>
 
 <script>
