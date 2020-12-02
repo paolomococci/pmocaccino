@@ -1,7 +1,7 @@
 <template>
-  <article class="hello">
+  <section class="hello">
     <h1>{{msg}}</h1>
-  </article>
+  </section>
 </template>
 
 <style scoped lang="scss">
