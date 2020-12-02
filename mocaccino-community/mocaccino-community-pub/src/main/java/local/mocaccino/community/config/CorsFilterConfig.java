@@ -18,27 +18,29 @@
 
 package local.mocaccino.community.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
-@Configuration
-@EnableWebMvc
-public class CorsConfig
-        implements WebMvcConfigurer {
+import java.util.Arrays;
 
-    @Override
-    public void addCorsMappings(CorsRegistry corsRegistry) {
-        corsRegistry.addMapping("/rest/**")
-                .allowedOrigins("http://localhost:8010")
-                .allowedMethods(
-                        HttpMethod.GET.toString(),
-                        HttpMethod.POST.toString(),
-                        HttpMethod.PUT.toString(),
-                        HttpMethod.DELETE.toString()
-                )
-                .maxAge(3600);
+@Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public class CorsFilterConfig {
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowCredentials(false);
+        corsConfiguration.addAllowedOrigin("http://localhost:8010");
+        corsConfiguration.setAllowedMethods(Arrays.asList("DELETE", "GET", "OPTIONS", "POST", "PUT"));
+        corsConfiguration.setAllowedHeaders(Arrays.asList("Accept", "Authorization", "Content-Type", "Origin", "X-Requested-With"));
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/rest/**", corsConfiguration);
+        return new CorsFilter(urlBasedCorsConfigurationSource);
     }
 }
