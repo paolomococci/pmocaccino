@@ -1,7 +1,7 @@
 <template>
-  <section class="home">
-    <welcome msg="home page"/>
-  </section>
+  <article class="home">
+    <welcome msg="home view"/>
+  </article>
 </template>
 
 <script>
