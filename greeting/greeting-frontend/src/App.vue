@@ -1,15 +1,18 @@
 <template>
   <main id="app">
     <nav id="nav">
-      <router-link to="/">home</router-link> &#173;
-      <router-link to="/about">about</router-link> &#173;
-      <router-link to="/greeting">greeting</router-link> 
+      <router-link class="routerLink" to="/">home</router-link>
+      <router-link class="routerLink" to="/about">about</router-link>
+      <router-link class="routerLink" to="/greeting">greeting</router-link>
     </nav>
     <router-view/>
   </main>
 </template>
 
 <style lang="scss">
+.routerLink {
+  margin: 5px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
