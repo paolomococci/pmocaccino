@@ -1,6 +1,6 @@
 <template>
   <section>
-    <listArticle/>
+    <listArticle msg="list of articles"/>
   </section>
 </template>
 
