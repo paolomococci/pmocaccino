@@ -27,11 +27,10 @@
           <samp id="published">{{currentArticle.published ? "yes" : "no"}}</samp><br/><br/>
           <label for="selfLink">URI</label><br/>
           <samp id="selfLink">{{currentArticle._links.self.href}}</samp><br/><br/>
-        <!-- TODO -->
         <a :href="'/#/detail?uri='+currentArticle._links.self.href">edit this article</a>
       </footer>
       <footer v-else>
-        <p>please, click for edit an article</p>
+        <p>please, click on an article to edit it</p>
       </footer>
     </section>
   </section>
