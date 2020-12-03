@@ -1,16 +1,18 @@
 <template>
-  <section id="app">
-    <section id="nav">
-      <router-link to="/">home</router-link> &#173; 
-      <router-link to="/add">add</router-link> &#173; 
-      <router-link to="/list">list</router-link> &#173; 
-      <router-link to="/detail">detail</router-link>
-    </section>
+  <article id="app">
+    <nav id="nav">
+      <router-link class="routerLink" to="/">home</router-link>
+      <router-link class="routerLink" to="/add">add</router-link>
+      <router-link class="routerLink" to="/list">list</router-link>
+    </nav>
     <router-view/>
-  </section>
+  </article>
 </template>
 
 <style lang="scss">
+.routerLink {
+  margin: 5px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,7 +20,6 @@
   text-align: center;
   color: #235;
 }
-
 #nav {
   padding: 30px;
 
