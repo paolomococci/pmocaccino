@@ -1,9 +1,11 @@
 <template>
   <section>
+    <h1>{{msg}}</h1>
     <aside>
-      <input type="text" placeholder="search by title" v-model="title"/> &#173;
+      <input type="text" placeholder="search by title" v-model="title"/>
       <button type="button" @click="searchByTitle">search</button>
     </aside>
+    <hr/>
     <section>
       <h4>articles list:</h4>
         <p :class="{ active: index == currentIndex }"
@@ -13,20 +15,20 @@
           {{article.title}}
         </p>
     </section>
+    <hr/>
     <section>
-      <footer v-if="currentArticle">
+      <footer v-if="currentIndex">
         <h4>details to edit:</h4>
-          <p>
-            title &#8658; {{currentArticle.title}}
-          </p>
-          <p>
-            description &#8658; {{currentArticle.description}}
-          </p>
-          <p>
-            published &#8658; {{currentArticle.published ? "yes" : "no"}}
-          </p>
+          <label for="title">title</label><br/>
+          <samp id="title">{{currentArticle.title}}</samp><br/><br/>
+          <label for="description">description</label><br/>
+          <samp id="description">{{currentArticle.description}}</samp><br/><br/>
+          <label for="published">published</label><br/>
+          <samp id="published">{{currentArticle.published ? "yes" : "no"}}</samp><br/><br/>
+          <label for="selfLink">URI</label><br/>
+          <samp id="selfLink">{{currentArticle._links.self.href}}</samp><br/><br/>
         <!-- TODO -->
-        <!--router-link :to="'/articles/' + currentArticle.id">edit</router-link-->
+        <a :href="'/#/detail?uri='+currentArticle._links.self.href">edit this article</a>
       </footer>
       <footer v-else>
         <p>please, click for edit an article</p>
@@ -36,6 +38,14 @@
 </template>
 
 <style scoped lang="scss">
+  label, input, button {
+    margin: 5px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: lighter;
+    margin: 40px;
+  }
   h4 {
     font-size: 18px;
     font-weight: lighter;
@@ -47,11 +57,14 @@ import axios from 'axios'
 
 export default {
   name: 'ListArticleComponent',
+  props: {
+    msg: String
+  },
   data: () => ({
     url: 'http://localhost:8090/rest/articles',
     articles: [],
-    currentArticle: {id: 0, title: '', description: '', published: false},
-    currentIndex: -1,
+    currentArticle: {title: '', description: '', published: false, _links: {article: {href: ''}, self: {href: ''}}},
+    currentIndex: 0,
     title: ''
   }),
   methods: {
@@ -67,7 +80,7 @@ export default {
     },
     setActiveArticle(article, index) {
       this.currentArticle = article;
-      this.currentIndex = index;
+      this.currentIndex = index+1;
     },
     searchByTitle() {
       axios.get(`http://localhost:8090/rest/articles/search/likeByTitle?title=${this.title}`)
