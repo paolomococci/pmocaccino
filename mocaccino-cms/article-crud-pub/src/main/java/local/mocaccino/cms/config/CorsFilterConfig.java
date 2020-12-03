@@ -38,7 +38,7 @@ public class CorsFilterConfig {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(false);
         corsConfiguration.addAllowedOrigin("http://localhost:8010");
-        corsConfiguration.setAllowedMethods(Arrays.asList("DELETE", "GET", "OPTIONS", "POST", "PUT"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Accept", "Authorization", "Content-Type", "Origin", "X-Requested-With"));
         urlBasedCorsConfigurationSource.registerCorsConfiguration("/rest/**", corsConfiguration);
         return new CorsFilter(urlBasedCorsConfigurationSource);
