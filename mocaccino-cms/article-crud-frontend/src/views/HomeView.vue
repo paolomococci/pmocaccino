@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <welcome msg="home page"/>
+    <welcome msg="home view"/>
   </section>
 </template>
 
