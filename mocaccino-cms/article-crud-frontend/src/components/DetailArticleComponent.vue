@@ -71,7 +71,7 @@ export default {
     },
     updatePublished() {
       this.currentArticle.published = !this.currentArticle.published;
-      axios.put(this.currentArticle._links.self.href, this.currentArticle)
+      axios.patch(this.currentArticle._links.self.href, {published: this.currentArticle.published})
         .then(response => {
           this.message = 'the published value of this article was updated successfully';
           console.log(response.data);
