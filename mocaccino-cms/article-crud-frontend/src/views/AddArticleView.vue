@@ -1,6 +1,6 @@
 <template>
   <section>
-    <addArticle/>
+    <addArticle msg="add a new article view"/>
   </section>
 </template>
 
