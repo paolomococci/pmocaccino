@@ -20,7 +20,6 @@
   text-align: center;
   color: #235;
 }
-
 #nav {
   padding: 30px;
 
