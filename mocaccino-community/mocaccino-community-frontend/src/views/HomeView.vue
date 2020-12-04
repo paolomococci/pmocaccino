@@ -1,7 +1,7 @@
 <template>
-  <article>
+  <main>
     <welcome msg="home view"/>
-  </article>
+  </main>
 </template>
 
 <script>
