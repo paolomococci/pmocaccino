@@ -1,11 +1,11 @@
 <template>
-  <main id="app">
+  <div id="app">
     <nav id="nav">
       <router-link class="routerLink" to="/">home</router-link>
       <router-link class="routerLink" to="/about">about</router-link>
     </nav>
     <router-view/>
-  </main>
+  </div>
 </template>
 
 <style lang="scss">
