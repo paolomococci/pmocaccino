@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>{{msg}}</h1>
+    <h1><span v-text="msg"></span></h1>
   </section>
 </template>
 
