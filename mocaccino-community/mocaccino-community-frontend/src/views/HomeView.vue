@@ -1,6 +1,6 @@
 <template>
   <main>
-    <welcome msg="home view"/>
+    <welcomeComponent msg="home view"/>
   </main>
 </template>
 
@@ -10,7 +10,7 @@ import WelcomeComponent from '@/components/WelcomeComponent.vue'
 export default {
   name: 'HomeView',
   components: {
-    welcome: WelcomeComponent
+    welcomeComponent: WelcomeComponent
   }
 }
 </script>
