@@ -1,6 +1,11 @@
 <template>
   <aside>
-    <!-- TODO-->
+    <b-button v-b-toggle.header-sidebar>show help</b-button>
+    <b-sidebar id="header-sidebar" title="help" shadow>
+      <div class="px-3 py-2">
+        <p>example of help text into sidebar</p>
+      </div>
+    </b-sidebar>
   </aside>
 </template>
 
@@ -10,6 +15,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style>
+  aside {
+    margin: 1rem;
+  }
 </style>
