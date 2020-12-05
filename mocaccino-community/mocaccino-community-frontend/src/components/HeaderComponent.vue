@@ -1,20 +1,21 @@
 <template>
   <header>
     <nav>
-      <!-- TODO-->
+      <navbarComponent/>
     </nav>
-    <aside>
-      <!-- TODO-->
-    </aside>
+    <asideComponent/>
   </header>
 </template>
 
 <script>
+import NavbarComponent from '@/components/NavbarComponent'
+import AsideComponent from '@/components/AsideComponent'
+
 export default {
-  name: 'HeaderComponent'
+  name: 'HeaderComponent',
+  components: {
+    navbarComponent: NavbarComponent,
+    asideComponent: AsideComponent
+  }
 }
 </script>
-
-<style lang="scss">
-
-</style>
