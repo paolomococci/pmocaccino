@@ -11,6 +11,12 @@ export default {
   name: 'CompanyView',
   components: {
     welcomeComponent: WelcomeComponent
+  },
+  mounted () {
+    this.$store.state.disabledSearchAvailability = false
+  },
+  destroyed () {
+    this.$store.state.disabledSearchAvailability = true
   }
 }
 </script>
