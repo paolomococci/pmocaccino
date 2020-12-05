@@ -1,12 +1,16 @@
 <template>
   <main>
-    <!-- TODO -->
+    <welcomeComponent msg="employee view"/>
   </main>
 </template>
 
 <script>
+import WelcomeComponent from '@/components/WelcomeComponent.vue'
 
 export default {
-  name: 'EmployeeView'
+  name: 'EmployeeView',
+  components: {
+    welcomeComponent: WelcomeComponent
+  }
 }
 </script>
