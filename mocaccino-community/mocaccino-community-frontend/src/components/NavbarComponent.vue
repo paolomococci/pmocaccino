@@ -30,9 +30,6 @@
 <script>
 export default {
   name: 'NavbarComponent',
-  data: () => ({
-    // TODO
-  }),
   computed: {
     disabledSearchAvailability() {
       return this.$store.state.disabledSearchAvailability;
