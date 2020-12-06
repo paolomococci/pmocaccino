@@ -13,9 +13,11 @@ export default {
     welcomeComponent: WelcomeComponent
   },
   mounted () {
+    this.$store.state.placeholderSearch = 'type a username to search',
     this.$store.state.disabledSearchAvailability = false
   },
   destroyed () {
+    this.$store.state.placeholderSearch = '',
     this.$store.state.disabledSearchAvailability = true
   }
 }
