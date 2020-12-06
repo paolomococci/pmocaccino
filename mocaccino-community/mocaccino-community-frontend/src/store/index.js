@@ -6,9 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     placeholderSearch: '',
-    disabledSearchAvailability: true
+    disabledSearchAvailability: true,
+    textToSearch: ''
   },
   mutations: {
+  },
+  getters: {
   },
   actions: {
   },
