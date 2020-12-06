@@ -11,7 +11,7 @@
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="search"></b-form-input>
+          <b-form-input size="sm" class="mr-sm-2" :placeholder="placeholderSearch" v-model="textToSearch"></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0" type="submit" :disabled="disabledSearchAvailability">search</b-button>
         </b-nav-form>
         <b-nav-item-dropdown right>
@@ -30,7 +30,16 @@
 <script>
 export default {
   name: 'NavbarComponent',
+  data: () => ({
+    textToSearch: ''
+  }),
+  methods: {
+    // TODO
+  },
   computed: {
+    placeholderSearch() {
+      return this.$store.state.placeholderSearch;
+    },
     disabledSearchAvailability() {
       return this.$store.state.disabledSearchAvailability;
     }
