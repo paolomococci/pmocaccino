@@ -13,7 +13,7 @@ export default {
     welcomeComponent: WelcomeComponent
   },
   mounted () {
-    this.$store.state.placeholderSearch = 'type a title to search',
+    this.$store.state.placeholderSearch = 'type a title to search for',
     this.$store.state.disabledSearchAvailability = false
   },
   destroyed () {
