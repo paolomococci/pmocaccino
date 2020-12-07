@@ -52,7 +52,7 @@ export default {
     }
   },
   mounted() {
-    // TODO
+    this.retrieveEmployees();
   }
 }
 </script>
