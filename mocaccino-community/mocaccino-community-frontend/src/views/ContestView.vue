@@ -20,6 +20,7 @@ export default {
     this.$store.state.disabledSearchAvailability = false
   },
   destroyed () {
+    this.$store.state.textToSearch = '',
     this.$store.state.placeholderSearch = '',
     this.$store.state.disabledSearchAvailability = true
   }
