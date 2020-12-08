@@ -1,18 +1,18 @@
 <template>
   <aside>
-    <b-button v-b-toggle.header-sidebar>show help</b-button>
+    <b-button v-b-toggle.header-sidebar>help</b-button>
     <b-sidebar id="header-sidebar" title="help" shadow>
       <div class="px-3 py-2">
         <b-card header="Edit" 
-                title="title text">
+                title="how to modify an item">
           <b-card-text>
-            explicative text
+            To change an item just click on it, and select the values you want to change.
           </b-card-text>
         </b-card>
         <b-card header="URI" 
-                title="title text">
+                title="unique link of each element">
           <b-card-text>
-            explicative text
+            The URI is what actually identifies each item registered in the system.
           </b-card-text>
         </b-card>
       </div>
