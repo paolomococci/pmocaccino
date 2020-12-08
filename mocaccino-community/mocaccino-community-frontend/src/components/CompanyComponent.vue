@@ -18,7 +18,7 @@ export default {
   name: 'CompanyComponent',
   data: () => ({
     url: 'http://localhost:8090/rest/companies',
-    fields: ['name'],
+    fields: ['name', '_links.self.href'],
     companies: [],
     company: {name: '', _links: {self: {href: ''}}},
     index: 0,
