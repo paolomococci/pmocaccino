@@ -1,10 +1,9 @@
 <template>
   <section>
     <b-jumbotron>
-      <template #header>on this web application</template>
-      <template #lead><span v-text="msg"></span></template>
+      <template #header>in this web application</template>
       <hr class="my-4">
-      <p>you can view and edit this type of entity:</p>
+      <p><span v-text="msg"></p>
       <b-button variant="primary" href="#/company">company</b-button>
       <span> &#173; </span>
       <b-button variant="primary" href="#/contest">contest</b-button>
