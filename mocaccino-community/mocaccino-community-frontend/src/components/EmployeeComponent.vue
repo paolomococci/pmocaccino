@@ -18,7 +18,7 @@ export default {
   name: 'EmployeeComponent',
   data: () => ({
     url: 'http://localhost:8090/rest/employees',
-    fields: ['name', 'surname', 'email', 'profession', 'username'],
+    fields: ['name', 'surname', 'email', 'profession', 'username', '_links.self.href'],
     employees: [],
     employee: {name: '', surname: '', email: '', profession: '', username: '', _links: {self: {href: ''}}},
     index: 0,
