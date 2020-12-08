@@ -1,6 +1,6 @@
 <template>
   <main>
-    <home msg=""/>
+    <home msg="you can view and edit this type of entities:"/>
   </main>
 </template>
 
