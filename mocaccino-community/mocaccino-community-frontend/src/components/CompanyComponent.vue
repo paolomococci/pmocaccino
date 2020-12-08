@@ -21,7 +21,8 @@ export default {
     fields: [
       {
         key: 'name',
-        label: 'names'
+        label: 'names',
+        sortable: true
       },
       {
         key: '_links.self.href',
