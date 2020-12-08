@@ -1,50 +1,18 @@
 <template>
   <section>
-    <h3><span v-text="msg"></span></h3>
+    <b-jumbotron>
+      <template #header>web application for manage some entities</template>
+      <template #lead><span v-text="msg"></span></template>
+      <hr class="my-4">
+    </b-jumbotron>
   </section>
 </template>
 
 <script>
 export default {
   name: 'AboutComponent',
-  data: () => ({
-    // TODO
-  }),
   props: {
     msg: String
-  },
-  components: {
-    // TODO
-  },
-  filters: {
-    // TODO
-  },
-  watch: {
-    // TODO
-  },
-  methods: {
-    // TODO
-  },
-  computed: {
-    // TODO
-  },
-  mounted() {
-    // TODO
-  },
-  destroyed () {
-    // TODO
-  },
-  activated () {
-    // TODO
-  },
-  deactivated () {
-    // TODO
   }
 }
 </script>
-
-<style scoped lang="scss">
-h3 {
-  margin: 30px;
-}
-</style>
