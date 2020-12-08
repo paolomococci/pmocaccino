@@ -1,50 +1,25 @@
 <template>
   <section>
-    <h3><span v-text="msg"></span></h3>
+    <b-jumbotron>
+      <template #header>on this web application</template>
+      <template #lead><span v-text="msg"></span></template>
+      <hr class="my-4">
+      <p>you can view and edit this type of entity:</p>
+      <b-button variant="primary" href="#/company">company</b-button>
+      <span> &#173; </span>
+      <b-button variant="primary" href="#/contest">contest</b-button>
+      <span> &#173; </span>
+      <b-button variant="primary" href="#/employee">employee</b-button>
+      <span> &#173; </span>
+    </b-jumbotron>
   </section>
 </template>
 
 <script>
 export default {
   name: 'HomeComponent',
-  data: () => ({
-    // TODO
-  }),
   props: {
     msg: String
-  },
-  components: {
-    // TODO
-  },
-  filters: {
-    // TODO
-  },
-  watch: {
-    // TODO
-  },
-  methods: {
-    // TODO
-  },
-  computed: {
-    // TODO
-  },
-  mounted() {
-    // TODO
-  },
-  destroyed () {
-    // TODO
-  },
-  activated () {
-    // TODO
-  },
-  deactivated () {
-    // TODO
   }
 }
 </script>
-
-<style scoped lang="scss">
-h3 {
-  margin: 30px;
-}
-</style>
