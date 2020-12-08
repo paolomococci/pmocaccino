@@ -3,19 +3,19 @@
     <nav>
       <navbarComponent/>
     </nav>
-    <asideComponent/>
+    <help/>
   </header>
 </template>
 
 <script>
 import NavbarComponent from '@/components/NavbarComponent'
-import AsideComponent from '@/components/AsideComponent'
+import HelpComponent from '@/components/HelpComponent'
 
 export default {
   name: 'HeaderComponent',
   components: {
     navbarComponent: NavbarComponent,
-    asideComponent: AsideComponent
+    help: HelpComponent
   }
 }
 </script>
