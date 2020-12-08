@@ -1,6 +1,9 @@
 <template>
   <section>
-    <h1 v-text="msg"></h1>
+    <b-jumbotron>
+      <template #header><span v-text="msg"></span></template>
+      <hr class="my-4">
+    </b-jumbotron>
   </section>
 </template>
 
@@ -12,9 +15,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-h1 {
-  margin: 40px;
-}
-</style>
