@@ -33,7 +33,8 @@ export default {
       },
       {
         key: 'date',
-        label: 'dates'
+        label: 'dates',
+        sortable: true
       },
       {
         key: '_links.self.href',
