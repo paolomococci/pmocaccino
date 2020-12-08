@@ -18,7 +18,7 @@ export default {
   name: 'ContestComponent',
   data: () => ({
     url: 'http://localhost:8090/rest/contests',
-    fields: ['name', 'title', 'description', 'date'],
+    fields: ['name', 'title', 'description', 'date', '_links.self.href'],
     contests: [],
     contest: {name: '', title: '', description: '', date:  null, _links: {self: {href: ''}}},
     index: 0,
