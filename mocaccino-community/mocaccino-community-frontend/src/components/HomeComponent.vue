@@ -5,9 +5,30 @@
       <hr class="my-4">
       <p v-text="msg"></p>
       <b-row>
-        <b-col><b-button size="lg" variant="outline-secondary" href="#/company">company</b-button></b-col>
-        <b-col><b-button size="lg" variant="outline-secondary" href="#/contest">contest</b-button></b-col>
-        <b-col><b-button size="lg" variant="outline-secondary" href="#/employee">employee</b-button></b-col>
+        <b-col>
+          <b-button 
+            size="lg" 
+            variant="outline-secondary" 
+            href="#/company"
+            v-b-popover.hover.top="'click to view the list of registered companies'"
+            title="companies">company</b-button>
+        </b-col>
+        <b-col>
+          <b-button 
+            size="lg" 
+            variant="outline-secondary" 
+            href="#/contest"
+            v-b-popover.hover.top="'click to view the list of registered contests'"
+            title="contests">contest</b-button>
+        </b-col>
+        <b-col>
+          <b-button 
+            size="lg" 
+            variant="outline-secondary" 
+            href="#/employee"
+            v-b-popover.hover.top="'click to view the list of registered employees'"
+            title="employees">employee</b-button>
+        </b-col>
       </b-row>
     </b-jumbotron>
   </section>
