@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'AddContentComponent'
+  name: 'AddContestComponent'
 }
 </script>
