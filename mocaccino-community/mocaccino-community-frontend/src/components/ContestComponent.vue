@@ -1,6 +1,9 @@
 <template>
   <section>
     <b-table striped hover :items="contests" :fields="fields"></b-table>
+    <aside>
+      <detail/>
+    </aside>
     <footer>
       <b-card-group deck>
       <b-card header="element that displays the text to search for" title="text to search for:">
@@ -13,9 +16,13 @@
 
 <script>
 import axios from 'axios'
+import ContestDetailComponent from '@/components/ContestDetailComponent.vue'
 
 export default {
   name: 'ContestComponent',
+  components: {
+    detail: ContestDetailComponent
+  },
   data: () => ({
     url: 'http://localhost:8090/rest/contests',
     fields: [
