@@ -4,13 +4,6 @@
     <aside>
       <detail/>
     </aside>
-    <footer>
-      <b-card-group deck>
-      <b-card header="element that displays the text to search for" title="text to search for:">
-        <b-card-text><mark v-text="textToSearch"></mark></b-card-text>
-      </b-card>
-    </b-card-group>
-    </footer>
   </section>
 </template>
 
@@ -39,7 +32,7 @@ export default {
     companies: [],
     company: {name: '', _links: {self: {href: ''}}},
     index: 0,
-    name: ''
+    toSearchFor: ''
   }),
   methods: {
     retrieveCompanies() {
@@ -53,7 +46,7 @@ export default {
         });
     },
     searchByTitle() {
-      axios.get(`http://localhost:8090/rest/articles/search/likeByName?name=${this.name}`)
+      axios.get(`http://localhost:8090/rest/articles/search/likeByName?name=${this.toSearchFor}`)
         .then(response => {
           this.companies = response.data._embedded.companies;
           console.log(response.data);
