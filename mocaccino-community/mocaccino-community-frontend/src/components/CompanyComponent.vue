@@ -32,7 +32,7 @@ export default {
     companies: [],
     company: {name: '', _links: {self: {href: ''}}},
     index: 0,
-    toSearchFor: ''
+    textToSearchFor: ''
   }),
   methods: {
     retrieveCompanies() {
@@ -46,7 +46,7 @@ export default {
         });
     },
     searchByTitle() {
-      axios.get(`http://localhost:8090/rest/articles/search/likeByName?name=${this.toSearchFor}`)
+      axios.get(`http://localhost:8090/rest/articles/search/likeByName?name=${this.textToSearchFor}`)
         .then(response => {
           this.companies = response.data._embedded.companies;
           console.log(response.data);
