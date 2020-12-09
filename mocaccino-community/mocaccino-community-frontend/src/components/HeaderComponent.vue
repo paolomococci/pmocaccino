@@ -19,3 +19,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  aside, footer {
+    margin: 1rem;
+  }
+</style>
