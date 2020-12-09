@@ -1,6 +1,9 @@
 <template>
   <section>
     <b-table striped hover :items="employees" :fields="fields"></b-table>
+    <aside>
+      <detail/>
+    </aside>
     <footer>
       <b-card-group deck>
       <b-card header="element that displays the text to search for" title="text to search for:">
@@ -13,9 +16,13 @@
 
 <script>
 import axios from 'axios'
+import EmployeeDetailComponent from '@/components/EmployeeDetailComponent.vue'
 
 export default {
   name: 'EmployeeComponent',
+  components: {
+    detail: EmployeeDetailComponent
+  },
   data: () => ({
     url: 'http://localhost:8090/rest/employees',
     fields: [
