@@ -4,13 +4,6 @@
     <aside>
       <detail/>
     </aside>
-    <footer>
-      <b-card-group deck>
-      <b-card header="element that displays the text to search for" title="text to search for:">
-        <b-card-text><mark v-text="textToSearch"></mark></b-card-text>
-      </b-card>
-    </b-card-group>
-    </footer>
   </section>
 </template>
 
@@ -51,7 +44,7 @@ export default {
     contests: [],
     contest: {name: '', title: '', description: '', date:  null, _links: {self: {href: ''}}},
     index: 0,
-    title: ''
+    textToSearchFor: ''
   }),
   methods: {
     retrieveContests() {
@@ -65,7 +58,7 @@ export default {
         });
     },
     searchByTitle() {
-      axios.get(`http://localhost:8090/rest/articles/search/likeByTitle?title=${this.title}`)
+      axios.get(`http://localhost:8090/rest/articles/search/likeByTitle?title=${this.textToSearchFor}`)
         .then(response => {
           this.contests = response.data._embedded.contests;
           console.log(response.data);
