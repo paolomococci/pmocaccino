@@ -4,13 +4,6 @@
     <aside>
       <detail/>
     </aside>
-    <footer>
-      <b-card-group deck>
-      <b-card header="element that displays the text to search for" title="text to search for:">
-        <b-card-text><mark v-text="textToSearch"></mark></b-card-text>
-      </b-card>
-    </b-card-group>
-    </footer>
   </section>
 </template>
 
@@ -55,7 +48,7 @@ export default {
     employees: [],
     employee: {name: '', surname: '', email: '', profession: '', username: '', _links: {self: {href: ''}}},
     index: 0,
-    username: ''
+    textToSearchFor: ''
   }),
   methods: {
     retrieveEmployees() {
@@ -69,7 +62,7 @@ export default {
         });
     },
     searchByEmail() {
-      axios.get(`http://localhost:8090/rest/employees/search/likeByUsername?username=${this.username}`)
+      axios.get(`http://localhost:8090/rest/employees/search/likeByUsername?username=${this.textToSearchFor}`)
         .then(response => {
           this.employees = response.data._embedded.employees;
           console.log(response.data);
