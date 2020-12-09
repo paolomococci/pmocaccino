@@ -7,7 +7,7 @@
       <b-row>
         <b-col>
           <b-button 
-            size="lg" 
+            size="xl" 
             variant="outline-secondary" 
             href="#/company"
             v-b-popover.hover.top="'click to view the list of registered companies'"
@@ -15,7 +15,7 @@
         </b-col>
         <b-col>
           <b-button 
-            size="lg" 
+            size="xl" 
             variant="outline-secondary" 
             href="#/contest"
             v-b-popover.hover.top="'click to view the list of registered contests'"
@@ -23,7 +23,7 @@
         </b-col>
         <b-col>
           <b-button 
-            size="lg" 
+            size="xl" 
             variant="outline-secondary" 
             href="#/employee"
             v-b-popover.hover.top="'click to view the list of registered employees'"
