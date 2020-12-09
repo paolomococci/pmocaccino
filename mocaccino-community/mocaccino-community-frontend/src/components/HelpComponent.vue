@@ -25,9 +25,3 @@ export default {
   name: 'HelpComponent'
 }
 </script>
-
-<style>
-  aside {
-    margin: 1rem;
-  }
-</style>
