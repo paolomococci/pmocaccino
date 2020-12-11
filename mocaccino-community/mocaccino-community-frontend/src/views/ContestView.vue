@@ -1,7 +1,7 @@
 <template>
   <main>
-    <welcomeComponent msg="contest view"/>
-    <contestComponent/>
+    <welcome-component msg="contest view"/>
+    <contest-component/>
   </main>
 </template>
 
@@ -12,8 +12,8 @@ import ContestComponent from '@/components/ContestComponent.vue'
 export default {
   name: 'ContestView',
   components: {
-    welcomeComponent: WelcomeComponent,
-    contestComponent: ContestComponent
+    'welcome-component': WelcomeComponent,
+    'contest-component': ContestComponent
   },
   mounted () {
     this.$store.state.placeholderSearch = 'type a title to search for',
