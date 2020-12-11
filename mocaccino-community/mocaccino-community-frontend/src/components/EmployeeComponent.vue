@@ -1,6 +1,18 @@
 <template>
   <section>
-    <b-table striped hover :items="employees" :fields="fields"></b-table>
+    <b-table 
+      striped hover 
+      :items="employees" 
+      :fields="fields">
+      <template>
+        <template>
+          <span aria-hidden="true">&#10007;</span>
+        </template>
+        <template>
+          <span aria-hidden="true">&#160;</span>
+        </template>
+      </template>
+    </b-table>
     <aside>
       <detail/>
     </aside>
