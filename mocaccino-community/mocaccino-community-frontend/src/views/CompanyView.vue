@@ -1,7 +1,7 @@
 <template>
   <main>
-    <welcomeComponent msg="company view"/>
-    <companyComponent/>
+    <welcome-component msg="company view"/>
+    <company-component/>
   </main>
 </template>
 
@@ -12,8 +12,8 @@ import CompanyComponent from '@/components/CompanyComponent.vue'
 export default {
   name: 'CompanyView',
   components: {
-    welcomeComponent: WelcomeComponent,
-    companyComponent: CompanyComponent
+    'welcome-component': WelcomeComponent,
+    'company-component': CompanyComponent
   },
   mounted () {
     this.$store.state.placeholderSearch = 'type a name to search for',
