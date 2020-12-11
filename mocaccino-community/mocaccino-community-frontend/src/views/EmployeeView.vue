@@ -1,7 +1,7 @@
 <template>
   <main>
-    <welcomeComponent msg="employee view"/>
-    <employeeComponent/>
+    <welcome-component msg="employee view"/>
+    <employee-component/>
   </main>
 </template>
 
@@ -12,8 +12,8 @@ import EmployeeComponent from '@/components/EmployeeComponent.vue'
 export default {
   name: 'EmployeeView',
   components: {
-    welcomeComponent: WelcomeComponent,
-    employeeComponent: EmployeeComponent
+    'welcome-component': WelcomeComponent,
+    'employee-component': EmployeeComponent
   },
   mounted () {
     this.$store.state.placeholderSearch = 'type a username to search for',
