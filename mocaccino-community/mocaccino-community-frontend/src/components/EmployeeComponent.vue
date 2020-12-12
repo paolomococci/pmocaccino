@@ -9,7 +9,7 @@
       :fields="fields" 
       @row-selected="onRowSelected" 
       responsive="sm">
-      <template #cell(employee)="{rowSelected}">
+      <template #cell(employeeString)="{rowSelected}">
         <template v-if="rowSelected">
           <span aria-hidden="true">&#10007;</span>
         </template>
@@ -23,9 +23,14 @@
         class="mt-3" 
         variant="outline-secondary" 
         @click="deselect">deselect</b-button>
-      <br><br>
-      <p v-text="employee"></p>
-      <br>
+      <p>
+        <mark>string</mark>
+        <span v-text="employeeString"></span>
+      </p>
+      <p>
+        <mark>json object</mark>
+        <span v-text="employeeJsonObject"></span>
+      </p>
       <detail/>
     </aside>
   </section>
@@ -69,12 +74,13 @@ export default {
         label: 'URIs'
       },
       {
-        key: 'employee',
+        key: 'employeeString',
         label: 'edit'
       }
     ],
     employees: [],
-    employee: '',
+    employeeString: '',
+    employeeJsonObject: null,
     index: 0,
     textToSearchFor: ''
   }),
@@ -100,10 +106,11 @@ export default {
         });
     },
     onRowSelected(item) {
-      this.employee = item
+      this.employeeString = item;
+      this.employeeJsonObject = JSON.parse(item);
     },
     deselect() {
-      this.$refs.selectableTable.clearSelected()
+      this.$refs.selectableTable.clearSelected();
     }
   },
   computed: {
