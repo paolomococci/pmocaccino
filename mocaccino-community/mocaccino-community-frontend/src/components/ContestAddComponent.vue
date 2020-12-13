@@ -1,7 +1,7 @@
 <template>
   <section>
     <b-button variant="outline-primary" @click="showModalDetail">add contest</b-button>
-    <b-modal ref="modal-add" hide-footer title="register a new contest">
+    <b-modal ref="modal-add" hide-footer title="enter the details of a new contest">
       <div class="d-block text-center">
         <h3>fields</h3>
       </div>
