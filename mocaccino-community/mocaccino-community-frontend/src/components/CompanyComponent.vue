@@ -3,7 +3,7 @@
     <aside>
       <add-company/>
     </aside>
-    <!-- sub-section for displaing companies data -->
+    <!-- sub-section to show the company list -->
     <section>
       <b-table 
         :items="companies" 
