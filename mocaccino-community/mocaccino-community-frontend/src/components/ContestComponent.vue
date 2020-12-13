@@ -3,7 +3,7 @@
     <aside>
       <add-contest/>
     </aside>
-    <!-- sub-section for displaing contests data -->
+    <!-- sub-section to show the contest list -->
     <section>
       <b-table 
         :items="contests" 
