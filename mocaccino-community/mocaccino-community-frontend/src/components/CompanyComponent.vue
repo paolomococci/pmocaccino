@@ -19,7 +19,7 @@
           <b-card>
             <b-row class="mb-2">
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
-              <b-col>{{row.item._links.self.href}}</b-col>
+              <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
           </b-card>
