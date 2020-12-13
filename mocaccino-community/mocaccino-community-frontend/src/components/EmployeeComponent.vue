@@ -19,23 +19,23 @@
           <b-card>
             <b-row class="mb-2">
               <b-col sm="3" class="text-sm-right"><b>name:</b></b-col>
-              <b-col>{{row.item.name}}</b-col>
+              <b-col><output v-text="row.item.name"></output></b-col>
             </b-row>
             <b-row class="mb-2">
               <b-col sm="3" class="text-sm-right"><b>surname:</b></b-col>
-              <b-col>{{row.item.surname}}</b-col>
+              <b-col><output v-text="row.item.surname"></output></b-col>
             </b-row>
             <b-row class="mb-2">
               <b-col sm="3" class="text-sm-right"><b>email:</b></b-col>
-              <b-col>{{row.item.email}}</b-col>
+              <b-col><output v-text="row.item.email"></output></b-col>
             </b-row>
             <b-row class="mb-2">
               <b-col sm="3" class="text-sm-right"><b>profession:</b></b-col>
-              <b-col>{{row.item.profession}}</b-col>
+              <b-col><output v-text="row.item.profession"></output></b-col>
             </b-row>
             <b-row class="mb-2">
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
-              <b-col>{{row.item._links.self.href}}</b-col>
+              <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
           </b-card>
