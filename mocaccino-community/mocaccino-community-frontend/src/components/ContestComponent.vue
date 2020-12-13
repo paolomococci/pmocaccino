@@ -1,56 +1,66 @@
 <template>
   <section>
-    <b-table 
-      striped hover 
-      :items="contests" 
-      :fields="fields">
-      <template>
-        <template>
-          <span aria-hidden="true">&#10007;</span>
-        </template>
-        <template>
-          <span aria-hidden="true">&#160;</span>
-        </template>
-      </template>
-    </b-table>
     <aside>
-      <detail/>
+      <add-contest/>
     </aside>
+    <!-- sub-section for displaing contests data -->
+    <section>
+      <b-table 
+        :items="contests" 
+        :fields="fields" 
+        striped 
+        responsive="sm">
+        <template #cell(showDetails)="row">
+          <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
+            details
+          </b-form-checkbox>
+        </template>
+        <template #row-details="row">
+          <b-card>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>title:</b></b-col>
+              <b-col>{{row.item.title}}</b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>description:</b></b-col>
+              <b-col>{{row.item.description}}</b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
+              <b-col>{{row.item._links.self.href}}</b-col>
+            </b-row>
+            <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
+          </b-card>
+        </template>
+      </b-table>
+    </section>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
-import ContestDetailComponent from '@/components/ContestDetailComponent.vue'
+import ContestAddComponent from '@/components/ContestAddComponent.vue'
 
 export default {
   name: 'ContestComponent',
   components: {
-    detail: ContestDetailComponent
+    'add-contest': ContestAddComponent
   },
   data: () => ({
     url: 'http://localhost:8090/rest/contests',
     fields: [
-      {
-        key: 'name',
-        label: 'names'
-      },
-      {
-        key: 'title',
-        label: 'titles'
-      },
-      {
-        key: 'description',
-        label: 'descriptions'
-      },
       {
         key: 'date',
         label: 'dates',
         sortable: true
       },
       {
-        key: '_links.self.href',
-        label: 'URIs'
+        key: 'name',
+        label: 'names'
+      },
+      {
+        key: 'showDetails',
+        label: 'details'
       }
     ],
     contests: [],
