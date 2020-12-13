@@ -3,7 +3,7 @@
     <aside>
       <add-employee/>
     </aside>
-    <!-- sub-section for displaing employees data -->
+    <!-- sub-section to show the employee list -->
     <section>
       <b-table 
         :items="employees" 
