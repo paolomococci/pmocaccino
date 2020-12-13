@@ -1,32 +1,42 @@
 <template>
   <section>
-    <b-table 
-      striped hover 
-      :items="companies" 
-      :fields="fields">
-      <template>
-        <template>
-          <span aria-hidden="true">&#10007;</span>
-        </template>
-        <template>
-          <span aria-hidden="true">&#160;</span>
-        </template>
-      </template>
-    </b-table>
     <aside>
-      <detail/>
+      <add-company/>
     </aside>
+    <!-- sub-section for displaing companies data -->
+    <section>
+      <b-table 
+        :items="companies" 
+        :fields="fields" 
+        striped 
+        responsive="sm">
+        <template #cell(showDetails)="row">
+          <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
+            details
+          </b-form-checkbox>
+        </template>
+        <template #row-details="row">
+          <b-card>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
+              <b-col>{{row.item._links.self.href}}</b-col>
+            </b-row>
+            <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
+          </b-card>
+        </template>
+      </b-table>
+    </section>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
-import CompanyDetailComponent from '@/components/CompanyDetailComponent.vue'
+import CompanyAddComponent from '@/components/CompanyAddComponent.vue'
 
 export default {
   name: 'CompanyComponent',
   components: {
-    detail: CompanyDetailComponent
+    'add-company': CompanyAddComponent
   },
   data: () => ({
     url: 'http://localhost:8090/rest/companies',
@@ -37,8 +47,8 @@ export default {
         sortable: true
       },
       {
-        key: '_links.self.href',
-        label: 'URIs'
+        key: 'showDetails',
+        label: 'details'
       }
     ],
     companies: [],
