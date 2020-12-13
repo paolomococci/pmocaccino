@@ -1,86 +1,74 @@
 <template>
   <section>
-    <b-table 
-      striped hover 
-      selectable 
-      select-mode="single" 
-      ref="selectableTable"
-      :items="employees" 
-      :fields="fields" 
-      @row-selected="onRowSelected" 
-      responsive="sm">
-      <template #cell(employeeString)="{rowSelected}">
-        <template v-if="rowSelected">
-          <span aria-hidden="true">&#10007;</span>
-        </template>
-        <template v-else>
-          <span aria-hidden="true">&#160;</span>
-        </template>
-      </template>
-    </b-table>
     <aside>
-      <b-button 
-        class="mt-3" 
-        variant="outline-secondary" 
-        @click="deselect">deselect</b-button>
-      <p>
-        <mark>string</mark>
-        <span v-text="employeeString"></span>
-      </p>
-      <p>
-        <mark>json object</mark>
-        <span v-text="employeeJsonObject"></span>
-      </p>
-      <detail/>
+      <add-employee/>
     </aside>
+    <!-- sub-section for displaing employees data -->
+    <section>
+      <b-table 
+        :items="employees" 
+        :fields="fields" 
+        striped 
+        responsive="sm">
+        <template #cell(showDetails)="row">
+          <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
+            details
+          </b-form-checkbox>
+        </template>
+        <template #row-details="row">
+          <b-card>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>name:</b></b-col>
+              <b-col>{{row.item.name}}</b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>surname:</b></b-col>
+              <b-col>{{row.item.surname}}</b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>email:</b></b-col>
+              <b-col>{{row.item.email}}</b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>profession:</b></b-col>
+              <b-col>{{row.item.profession}}</b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
+              <b-col>{{row.item._links.self.href}}</b-col>
+            </b-row>
+            <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
+          </b-card>
+        </template>
+      </b-table>
+    </section>
   </section>
 </template>
 
 <script>
 import axios from 'axios'
-import EmployeeDetailComponent from '@/components/EmployeeDetailComponent.vue'
+import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
 
 export default {
   name: 'EmployeeComponent',
   components: {
-    detail: EmployeeDetailComponent
+    'add-employee': EmployeeAddComponent
   },
   data: () => ({
     url: 'http://localhost:8090/rest/employees',
     fields: [
-      {
-        key: 'name',
-        label: 'names'
-      },
-      {
-        key: 'surname',
-        label: 'surnames'
-      },
-      {
-        key: 'email',
-        label: 'emails'
-      },
-      {
-        key: 'profession',
-        label: 'professions'
-      },
       {
         key: 'username',
         label: 'usernames',
         sortable: true
       },
       {
-        key: '_links.employee.href',
-        label: 'URIs'
-      },
-      {
-        key: 'employeeString',
-        label: 'edit'
+        key: 'showDetails',
+        label: 'details'
       }
     ],
     employees: [],
-    employeeString: '',
-    employeeJsonObject: null,
+    employee: {name: '', surname: '', email: '', profession:  '', username:  '', _links: {self: {href: ''}}},
     index: 0,
     textToSearchFor: ''
   }),
@@ -104,13 +92,6 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    },
-    onRowSelected(item) {
-      this.employeeString = item;
-      this.employeeJsonObject = JSON.parse(item);
-    },
-    deselect() {
-      this.$refs.selectableTable.clearSelected();
     }
   },
   computed: {
