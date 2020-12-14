@@ -22,12 +22,22 @@
 </template>
 
 <script>
+import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
+
 export default {
   name: 'EmployeeAddComponent',
   data: () => ({
     url: 'http://localhost:8090/rest/employees',
     employeeUsername: ''
   }),
+  validations: {
+    employeeUsername: {
+      alpha,
+      required,
+      minLength: minLength(6),
+      maxLength: maxLength(14)
+    }
+  },
   computed: {
     acceptable() {
       return this.employeeUsername.length > 5 && this.employeeUsername.length < 15;
