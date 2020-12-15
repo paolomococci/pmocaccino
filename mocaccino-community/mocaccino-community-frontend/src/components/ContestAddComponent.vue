@@ -8,7 +8,7 @@
           <label for="feedback-name">name</label>
           <b-form-input v-model="contestName" :state="acceptable" id="feedback-name"></b-form-input>
           <b-form-invalid-feedback :state="acceptable">
-            name of new company must be 8 to 30 characters long
+            name of new contest must be 8 to 30 characters long
           </b-form-invalid-feedback>
           <b-form-valid-feedback :state="acceptable">
             all right
@@ -27,7 +27,6 @@ import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 export default {
   name: 'ContestAddComponent',
   data: () => ({
-    url: 'http://localhost:8090/rest/contests',
     contestName: ''
   }),
   validations: {
