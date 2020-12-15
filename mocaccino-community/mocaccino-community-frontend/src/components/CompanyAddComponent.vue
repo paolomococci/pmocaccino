@@ -16,12 +16,13 @@
         </b-form>
       </div>
       <b-button class="mt-3" variant="outline-secondary" block @click="hideModalDetail">cancel</b-button>
-      <b-button class="mt-3" variant="outline-primary" block @click="todoModalDetail">save</b-button>
+      <b-button class="mt-3" variant="outline-primary" block @click="addCompany">save</b-button>
     </b-modal>
   </section>
 </template>
 
 <script>
+import axios from 'axios'
 import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
@@ -49,7 +50,16 @@ export default {
     hideModalDetail() {
       this.$refs['modal-add'].hide();
     },
-    todoModalDetail() {
+    addCompany() {
+      var data = {
+        name: this.companyName
+      };
+      axios.post('http://localhost:8090/rest/companies', data)
+        .then(response => {
+          console.log(response.data);
+        }).catch(e => {
+          console.log(e);
+        });
       this.$refs['modal-add'].hide();
     }
   }
