@@ -83,7 +83,7 @@ export default {
           console.log(e);
         });
     },
-    searchByEmail() {
+    searchByUsername() {
       axios.get(`http://localhost:8090/rest/employees/search/likeByUsername?username=${this.textToSearchFor}`)
         .then(response => {
           this.employees = response.data._embedded.employees;
