@@ -1,7 +1,9 @@
 import restful from '../../restful-config'
 
-class QueryService {
-
+class CompanyVerbsRestfulService {
+    readAll() {
+        return restful.get('/companies');
+    }
 }
 
-export default new QueryService();
+export default new CompanyVerbsRestfulService();
