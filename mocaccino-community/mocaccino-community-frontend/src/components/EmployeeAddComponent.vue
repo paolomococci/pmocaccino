@@ -8,7 +8,7 @@
           <label for="feedback-username">username</label>
           <b-form-input v-model="employeeUsername" :state="acceptable" id="feedback-username"></b-form-input>
           <b-form-invalid-feedback :state="acceptable">
-            username of new company must be 6 to 14 characters long
+            username of new employee must be 6 to 14 characters long
           </b-form-invalid-feedback>
           <b-form-valid-feedback :state="acceptable">
             all right
@@ -27,7 +27,6 @@ import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 export default {
   name: 'EmployeeAddComponent',
   data: () => ({
-    url: 'http://localhost:8090/rest/employees',
     employeeUsername: ''
   }),
   validations: {
