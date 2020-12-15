@@ -27,7 +27,6 @@ import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 export default {
   name: 'CompanyAddComponent',
   data: () => ({
-    url: 'http://localhost:8090/rest/companies',
     companyName: ''
   }),
   validations: {
