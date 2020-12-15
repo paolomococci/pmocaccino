@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 import CompanyAddComponent from '@/components/CompanyAddComponent.vue'
 
 export default {
@@ -39,7 +39,6 @@ export default {
     'add-company': CompanyAddComponent
   },
   data: () => ({
-    url: 'http://localhost:8090/rest/companies',
     fields: [
       {
         key: 'name',
@@ -58,7 +57,7 @@ export default {
   }),
   methods: {
     retrieveCompanies() {
-      axios.get(this.url)
+      CompanyVerbsRestfulService.readAll()
         .then(response => {
           this.companies = response.data._embedded.companies;
           console.log(response.data);
@@ -67,8 +66,8 @@ export default {
           console.log(e);
         });
     },
-    searchByTitle() {
-      axios.get(`http://localhost:8090/rest/articles/search/likeByName?name=${this.textToSearchFor}`)
+    searchByName() {
+      CompanyVerbsRestfulService.get(this.textToSearchFor)
         .then(response => {
           this.companies = response.data._embedded.companies;
           console.log(response.data);
