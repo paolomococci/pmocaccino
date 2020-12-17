@@ -15,14 +15,23 @@
           </b-form-valid-feedback>
         </b-form>
       </div>
-      <b-button class="mt-3" variant="outline-secondary" block @click="hideModalDetail">cancel</b-button>
-      <b-button class="mt-3" variant="outline-primary" block @click="addCompany">save</b-button>
+      <b-button 
+        class="mt-3" 
+        variant="outline-secondary" 
+        block 
+        @click="hideModalDetail">cancel</b-button>
+      <b-button 
+        class="mt-3" 
+        variant="outline-primary" 
+        block 
+        :disabled="!isAcceptable()" 
+        @click="addCompany">save</b-button>
     </b-modal>
   </section>
 </template>
 
 <script>
-import axios from 'axios'
+import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
@@ -40,10 +49,13 @@ export default {
   },
   computed: {
     acceptable() {
-      return this.companyName.length > 7 && this.companyName.length < 31;
+      return this.isAcceptable();
     }
   },
   methods: {
+    isAcceptable() {
+      return this.companyName.length > 7 && this.companyName.length < 31;
+    },
     showModalDetail() {
       this.$refs['modal-add'].show();
     },
@@ -54,13 +66,16 @@ export default {
       var data = {
         name: this.companyName
       };
-      axios.post('http://localhost:8090/rest/companies', data)
+      CompanyVerbsRestfulService.create(data)
         .then(response => {
           console.log(response.data);
         }).catch(e => {
           console.log(e);
         });
       this.$refs['modal-add'].hide();
+    },
+    updateView() {
+      this.$emit('updateView');
     }
   }
 }
