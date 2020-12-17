@@ -22,7 +22,7 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-button variant="outline-primary" size="sm">update</b-button>
-            <b-button variant="outline-danger" size="sm">delete</b-button>
+            <b-button variant="outline-danger" size="sm" @click="deleteItem(row.item._links.self.href)">delete</b-button>
             <b-button variant="outline-secondary" size="sm" @click="row.toggleDetails">cancel</b-button>
           </b-card>
         </template>
@@ -69,6 +69,15 @@ export default {
         });
     },
     updateView() {
+      this.companies = null;
+      this.retrieveCompanies();
+    },
+    deleteItem(uri) {
+      CompanyVerbsRestfulService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.companies = null;
       this.retrieveCompanies();
     },
     searchByName() {
