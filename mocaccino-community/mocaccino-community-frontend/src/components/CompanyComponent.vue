@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <add-company/>
+      <add-company @updateView="updateView"/>
     </aside>
     <!-- sub-section to show the company list -->
     <section>
@@ -21,7 +21,9 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-            <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
+            <b-button variant="outline-primary" size="sm">update</b-button>
+            <b-button variant="outline-danger" size="sm">delete</b-button>
+            <b-button variant="outline-secondary" size="sm" @click="row.toggleDetails">cancel</b-button>
           </b-card>
         </template>
       </b-table>
@@ -66,6 +68,9 @@ export default {
           console.log(e);
         });
     },
+    updateView() {
+      this.retrieveCompanies();
+    },
     searchByName() {
       CompanyVerbsRestfulService.get(this.textToSearchFor)
         .then(response => {
@@ -87,3 +92,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  button {
+    margin: 3px;
+  }
+</style>
