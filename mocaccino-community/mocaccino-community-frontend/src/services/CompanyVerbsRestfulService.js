@@ -3,6 +3,10 @@ import restful from '../../restful-config'
 
 class CompanyVerbsRestfulService {
 
+    create(data) {
+        return restful.post('/companies', data);
+    }
+
     read(uri) {
         return axios.get(uri);
     }
