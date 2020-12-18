@@ -8,7 +8,13 @@
 export default {
   name: 'CompanyEditorComponent',
   data: () => ({
-  })
+  }),
+  props: {
+    uri: String
+  },
+  mounted() {
+    // TODO
+  }
 }
 </script>
 
