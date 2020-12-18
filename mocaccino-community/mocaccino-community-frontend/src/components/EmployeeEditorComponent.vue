@@ -8,7 +8,16 @@
 export default {
   name: 'EmployeeEditorComponent',
   data: () => ({
-  })
+  }),
+  props: {
+    uri: String
+  },
+  methods: {
+    // TODO
+  },
+  mounted() {
+    // TODO
+  }
 }
 </script>
 
