@@ -98,3 +98,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  button {
+    margin: 3px;
+  }
+</style>
