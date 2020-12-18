@@ -12,6 +12,9 @@ export default {
   props: {
     uri: String
   },
+  methods: {
+    // TODO
+  },
   mounted() {
     // TODO
   }
