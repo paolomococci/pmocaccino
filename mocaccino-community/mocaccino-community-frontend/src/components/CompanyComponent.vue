@@ -21,9 +21,17 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-            <b-button variant="outline-primary" size="sm">update</b-button>
-            <b-button variant="outline-danger" size="sm" @click="deleteItem(row.item._links.self.href)">delete</b-button>
-            <b-button variant="outline-secondary" size="sm" @click="row.toggleDetails">cancel</b-button>
+            <b-button 
+              variant="outline-primary" 
+              size="sm">update</b-button>
+            <b-button 
+              variant="outline-danger" 
+              size="sm" 
+              @click="deleteItem(row.item._links.self.href)">delete</b-button>
+            <b-button 
+              variant="outline-secondary" 
+              size="sm" 
+              @click="row.toggleDetails">cancel</b-button>
           </b-card>
         </template>
       </b-table>
@@ -77,8 +85,7 @@ export default {
         .catch(e => {
           console.log(e);
         });
-      this.companies = null;
-      this.retrieveCompanies();
+      this.updateView();
     },
     searchByName() {
       CompanyVerbsRestfulService.get(this.textToSearchFor)
