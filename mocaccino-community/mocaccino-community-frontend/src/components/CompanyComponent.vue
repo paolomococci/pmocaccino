@@ -21,9 +21,10 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
+            <!-- to be replaced with CompanyEditorComponent -->
             <b-button 
               variant="outline-primary" 
-              size="sm">update</b-button>
+              size="sm">edit</b-button>
             <b-button 
               variant="outline-danger" 
               size="sm" 
@@ -31,7 +32,7 @@
             <b-button 
               variant="outline-secondary" 
               size="sm" 
-              @click="row.toggleDetails">cancel</b-button>
+              @click="row.toggleDetails">toggle details</b-button>
           </b-card>
         </template>
       </b-table>
@@ -61,8 +62,6 @@ export default {
       }
     ],
     companies: [],
-    company: {name: '', _links: {self: {href: ''}}},
-    index: 0,
     textToSearchFor: ''
   }),
   methods: {
