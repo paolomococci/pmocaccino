@@ -21,18 +21,20 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-            <!-- to be replaced with CompanyEditorComponent -->
-            <b-button 
-              variant="outline-primary" 
-              size="sm">edit</b-button>
-            <b-button 
-              variant="outline-danger" 
-              size="sm" 
-              @click="deleteItem(row.item._links.self.href)">delete</b-button>
-            <b-button 
-              variant="outline-secondary" 
-              size="sm" 
-              @click="row.toggleDetails">toggle details</b-button>
+            <b-row>
+              <edit-company 
+                :nameField="row.item.name" 
+                :uri="row.item._links.self.href" 
+                @updateView="updateView"/>
+              <b-button 
+                variant="outline-danger" 
+                size="sm" 
+                @click="deleteItem(row.item._links.self.href)">delete</b-button>
+              <b-button 
+                variant="outline-secondary" 
+                size="sm" 
+                @click="row.toggleDetails">toggle details</b-button>
+            </b-row>
           </b-card>
         </template>
       </b-table>
@@ -43,11 +45,13 @@
 <script>
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 import CompanyAddComponent from '@/components/CompanyAddComponent.vue'
+import CompanyEditorComponent from '@/components/CompanyEditorComponent.vue'
 
 export default {
   name: 'CompanyComponent',
   components: {
-    'add-company': CompanyAddComponent
+    'add-company': CompanyAddComponent,
+    'edit-company': CompanyEditorComponent
   },
   data: () => ({
     fields: [
@@ -85,6 +89,9 @@ export default {
           console.log(e);
         });
       this.updateView();
+    },
+    retrieveURI(uri) {
+      return uri;
     },
     searchByName() {
       CompanyVerbsRestfulService.get(this.textToSearchFor)
