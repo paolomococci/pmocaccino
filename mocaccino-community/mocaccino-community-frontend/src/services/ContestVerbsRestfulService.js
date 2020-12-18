@@ -16,7 +16,7 @@ class ContestVerbsRestfulService {
     }
 
     update(uri, data) {
-        return axios.post(uri, data);
+        return axios.put(uri, data);
     }
 
     partialUpdate(uri, data) {
