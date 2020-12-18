@@ -29,7 +29,7 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-            <b-button size="sm" @click="row.toggleDetails">hide details</b-button>
+            <b-button size="sm" @click="row.toggleDetails">toggle details</b-button>
           </b-card>
         </template>
       </b-table>
@@ -64,8 +64,6 @@ export default {
       }
     ],
     contests: [],
-    contest: {name: '', title: '', description: '', date:  null, _links: {self: {href: ''}}},
-    index: 0,
     textToSearchFor: ''
   }),
   methods: {
