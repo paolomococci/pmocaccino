@@ -8,7 +8,10 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent>
           <label for="feedback-name">name</label>
-          <b-form-input v-model="companyName" :state="acceptable" id="feedback-name"></b-form-input>
+          <b-form-input 
+            v-model="companyName" 
+            :state="acceptable" 
+            id="feedback-name"></b-form-input>
           <b-form-invalid-feedback :state="acceptable">
             name of new company must be 8 to 30 characters long
           </b-form-invalid-feedback>
