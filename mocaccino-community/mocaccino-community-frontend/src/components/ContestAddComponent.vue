@@ -8,7 +8,10 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent>
           <label for="feedback-name">name</label>
-          <b-form-input v-model="contestName" :state="acceptable" id="feedback-name"></b-form-input>
+          <b-form-input 
+            v-model="contestName" 
+            :state="acceptable" 
+            id="feedback-name"></b-form-input>
           <b-form-invalid-feedback :state="acceptable">
             name of new contest must be 8 to 30 characters long
           </b-form-invalid-feedback>
@@ -26,12 +29,14 @@
         class="mt-3" 
         variant="outline-primary" 
         block 
-        @click="todoModalDetail">save</b-button>
+        :disabled="!isAcceptable()"
+        @click="addContest">save</b-button>
     </b-modal>
   </section>
 </template>
 
 <script>
+import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
 export default {
   name: 'ContestAddComponent',
@@ -40,18 +45,34 @@ export default {
   }),
   computed: {
     acceptable() {
-      return this.contestName.length > 7 && this.contestName.length < 31;
+      return this.isAcceptable();
     }
   },
   methods: {
+    isAcceptable() {
+      return this.contestName.length > 7 && this.contestName.length < 31;
+    },
     showModalDetail() {
       this.$refs['modal-add'].show();
     },
     hideModalDetail() {
       this.$refs['modal-add'].hide();
     },
-    todoModalDetail() {
+    addContest() {
+      var data = {
+        name: this.contestName
+      };
+      ContestVerbsRestfulService.create(data)
+        .then(response => {
+          console.log(response.data);
+        }).catch(e => {
+          console.log(e);
+        });
       this.$refs['modal-add'].hide();
+      this.updateView();
+    },
+    updateView() {
+      this.$emit('updateView');
     }
   }
 }
