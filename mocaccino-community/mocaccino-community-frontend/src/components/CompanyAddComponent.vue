@@ -34,21 +34,12 @@
 
 <script>
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
-import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
   name: 'CompanyAddComponent',
   data: () => ({
     companyName: ''
   }),
-  validations: {
-    companyName: {
-      alpha,
-      required,
-      minLength: minLength(8),
-      maxLength: maxLength(30)
-    }
-  },
   computed: {
     acceptable() {
       return this.isAcceptable();
