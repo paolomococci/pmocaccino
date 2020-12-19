@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
 
 export default {
@@ -55,7 +55,6 @@ export default {
     'add-employee': EmployeeAddComponent
   },
   data: () => ({
-    url: 'http://localhost:8090/rest/employees',
     fields: [
       {
         key: 'username',
@@ -72,7 +71,7 @@ export default {
   }),
   methods: {
     retrieveEmployees() {
-      axios.get(this.url)
+      EmployeeVerbsRestfulService.readAll()
         .then(response => {
           this.employees = response.data._embedded.employees;
           console.log(response.data);
@@ -86,7 +85,7 @@ export default {
       this.retrieveCompanies();
     },
     searchByUsername() {
-      axios.get(`http://localhost:8090/rest/employees/search/likeByUsername?username=${this.textToSearchFor}`)
+      EmplyeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
         .then(response => {
           this.employees = response.data._embedded.employees;
           console.log(response.data);
