@@ -90,9 +90,6 @@ export default {
         });
       this.updateView();
     },
-    retrieveURI(uri) {
-      return uri;
-    },
     searchByName() {
       CompanyVerbsRestfulService.searchByName(this.textToSearchFor)
         .then(response => {
