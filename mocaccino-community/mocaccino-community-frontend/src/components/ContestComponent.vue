@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 import ContestAddComponent from '@/components/ContestAddComponent.vue'
 
 export default {
@@ -47,7 +47,6 @@ export default {
     'add-contest': ContestAddComponent
   },
   data: () => ({
-    url: 'http://localhost:8090/rest/contests',
     fields: [
       {
         key: 'date',
@@ -68,7 +67,7 @@ export default {
   }),
   methods: {
     retrieveContests() {
-      axios.get(this.url)
+      ContestVerbsRestfulService.readAll()
         .then(response => {
           this.contests = response.data._embedded.contests;
           console.log(response.data);
@@ -82,7 +81,7 @@ export default {
       this.retrieveCompanies();
     },
     searchByTitle() {
-      axios.get(`http://localhost:8090/rest/articles/search/likeByTitle?title=${this.textToSearchFor}`)
+      ContestVerbsRestfulService.searchByTitle(this.textToSearchFor)
         .then(response => {
           this.contests = response.data._embedded.contests;
           console.log(response.data);
