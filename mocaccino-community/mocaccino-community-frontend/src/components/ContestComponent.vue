@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <add-contest/>
+      <add-contest @updateView="updateView"/>
     </aside>
     <!-- sub-section to show the contest list -->
     <section>
@@ -76,6 +76,10 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    updateView() {
+      this.companies = null;
+      this.retrieveCompanies();
     },
     searchByTitle() {
       axios.get(`http://localhost:8090/rest/articles/search/likeByTitle?title=${this.textToSearchFor}`)
