@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <add-employee/>
+      <add-employee @updateView="updateView"/>
     </aside>
     <!-- sub-section to show the employee list -->
     <section>
@@ -80,6 +80,10 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    updateView() {
+      this.companies = null;
+      this.retrieveCompanies();
     },
     searchByUsername() {
       axios.get(`http://localhost:8090/rest/employees/search/likeByUsername?username=${this.textToSearchFor}`)
