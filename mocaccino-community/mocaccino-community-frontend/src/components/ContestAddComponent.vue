@@ -24,21 +24,12 @@
 </template>
 
 <script>
-import { alpha, required, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
   name: 'ContestAddComponent',
   data: () => ({
     contestName: ''
   }),
-  validations: {
-    contestName: {
-      alpha,
-      required,
-      minLength: minLength(8),
-      maxLength: maxLength(30)
-    }
-  },
   computed: {
     acceptable() {
       return this.contestName.length > 7 && this.contestName.length < 31;
