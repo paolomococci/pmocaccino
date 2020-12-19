@@ -17,8 +17,16 @@
           </b-form-valid-feedback>
         </b-form>
       </div>
-      <b-button class="mt-3" variant="outline-secondary" block @click="hideModalDetail">cancel</b-button>
-      <b-button class="mt-3" variant="outline-primary" block @click="todoModalDetail">save</b-button>
+      <b-button 
+        class="mt-3" 
+        variant="outline-secondary" 
+        block 
+        @click="hideModalDetail">cancel</b-button>
+      <b-button 
+        class="mt-3" 
+        variant="outline-primary" 
+        block 
+        @click="todoModalDetail">save</b-button>
     </b-modal>
   </section>
 </template>
