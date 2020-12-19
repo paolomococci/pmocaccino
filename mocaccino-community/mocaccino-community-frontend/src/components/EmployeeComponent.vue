@@ -37,7 +37,15 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-            <b-button size="sm" @click="row.toggleDetails">toggle details</b-button>
+              <!-- TODO edit button -->
+              <b-button 
+                variant="outline-danger" 
+                size="sm" 
+                @click="deleteItem(row.item._links.self.href)">delete</b-button>
+              <b-button 
+                variant="outline-secondary" 
+                size="sm" 
+                @click="row.toggleDetails">toggle details</b-button>
           </b-card>
         </template>
       </b-table>
@@ -83,6 +91,13 @@ export default {
     updateView() {
       this.companies = null;
       this.retrieveCompanies();
+    },
+    deleteItem(uri) {
+      EmployeeVerbsRestfulService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
     },
     searchByUsername() {
       EmplyeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
