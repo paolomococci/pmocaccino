@@ -94,7 +94,7 @@ export default {
       return uri;
     },
     searchByName() {
-      CompanyVerbsRestfulService.get(this.textToSearchFor)
+      CompanyVerbsRestfulService.searchByName(this.textToSearchFor)
         .then(response => {
           this.companies = response.data._embedded.companies;
           console.log(response.data);
