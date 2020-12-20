@@ -45,7 +45,11 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 export default {
   name: 'EmployeeAddComponent',
   data: () => ({
-    employeeUsername: ''
+    employeeUsername: '',
+    employeeName: '',
+    employeeSurname: '',
+    employeeEmail: '',
+    employeeProfession: ''
   }),
   computed: {
     acceptable() {
@@ -64,7 +68,11 @@ export default {
     },
     addEmployee() {
       var data = {
-        username: this.employeeUsername
+        username: this.employeeUsername,
+        name: this.employeeName,
+        surname: this.employeeSurname,
+        email: this.employeeEmail,
+        profession: this.employeeProfession
       };
       EmployeeVerbsRestfulService.create(data)
         .then(response => {
