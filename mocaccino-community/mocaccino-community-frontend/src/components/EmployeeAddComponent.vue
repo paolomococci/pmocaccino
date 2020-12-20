@@ -10,6 +10,7 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent>
+          <!-- username field -->
           <label for="feedback-username">username</label>
           <b-form-input 
             v-model="employeeUsername" 
