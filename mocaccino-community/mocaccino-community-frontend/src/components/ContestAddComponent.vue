@@ -34,6 +34,15 @@
             v-model="contestDescription" 
             :state="acceptableDescription" 
             id="feedback-description"></b-form-input>
+          <!-- date field -->
+          <label for="contest-date-picker">choose a date</label>
+          <b-form-datepicker 
+            id="contest-date-picker" 
+            v-model="contestDate" 
+            menu-class="w-100" 
+            calendar-width="100%" 
+            class="mb-2"
+            locale="en-US"></b-form-datepicker>
         </b-form>
       </div>
       <b-button 
@@ -59,7 +68,8 @@ export default {
   data: () => ({
     contestName: '',
     contestTitle: '',
-    contestDescription: ''
+    contestDescription: '',
+    contestDate: ''
   }),
   computed: {
     acceptableName() {
@@ -93,7 +103,10 @@ export default {
     },
     addContest() {
       var data = {
-        name: this.contestName
+        name: this.contestName,
+        title: this.contestTitle,
+        description: this.contestDescription,
+        date: this.contestDate
       };
       ContestVerbsRestfulService.create(data)
         .then(response => {
