@@ -6,6 +6,17 @@
 
 <script>
 export default {
-    name: CompanyReferenceEditorComponent
+    name: 'CompanyReferenceEditorComponent',
+  data: () => ({
+  }),
+  props: {
+    uri: String
+  },
+  methods: {
+    // TODO
+  },
+  mounted() {
+    // TODO
+  }
 }
 </script>
