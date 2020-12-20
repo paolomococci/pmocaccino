@@ -53,6 +53,19 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- email field -->
+          <b-form-group>
+            <label for="feedback-email">email</label>
+            <b-form-input 
+              v-model="employeeEmail" 
+              :state="acceptableEmail" 
+              id="feedback-email"></b-form-input>
+            <b-form-invalid-feedback :state="acceptableEmail">
+              email of new employee must be 8 to 40 characters long
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="acceptableEmail">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- profession field -->
         </b-form>
       </div>
