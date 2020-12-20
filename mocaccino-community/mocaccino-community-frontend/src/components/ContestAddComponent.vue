@@ -82,7 +82,9 @@ export default {
       return this.isAcceptableDescription();
     },
     validateForm() {
-      return this.acceptableName && this.acceptableTitle && this.acceptableDescription;
+      return this.acceptableName && 
+        this.acceptableTitle && 
+        this.acceptableDescription;
     }
   },
   methods: {
