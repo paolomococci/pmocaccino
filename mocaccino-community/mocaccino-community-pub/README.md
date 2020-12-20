@@ -744,3 +744,55 @@ Note: Unnecessary use of -X or --request, GET is already inferred.
 * Connection #0 to host localhost left intact
 }
 ```
+
+## example of adding an item contest:
+```
+$ curl -v -i -H "Content-Type:application/json" -d '{"name":"fourth_contest","title":"some title","description":"some description","date":"2020-12-20"}' http://127.0.0.1:8090/rest/contests
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to 127.0.0.1 (127.0.0.1) port 8090 (#0)
+> POST /rest/contests HTTP/1.1
+> Host: 127.0.0.1:8090
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Content-Type:application/json
+> Content-Length: 99
+> 
+* upload completely sent off: 99 out of 99 bytes
+< HTTP/1.1 201 
+HTTP/1.1 201 
+< Vary: Origin
+Vary: Origin
+< Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+Vary: Access-Control-Request-Headers
+< Location: http://127.0.0.1:8090/rest/contests/55
+Location: http://127.0.0.1:8090/rest/contests/55
+< Content-Type: application/hal+json
+Content-Type: application/hal+json
+< Transfer-Encoding: chunked
+Transfer-Encoding: chunked
+< Date: Sun, 20 Dec 2020 16:21:56 GMT
+Date: Sun, 20 Dec 2020 16:21:56 GMT
+
+< 
+{
+  "name" : "fourth_contest",
+  "title" : "some title",
+  "description" : "some description",
+  "date" : "2020-12-19T23:00:00.000+00:00",
+  "_links" : {
+    "self" : {
+      "href" : "http://127.0.0.1:8090/rest/contests/55"
+    },
+    "contest" : {
+      "href" : "http://127.0.0.1:8090/rest/contests/55"
+    },
+    "participants" : {
+      "href" : "http://127.0.0.1:8090/rest/contests/55/participants"
+    }
+  }
+* Connection #0 to host 127.0.0.1 left intact
+}
+```
