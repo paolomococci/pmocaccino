@@ -4,7 +4,7 @@
       variant="outline-primary" 
       size="sm" 
       @click="showModalDetail">edit</b-button>
-    <b-modal ref="modal-add" hide-footer :title="uri">
+    <b-modal ref="modal-edit" hide-footer :title="uri">
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent>
@@ -53,10 +53,10 @@ export default {
       return this.companyName.length > 7 && this.companyName.length < 31;
     },
     showModalDetail() {
-      this.$refs['modal-add'].show();
+      this.$refs['modal-edit'].show();
     },
     hideModalDetail() {
-      this.$refs['modal-add'].hide();
+      this.$refs['modal-edit'].hide();
     },
     updateCompany() {
       var data = {
@@ -68,7 +68,7 @@ export default {
         }).catch(e => {
           console.log(e);
         });
-      this.$refs['modal-add'].hide();
+      this.$refs['modal-edit'].hide();
       this.updateView();
     },
     updateView() {
