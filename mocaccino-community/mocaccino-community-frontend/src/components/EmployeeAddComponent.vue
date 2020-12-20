@@ -11,17 +11,36 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent>
           <!-- username field -->
-          <label for="feedback-username">username</label>
-          <b-form-input 
-            v-model="employeeUsername" 
-            :state="acceptable" 
-            id="feedback-username"></b-form-input>
-          <b-form-invalid-feedback :state="acceptable">
-            username of new employee must be 6 to 14 characters long
-          </b-form-invalid-feedback>
-          <b-form-valid-feedback :state="acceptable">
-            all right
-          </b-form-valid-feedback>
+          <b-form-group>
+            <label for="feedback-username">username</label>
+            <b-form-input 
+              v-model="employeeUsername" 
+              :state="acceptableUsername" 
+              id="feedback-username"></b-form-input>
+            <b-form-invalid-feedback :state="acceptableUsername">
+              username of new employee must be 6 to 20 characters long
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="acceptableUsername">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
+          <!-- name field -->
+          <b-form-group>
+            <label for="feedback-name">name</label>
+            <b-form-input 
+              v-model="employeeName" 
+              :state="acceptableName" 
+              id="feedback-name"></b-form-input>
+            <b-form-invalid-feedback :state="acceptableName">
+              name of new employee must be 3 to 14 characters long
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="acceptableName">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
+          <!-- surname field -->
+          <!-- email field -->
+          <!-- profession field -->
         </b-form>
       </div>
       <b-button 
@@ -33,7 +52,7 @@
         class="mt-3" 
         variant="outline-primary" 
         block 
-        :disabled="!isAcceptable()"
+        :disabled="!validateForm"
         @click="addEmployee">save</b-button>
     </b-modal>
   </section>
@@ -52,13 +71,22 @@ export default {
     employeeProfession: ''
   }),
   computed: {
-    acceptable() {
-      return this.isAcceptable();
+    acceptableUsername() {
+      return this.isAcceptableUsername();
+    },
+    acceptableName() {
+      return this.isAcceptableName();
+    },
+    validateForm() {
+      return this.acceptableUsername && this.acceptableName;
     }
   },
   methods: {
-    isAcceptable() {
-      return this.employeeUsername.length > 5 && this.employeeUsername.length < 15;
+    isAcceptableUsername() {
+      return this.employeeUsername.length > 5 && this.employeeUsername.length < 21;
+    },
+    isAcceptableName() {
+      return this.employeeName.length > 2 && this.employeeName.length < 15;
     },
     showModalDetail() {
       this.$refs['modal-add'].show();
