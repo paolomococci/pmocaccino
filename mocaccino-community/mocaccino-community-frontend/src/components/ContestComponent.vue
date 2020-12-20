@@ -87,8 +87,8 @@ export default {
         });
     },
     updateView() {
-      this.companies = null;
-      this.retrieveCompanies();
+      this.contests = null;
+      this.retrieveContests();
     },
     deleteItem(uri) {
       ContestVerbsRestfulService.delete(uri)
