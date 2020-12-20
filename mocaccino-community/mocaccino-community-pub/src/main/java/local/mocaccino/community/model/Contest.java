@@ -22,7 +22,9 @@ import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 
 @Data
@@ -44,8 +46,17 @@ public class Contest {
     @AlphaConstraint
     private String description;
 
-    private Instant date;
+    private Date date;
 
     @ManyToMany
     private Set<Employee> participants;
+
+    public void setDate(String date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.date = simpleDateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }
