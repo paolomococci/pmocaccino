@@ -100,7 +100,7 @@ export default {
       this.updateView();
     },
     searchByUsername() {
-      EmplyeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
+      EmployeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
         .then(response => {
           this.employees = response.data._embedded.employees;
           console.log(response.data);
