@@ -89,8 +89,8 @@ export default {
         });
     },
     updateView() {
-      this.companies = null;
-      this.retrieveCompanies();
+      this.employees = null;
+      this.retrieveEmployees();
     },
     deleteItem(uri) {
       EmployeeVerbsRestfulService.delete(uri)
