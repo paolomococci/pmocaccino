@@ -10,7 +10,10 @@ export default {
   data: () => ({
   }),
   props: {
-    uri: String
+    uri: String,
+    nameField: String,
+    titleField: String,
+    descriptionField: String
   },
   methods: {
     // TODO
