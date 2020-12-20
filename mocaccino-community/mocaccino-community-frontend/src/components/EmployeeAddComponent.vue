@@ -106,8 +106,11 @@ export default {
     acceptableSurname() {
       return this.isAcceptableSurname();
     },
+    acceptableEmail() {
+      return this.isAcceptableEmail();
+    },
     validateForm() {
-      return this.acceptableUsername && this.acceptableName && this.acceptableSurname;
+      return this.acceptableUsername && this.acceptableName && this.acceptableSurname && this.acceptableEmail;
     }
   },
   methods: {
@@ -119,6 +122,9 @@ export default {
     },
     isAcceptableSurname() {
       return this.employeeSurname.length > 2 && this.employeeSurname.length < 21;
+    },
+    isAcceptableEmail() {
+      return this.employeeEmail.length > 7 && this.employeeEmail.length < 41;
     },
     showModalDetail() {
       this.$refs['modal-add'].show();
