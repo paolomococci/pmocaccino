@@ -6,6 +6,8 @@
 
 <script>
 export default {
-    name: ContestReferenceEditorComponent
+    name: 'ContestReferenceEditorComponent',
+  data: () => ({
+  })
 }
 </script>
