@@ -67,6 +67,19 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- profession field -->
+          <b-form-group>
+            <label for="feedback-profession">profession</label>
+            <b-form-input 
+              v-model="employeeProfession" 
+              :state="acceptableProfession" 
+              id="feedback-profession"></b-form-input>
+            <b-form-invalid-feedback :state="acceptableProfession">
+              profession of new employee must be 5 to 30 characters long
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="acceptableProfession">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
         </b-form>
       </div>
       <b-button 
