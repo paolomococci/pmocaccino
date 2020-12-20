@@ -122,8 +122,15 @@ export default {
     acceptableEmail() {
       return this.isAcceptableEmail();
     },
+    acceptableProfession() {
+      return this.isAcceptableProfession();
+    },
     validateForm() {
-      return this.acceptableUsername && this.acceptableName && this.acceptableSurname && this.acceptableEmail;
+      return this.acceptableUsername && 
+        this.acceptableName && 
+        this.acceptableSurname && 
+        this.acceptableEmail && 
+        this.acceptableProfession;
     }
   },
   methods: {
@@ -138,6 +145,9 @@ export default {
     },
     isAcceptableEmail() {
       return this.employeeEmail.length > 7 && this.employeeEmail.length < 41;
+    },
+    isAcceptableProfession() {
+      return this.employeeProfession.length > 4 && this.employeeProfession.length < 31;
     },
     showModalDetail() {
       this.$refs['modal-add'].show();
