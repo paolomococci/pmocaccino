@@ -39,6 +39,19 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- surname field -->
+          <b-form-group>
+            <label for="feedback-surname">surname</label>
+            <b-form-input 
+              v-model="employeeSurname" 
+              :state="acceptableSurname" 
+              id="feedback-surname"></b-form-input>
+            <b-form-invalid-feedback :state="acceptableSurname">
+              surname of new employee must be 3 to 20 characters long
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="acceptableSurname">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- email field -->
           <!-- profession field -->
         </b-form>
@@ -77,8 +90,11 @@ export default {
     acceptableName() {
       return this.isAcceptableName();
     },
+    acceptableSurname() {
+      return this.isAcceptableSurname();
+    },
     validateForm() {
-      return this.acceptableUsername && this.acceptableName;
+      return this.acceptableUsername && this.acceptableName && this.acceptableSurname;
     }
   },
   methods: {
@@ -87,6 +103,9 @@ export default {
     },
     isAcceptableName() {
       return this.employeeName.length > 2 && this.employeeName.length < 15;
+    },
+    isAcceptableSurname() {
+      return this.employeeSurname.length > 2 && this.employeeSurname.length < 21;
     },
     showModalDetail() {
       this.$refs['modal-add'].show();
