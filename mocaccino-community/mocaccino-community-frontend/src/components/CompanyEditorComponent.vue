@@ -1,6 +1,9 @@
 <template>
   <section>
-    <b-button variant="outline-primary" size="sm" @click="showModalDetail">edit</b-button>
+    <b-button 
+      variant="outline-primary" 
+      size="sm" 
+      @click="showModalDetail">edit</b-button>
     <b-modal ref="modal-add" hide-footer :title="uri">
       <div class="d-block text-center">
         <h3>fields</h3>
