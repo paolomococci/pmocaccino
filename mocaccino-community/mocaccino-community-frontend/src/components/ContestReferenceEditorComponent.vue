@@ -8,6 +8,15 @@
 export default {
     name: 'ContestReferenceEditorComponent',
   data: () => ({
-  })
+  }),
+  props: {
+    uri: String
+  },
+  methods: {
+    // TODO
+  },
+  mounted() {
+    // TODO
+  }
 }
 </script>
