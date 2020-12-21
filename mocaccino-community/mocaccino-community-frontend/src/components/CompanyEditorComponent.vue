@@ -31,7 +31,7 @@
         variant="outline-primary" 
         block 
         :disabled="!isAcceptable()" 
-        @click="updateCompany">save</b-button>
+        @click="updateCompany">update</b-button>
     </b-modal>
   </section>
 </template>
