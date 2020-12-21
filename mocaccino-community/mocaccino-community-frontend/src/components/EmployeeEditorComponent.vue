@@ -28,6 +28,12 @@ export default {
     // TODO
   },
   methods: {
+    showModalDetail() {
+      this.$refs['modal-edit'].show();
+    },
+    hideModalDetail() {
+      this.$refs['modal-edit'].hide();
+    },
     updateEmployee() {
       var data = {
         name: this.employeeName,
