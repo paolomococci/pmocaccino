@@ -29,7 +29,11 @@ export default {
     // TODO
   },
   mounted() {
-    // TODO
+    this.employeeUsername = this.usernameField;
+    this.employeeName = this.nameField;
+    this.employeeSurname = this.surnameField;
+    this.employeeEmail = this.emailField;
+    this.employeeProfession = this.professionField;
   }
 }
 </script>
