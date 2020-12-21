@@ -52,7 +52,7 @@
         variant="outline-primary" 
         block 
         :disabled="!validateForm"
-        @click="updateContest">save</b-button>
+        @click="updateContest">update</b-button>
     </b-modal>
   </section>
 </template>
