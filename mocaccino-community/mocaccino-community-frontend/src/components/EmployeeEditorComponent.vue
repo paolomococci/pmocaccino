@@ -28,6 +28,21 @@ export default {
     // TODO
   },
   methods: {
+    isAcceptableUsername() {
+      return this.employeeUsername.length > 5 && this.employeeUsername.length < 21;
+    },
+    isAcceptableName() {
+      return this.employeeName.length > 2 && this.employeeName.length < 15;
+    },
+    isAcceptableSurname() {
+      return this.employeeSurname.length > 2 && this.employeeSurname.length < 21;
+    },
+    isAcceptableEmail() {
+      return this.employeeEmail.length > 7 && this.employeeEmail.length < 41;
+    },
+    isAcceptableProfession() {
+      return this.employeeProfession.length > 4 && this.employeeProfession.length < 31;
+    },
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
