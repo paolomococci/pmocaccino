@@ -25,7 +25,28 @@ export default {
     professionField: String
   },
   computed: {
-    // TODO
+    acceptableUsername() {
+      return this.isAcceptableUsername();
+    },
+    acceptableName() {
+      return this.isAcceptableName();
+    },
+    acceptableSurname() {
+      return this.isAcceptableSurname();
+    },
+    acceptableEmail() {
+      return this.isAcceptableEmail();
+    },
+    acceptableProfession() {
+      return this.isAcceptableProfession();
+    },
+    validateForm() {
+      return this.acceptableUsername && 
+        this.acceptableName && 
+        this.acceptableSurname && 
+        this.acceptableEmail && 
+        this.acceptableProfession;
+    }
   },
   methods: {
     isAcceptableUsername() {
