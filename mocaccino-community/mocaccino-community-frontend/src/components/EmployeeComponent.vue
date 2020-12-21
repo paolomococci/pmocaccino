@@ -37,7 +37,14 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-              <!-- TODO edit button -->
+              <edit-employee 
+                :usernameField="row.item.username" 
+                :nameField="row.item.name" 
+                :surnameField="row.item.surname" 
+                :emailField="row.item.email"
+                :professionField="row.item.profession"
+                :uri="row.item._links.self.href" 
+                @updateView="updateView"/>
               <b-button 
                 variant="outline-danger" 
                 size="sm" 
@@ -56,11 +63,13 @@
 <script>
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
+import EmployeeEditorComponent from '@/components/EmployeeEditorComponent.vue'
 
 export default {
   name: 'EmployeeComponent',
   components: {
-    'add-employee': EmployeeAddComponent
+    'add-employee': EmployeeAddComponent,
+    'edit-employee': EmployeeEditorComponent
   },
   data: () => ({
     fields: [
