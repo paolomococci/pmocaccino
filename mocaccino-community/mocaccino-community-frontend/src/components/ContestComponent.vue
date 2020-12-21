@@ -30,7 +30,13 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-row>
-              <!-- TODO edit button -->
+              <edit-contest 
+                :nameField="row.item.name" 
+                :titleField="row.item.title" 
+                :descriptionField="row.item.description" 
+                :dateField="row.item.date"
+                :uri="row.item._links.self.href" 
+                @updateView="updateView"/>
               <b-button 
                 variant="outline-danger" 
                 size="sm" 
@@ -50,11 +56,13 @@
 <script>
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 import ContestAddComponent from '@/components/ContestAddComponent.vue'
+import ContestEditorComponent from '@/components/ContestEditorComponent.vue'
 
 export default {
   name: 'ContestComponent',
   components: {
-    'add-contest': ContestAddComponent
+    'add-contest': ContestAddComponent,
+    'edit-contest': ContestEditorComponent
   },
   data: () => ({
     fields: [
