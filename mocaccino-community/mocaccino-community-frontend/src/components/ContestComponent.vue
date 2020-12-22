@@ -94,7 +94,16 @@ export default {
           console.log(e);
         });
     },
-    updateView() {
+    async updateView() {
+      this.$bvToast.toast('data of contests being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 5000
+      });
+      await setTimeout(5000);
       this.contests = null;
       this.retrieveContests();
     },
