@@ -37,6 +37,7 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
+            <b-row>
               <edit-employee 
                 :usernameField="row.item.username" 
                 :nameField="row.item.name" 
@@ -53,6 +54,7 @@
                 variant="outline-secondary" 
                 size="sm" 
                 @click="row.toggleDetails">toggle details</b-button>
+            </b-row>
           </b-card>
         </template>
       </b-table>
