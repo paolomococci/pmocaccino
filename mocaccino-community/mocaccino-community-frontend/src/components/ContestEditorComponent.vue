@@ -2,6 +2,7 @@
   <section>
     <b-button 
       variant="outline-primary" 
+      size="sm" 
       @click="showModalDetail">edit</b-button>
     <b-modal ref="modal-edit" hide-footer :title="uri">
       <div class="d-block text-center">
@@ -93,12 +94,15 @@ export default {
   },
   methods: {
     isAcceptableName() {
+      if (this.contestName == null) this.contestName = '';
       return this.contestName.length > 9 && this.contestName.length < 21;
     },
     isAcceptableTitle() {
+      if (this.contestTitle == null) this.contestTitle = '';
       return this.contestTitle.length > 7 && this.contestTitle.length < 31;
     },
     isAcceptableDescription() {
+      if (this.contestDescription == null) this.contestDescription = '';
       return this.contestDescription.length > 19 && this.contestDescription.length < 51;
     },
     showModalDetail() {
