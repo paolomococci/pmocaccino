@@ -79,7 +79,16 @@ export default {
           console.log(e);
         });
     },
-    updateView() {
+    async updateView() {
+      this.$bvToast.toast('data of companies being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 5000
+      });
+      await setTimeout(5000);
       this.companies = null;
       this.retrieveCompanies();
     },
