@@ -2,6 +2,7 @@
   <section>
     <b-button 
       variant="outline-primary" 
+      size="sm" 
       @click="showModalDetail">edit</b-button>
     <b-modal ref="modal-edit" hide-footer :title="uri">
       <div class="d-block text-center">
@@ -140,18 +141,23 @@ export default {
   },
   methods: {
     isAcceptableUsername() {
+      if (this.employeeUsername == null) this.employeeUsername = '';
       return this.employeeUsername.length > 5 && this.employeeUsername.length < 21;
     },
     isAcceptableName() {
+      if (this.employeeName == null) this.employeeName = '';
       return this.employeeName.length > 2 && this.employeeName.length < 15;
     },
     isAcceptableSurname() {
+      if (this.employeeSurname == null) this.employeeSurname = '';
       return this.employeeSurname.length > 2 && this.employeeSurname.length < 21;
     },
     isAcceptableEmail() {
+      if (this.employeeEmail == null) this.employeeEmail = '';
       return this.employeeEmail.length > 7 && this.employeeEmail.length < 41;
     },
     isAcceptableProfession() {
+      if (this.employeeProfession == null) this.employeeProfession = '';
       return this.employeeProfession.length > 4 && this.employeeProfession.length < 31;
     },
     showModalDetail() {
