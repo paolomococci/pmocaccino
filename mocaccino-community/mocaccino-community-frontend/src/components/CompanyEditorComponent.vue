@@ -50,6 +50,7 @@ export default {
   },
   methods: {
     isAcceptable() {
+      if (this.companyName == null) this.companyName = '';
       return this.companyName.length > 7 && this.companyName.length < 31;
     },
     showModalDetail() {
