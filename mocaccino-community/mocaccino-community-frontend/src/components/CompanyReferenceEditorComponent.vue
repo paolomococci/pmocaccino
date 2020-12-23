@@ -32,8 +32,7 @@ import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 export default {
     name: 'CompanyReferenceEditorComponent',
   data: () => ({
-    employee: null,
-    contests: []
+    employees: []
   }),
   props: {
     uri: String
@@ -48,30 +47,25 @@ export default {
     hideModalDetail() {
       this.$refs['modal-edit-reference'].hide();
     },
-    retrieveEmployee() {
-      CompanyVerbsRestfulService.read(this.uri)
+    retrieveEmployees() {
+      CompanyVerbsRestfulService.readListOfEmployee(this.uri)
         .then(response => {
-          this.employee = response.data._embedded.employee;
+          this.employees = response.data._embedded.employees;
           console.log(response.data);
         })
         .catch(e => {
           console.log(e);
         });
     },
-    retrieveContests() {
-      CompanyVerbsRestfulService.read(this.uri)
-        .then(response => {
-          this.contests = response.data._embedded.contests;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
+    addEmployee() {
+      // TODO
+    },
+    removeEmployee() {
+      // TODO
     }
   },
   mounted() {
-    this.retrieveEmployee();
-    this.retrieveContests();
+    this.retrieveEmployees();
   }
 }
 </script>
