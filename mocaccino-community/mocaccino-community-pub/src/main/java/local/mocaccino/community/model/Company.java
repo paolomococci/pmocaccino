@@ -36,10 +36,4 @@ public class Company {
 
     @AlphaConstraint
     private String name;
-
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    private Employee employee;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    private Set<Contest> contests;
 }
