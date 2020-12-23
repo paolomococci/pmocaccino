@@ -48,7 +48,7 @@ export default {
     hideModalDetail() {
       this.$refs['modal-edit-reference'].hide();
     },
-    retrieveEmployees() {
+    retrieveListOfStaff() {
       CompanyVerbsRestfulService.readListOfEmployee(this.uri)
         .then(response => {
           this.employees = response.data._embedded.employees;
