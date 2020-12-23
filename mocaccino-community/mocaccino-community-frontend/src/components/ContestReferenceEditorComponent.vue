@@ -48,7 +48,7 @@ export default {
       this.$refs['modal-edit-reference'].hide();
     },
     retrieveParticipants() {
-      ContestVerbsRestfulService.read(this.uri+'/participants')
+      ContestVerbsRestfulService.readListOfEmployee(this.uri)
         .then(response => {
           this.participants = response.data._embedded.participants;
           console.log(response.data);
@@ -56,6 +56,12 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    addParticipant() {
+      // TODO
+    },
+    removeParticipant() {
+      // TODO
     }
   },
   mounted() {
