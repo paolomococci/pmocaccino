@@ -48,7 +48,7 @@ class EmployeeVerbsRestfulService {
     }
 
     readContestParticipation(uri) {
-        return restful.get(`${uri}/contest`);
+        return restful.get(`${uri}/contests`);
     }
 }
 
