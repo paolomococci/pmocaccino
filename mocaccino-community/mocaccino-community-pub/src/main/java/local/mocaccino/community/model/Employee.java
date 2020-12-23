@@ -18,10 +18,12 @@
 
 package local.mocaccino.community.model;
 
-import javax.persistence.*;
-
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -51,7 +53,11 @@ public class Employee {
 	@JoinColumn(name = "id_company")
 	private Company company;
 
-	@ManyToOne
-	@JoinColumn(name = "id_contest")
-	private Contest contest;
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(
+			name = "employee_contest",
+			joinColumns = {@JoinColumn(name = "id_employee")},
+			inverseJoinColumns = {@JoinColumn(name = "id_contest")}
+	)
+	private Set<Contest> contests = new HashSet<>();
 }
