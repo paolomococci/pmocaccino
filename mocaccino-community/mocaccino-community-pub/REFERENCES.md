@@ -10,15 +10,15 @@
 ```
         "company" : {
           "href" : "http://localhost:8090/rest/employees/ID/company"
-
-        "contest" : {
-          "href" : "http://localhost:8090/rest/employees/ID/contest"
+        },
+        "contests" : {
+          "href" : "http://localhost:8090/rest/employees/ID/contests"
         }
 ```
 
 ## contests
 ```
-        "employees" : {
-          "href" : "http://localhost:8090/rest/contests/ID/employees"
+        "participants" : {
+          "href" : "http://localhost:8090/rest/contests/ID/participants"
         }
 ```
