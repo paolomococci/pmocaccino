@@ -43,11 +43,11 @@ class EmployeeVerbsRestfulService {
         return restful.get(`/employees/search/likeByUsername?username=${username}`);
     }
 
-    readCompanyMembership() {
+    readCompanyMembership(uri) {
         return restful.get(`${uri}/company`);
     }
 
-    readContestParticipation() {
+    readContestParticipation(uri) {
         return restful.get(`${uri}/contest`);
     }
 }
