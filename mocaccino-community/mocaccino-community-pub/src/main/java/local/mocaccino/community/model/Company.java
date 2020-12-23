@@ -22,6 +22,7 @@ import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -35,4 +36,7 @@ public class Company {
 
     @AlphaConstraint
     private String name;
+
+    @OneToMany(mappedBy = "company")
+    private List<Employee> employees;
 }
