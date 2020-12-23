@@ -27,9 +27,13 @@
 </template>
 
 <script>
+import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
+
 export default {
     name: 'CompanyReferenceEditorComponent',
   data: () => ({
+    employee: null,
+    contests: []
   }),
   props: {
     uri: String
@@ -43,10 +47,31 @@ export default {
     },
     hideModalDetail() {
       this.$refs['modal-edit-reference'].hide();
+    },
+    retrieveEmployee() {
+      CompanyVerbsRestfulService.read(this.uri)
+        .then(response => {
+          this.employee = response.data._embedded.employee;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    retrieveContests() {
+      CompanyVerbsRestfulService.read(this.uri)
+        .then(response => {
+          this.contests = response.data._embedded.contests;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
     }
   },
   mounted() {
-    // TODO
+    this.retrieveEmployee();
+    this.retrieveContests();
   }
 }
 </script>
