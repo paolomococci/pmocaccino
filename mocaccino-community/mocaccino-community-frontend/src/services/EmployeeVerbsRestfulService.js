@@ -42,6 +42,14 @@ class EmployeeVerbsRestfulService {
     searchByUsername(username) {
         return restful.get(`/employees/search/likeByUsername?username=${username}`);
     }
+
+    readCompanyMembership() {
+        return restful.get(`${uri}/company`);
+    }
+
+    readContestParticipation() {
+        return restful.get(`${uri}/contest`);
+    }
 }
 
 export default new EmployeeVerbsRestfulService();
