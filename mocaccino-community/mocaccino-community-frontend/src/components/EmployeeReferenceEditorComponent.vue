@@ -33,7 +33,7 @@ export default {
     name: 'EmployeeReferenceEditorComponent',
   data: () => ({
     company: null,
-    contest: null
+    contests: []
   }),
   props: {
     uri: String
@@ -61,7 +61,7 @@ export default {
     retrieveContest() {
       EmployeeVerbsRestfulService.readContestParticipation(this.uri)
         .then(response => {
-          this.contest = response.data._embedded.contest;
+          this.contests = response.data._embedded.contests;
           console.log(response.data);
         })
         .catch(e => {
