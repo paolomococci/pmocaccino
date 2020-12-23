@@ -28,6 +28,7 @@
 
 <script>
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 export default {
     name: 'CompanyReferenceEditorComponent',
