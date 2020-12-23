@@ -18,12 +18,7 @@
 
 package local.mocaccino.community.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
@@ -51,4 +46,12 @@ public class Employee {
 	private String profession;
 
 	private String username;
+
+	@ManyToOne
+	@JoinColumn(name = "id_company")
+	private Company company;
+
+	@ManyToOne
+	@JoinColumn(name = "id_contest")
+	private Contest contest;
 }
