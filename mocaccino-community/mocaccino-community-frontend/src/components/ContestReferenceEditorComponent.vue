@@ -48,7 +48,7 @@ export default {
     hideModalDetail() {
       this.$refs['modal-edit-reference'].hide();
     },
-    retrieveParticipants() {
+    retrieveListOfParticipants() {
       ContestVerbsRestfulService.readListOfEmployee(this.uri)
         .then(response => {
           this.participants = response.data._embedded.participants;
