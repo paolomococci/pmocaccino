@@ -27,9 +27,12 @@
 </template>
 
 <script>
+import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
+
 export default {
     name: 'ContestReferenceEditorComponent',
   data: () => ({
+    participants: []
   }),
   props: {
     uri: String
@@ -43,10 +46,20 @@ export default {
     },
     hideModalDetail() {
       this.$refs['modal-edit-reference'].hide();
+    },
+    retrieveParticipants() {
+      ContestVerbsRestfulService.read(this.uri+'/participants')
+        .then(response => {
+          this.participants = response.data._embedded.participants;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
     }
   },
   mounted() {
-    // TODO
+    this.retrieveParticipants();
   }
 }
 </script>
