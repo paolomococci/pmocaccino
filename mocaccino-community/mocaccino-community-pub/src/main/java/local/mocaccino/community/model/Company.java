@@ -22,7 +22,6 @@ import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @Entity
