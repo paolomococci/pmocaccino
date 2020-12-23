@@ -34,6 +34,10 @@ class ContestVerbsRestfulService {
     searchByTitle(title) {
         return restful.get(`/contests/search/likeByTitle?title=${title}`);
     }
+
+    readListOfEmployee(uri) {
+        return restful.get(`${uri}/employees`);
+    }
 }
 
 export default new ContestVerbsRestfulService();
