@@ -77,7 +77,7 @@ export default {
     }
   },
   mounted() {
-    this.retrieveParticipants();
+    // TODO
   }
 }
 </script>
