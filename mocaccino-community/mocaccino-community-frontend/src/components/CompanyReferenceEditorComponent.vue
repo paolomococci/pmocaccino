@@ -33,6 +33,7 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 export default {
     name: 'CompanyReferenceEditorComponent',
   data: () => ({
+    staff: [],
     employees: []
   }),
   props: {
@@ -50,6 +51,16 @@ export default {
     },
     retrieveListOfStaff() {
       CompanyVerbsRestfulService.readListOfEmployee(this.uri)
+        .then(response => {
+          this.staff = response.data._embedded.employees;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    retrieveAllEmployees() {
+      EmployeeVerbsRestfulService.readAll()
         .then(response => {
           this.employees = response.data._embedded.employees;
           console.log(response.data);
