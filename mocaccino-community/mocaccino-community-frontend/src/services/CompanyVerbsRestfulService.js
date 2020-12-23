@@ -30,6 +30,10 @@ class CompanyVerbsRestfulService {
     searchByName(name) {
         return restful.get(`/companies/search/likeByName?name=${name}`);
     }
+
+    readListOfEmployee(uri) {
+        return restful.get(`${uri}/employees`);
+    }
 }
 
 export default new CompanyVerbsRestfulService();
