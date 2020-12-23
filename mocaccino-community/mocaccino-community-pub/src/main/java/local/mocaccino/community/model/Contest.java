@@ -25,6 +25,7 @@ import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -46,6 +47,9 @@ public class Contest {
     private String description;
 
     private Date date;
+
+    @OneToMany(mappedBy = "contest")
+    private List<Employee> participants;
 
     public void setDate(String date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
