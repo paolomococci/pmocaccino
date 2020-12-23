@@ -28,6 +28,7 @@
 
 <script>
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 export default {
     name: 'ContestReferenceEditorComponent',
