@@ -37,14 +37,6 @@
               <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
-            <b-row class="mb-2">
-              <b-col sm="3" class="text-sm-right"><b>company:</b></b-col>
-              <b-col><output v-text="row.item.company"></output></b-col>
-            </b-row>
-            <b-row class="mb-2">
-              <b-col sm="3" class="text-sm-right"><b>contests:</b></b-col>
-              <b-col><output v-text="row.item.contests"></output></b-col>
-            </b-row>
             <b-row>
               <edit-employee 
                 :usernameField="row.item.username" 
