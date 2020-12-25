@@ -60,7 +60,7 @@
               :state="acceptableEmail" 
               id="feedback-email"></b-form-input>
             <b-form-invalid-feedback :state="acceptableEmail">
-              email of new employee must be 8 to 40 characters long
+              email of new employee must be 8 to 60 characters long
             </b-form-invalid-feedback>
             <b-form-valid-feedback :state="acceptableEmail">
               all right
@@ -144,7 +144,7 @@ export default {
       return this.employeeSurname.length > 2 && this.employeeSurname.length < 21;
     },
     isAcceptableEmail() {
-      return this.employeeEmail.length > 7 && this.employeeEmail.length < 41;
+      return this.employeeEmail.length > 7 && this.employeeEmail.length < 61;
     },
     isAcceptableProfession() {
       return this.employeeProfession.length > 4 && this.employeeProfession.length < 31;
