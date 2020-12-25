@@ -47,6 +47,10 @@ class EmployeeVerbsRestfulService {
         return restful.get(`${uri}/company`);
     }
 
+    createReferenceToCompany(uri, data) {
+        return restful.patch(uri, data);
+    }
+
     readContestParticipation(uri) {
         return restful.get(`${uri}/contests`);
     }
