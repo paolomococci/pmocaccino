@@ -63,7 +63,6 @@ public class Contest {
             mappedBy = "contests",
             cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)
-    @Column(name = "PARTICIPANTS")
     private List<Employee> participants;
 
     public void setDate(String date) {
