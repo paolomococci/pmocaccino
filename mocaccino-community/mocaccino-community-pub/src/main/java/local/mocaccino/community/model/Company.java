@@ -41,6 +41,6 @@ public class Company {
     @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(31)")
     private String name;
 
-    @OneToMany(mappedBy = "COMPANY")
+    @OneToMany(mappedBy = "company")
     private List<Employee> employees;
 }
