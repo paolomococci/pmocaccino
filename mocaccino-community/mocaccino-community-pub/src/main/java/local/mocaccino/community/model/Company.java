@@ -22,6 +22,7 @@ import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Data
@@ -32,11 +33,14 @@ public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
     @AlphaConstraint
+    @Size(min = 8, max = 30)
+    @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(31)")
     private String name;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "COMPANY")
     private List<Employee> employees;
 }
