@@ -58,7 +58,10 @@ export default {
           console.log(e);
         });
     },
-    retrieveContest() {
+    createReferenceToCompany() {
+      // TODO
+    },
+    retrieveContests() {
       EmployeeVerbsRestfulService.readContestParticipation(this.uri)
         .then(response => {
           this.contests = response.data._embedded.contests;
@@ -67,6 +70,9 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    createReferenceToContest() {
+      // TODO
     },
     settingUpCompanyMembership() {
       // TODO
