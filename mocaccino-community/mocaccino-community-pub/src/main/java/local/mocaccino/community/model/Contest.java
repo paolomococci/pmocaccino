@@ -22,6 +22,8 @@ import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Size;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,20 +37,33 @@ public class Contest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private Long id;
 
     @AlphaConstraint
+    @Size(min = 10, max = 20)
+    @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
     private String name;
 
     @AlphaConstraint
+    @Size(min = 8, max = 30)
+    @Column(name = "TITLE", columnDefinition = "VARCHAR(31)")
     private String title;
 
     @AlphaConstraint
+    @Size(min = 20, max = 50)
+    @Column(name = "DESCRIPTION", columnDefinition = "VARCHAR(51)")
     private String description;
 
+    @FutureOrPresent
+    @Column(name = "DATE")
     private Date date;
 
-    @ManyToMany(targetEntity = Employee.class, mappedBy = "contests")
+    @ManyToMany(targetEntity = Employee.class,
+            mappedBy = "contests",
+            cascade = {CascadeType.ALL},
+            fetch = FetchType.EAGER)
+    @Column(name = "PARTICIPANTS")
     private List<Employee> participants;
 
     public void setDate(String date) {
