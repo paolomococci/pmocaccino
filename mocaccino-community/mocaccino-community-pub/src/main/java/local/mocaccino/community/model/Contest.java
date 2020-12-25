@@ -25,8 +25,7 @@ import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
@@ -49,8 +48,8 @@ public class Contest {
 
     private Date date;
 
-    @ManyToMany(mappedBy = "contests")
-    private Set<Employee> participants = new HashSet<>();
+    @ManyToMany(targetEntity = Employee.class, mappedBy = "contests")
+    private List<Employee> participants;
 
     public void setDate(String date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
