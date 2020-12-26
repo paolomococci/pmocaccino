@@ -40,4 +40,8 @@ public interface EmployeeRestRepository
 
 	@Query(nativeQuery = true, value = "SELECT * FROM EMPLOYEE WHERE USERNAME LIKE ?1%")
 	List<Employee> likeByUsername(String username);
+
+	void subscribe();
+
+	void debar();
 }
