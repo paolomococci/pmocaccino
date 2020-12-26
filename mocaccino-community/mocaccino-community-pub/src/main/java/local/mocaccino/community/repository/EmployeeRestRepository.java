@@ -46,4 +46,7 @@ public interface EmployeeRestRepository
 
 	@Query(nativeQuery = true, value = "DELETE FROM EMPLOYEE_CONTEST WHERE ID_EMPLOYEE=?1% AND ID_CONTEST=?2%")
 	void debar(Long idEmployee, Long idContest);
+
+	@Query(nativeQuery = true, value = "SELECT * FROM EMPLOYEE WHERE USERNAME=?1%")
+	Employee findByUsername(String username);
 }
