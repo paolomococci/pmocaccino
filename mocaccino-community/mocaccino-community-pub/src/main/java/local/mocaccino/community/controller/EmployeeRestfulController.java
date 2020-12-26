@@ -18,31 +18,14 @@
 
 package local.mocaccino.community.controller;
 
-import org.springframework.data.rest.webmvc.RepositoryRestController;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import local.mocaccino.community.repository.EmployeeRestRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.net.URISyntaxException;
-
-@RepositoryRestController
-@RequestMapping(value = "/api/employees", produces = "application/hal+json")
+@RestController
+@RequestMapping(value = "/api/references")
 public class EmployeeRestfulController {
 
-    @PatchMapping(path = "/{id}/subscribe/contest")
-    public ResponseEntity<?> subscribeContest(@RequestBody String contestUri, @PathVariable String id)
-            throws URISyntaxException {
-        // TODO
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-    }
-
-    @PatchMapping(path = "/{id}/debar/contest")
-    public ResponseEntity<?> debarContest(@RequestBody String contestUri, @PathVariable String id)
-            throws URISyntaxException {
-        // TODO
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-    }
+    @Autowired
+    EmployeeRestRepository employeeRestRepository;
 }
