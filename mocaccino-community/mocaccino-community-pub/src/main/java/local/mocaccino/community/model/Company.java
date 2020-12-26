@@ -19,13 +19,11 @@
 package local.mocaccino.community.model;
 
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "COMPANY",
         uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"}))
@@ -43,4 +41,20 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     private List<Employee> employees;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
