@@ -88,10 +88,10 @@ public class EmployeeRestController {
     )
             throws URISyntaxException {
         try {
-            Employee employee = employeeRestRepository.findByUsername(username);
+            Optional<Employee> employee = employeeRestRepository.findByUsername(username);
             Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
-            if (employee != null && contest.isPresent()) {
-                employeeRestRepository.subscribe(employee.getId(), contest.get().getId());
+            if (employee.isPresent() && contest.isPresent()) {
+                employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -108,10 +108,10 @@ public class EmployeeRestController {
     )
             throws URISyntaxException {
         try {
-            Employee employee = employeeRestRepository.findByUsername(username);
+            Optional<Employee> employee = employeeRestRepository.findByUsername(username);
             Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
-            if (employee != null && contest.isPresent()) {
-                employeeRestRepository.debar(employee.getId(), contest.get().getId());
+            if (employee.isPresent() && contest.isPresent()) {
+                employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
