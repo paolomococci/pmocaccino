@@ -19,7 +19,6 @@
 package local.mocaccino.community.model;
 
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
-import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
@@ -29,7 +28,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "CONTEST",
         uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"}))
@@ -64,6 +62,42 @@ public class Contest {
             cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)
     private List<Employee> participants;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public List<Employee> getParticipants() {
+        return participants;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public void setDate(String date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
