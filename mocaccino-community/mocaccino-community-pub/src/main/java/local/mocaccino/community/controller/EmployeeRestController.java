@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/references")
-public class EmployeeRestfulController {
+public class EmployeeRestController {
 
     @Autowired
     EmployeeRestRepository employeeRestRepository;
+    
+    // TODO
 }
