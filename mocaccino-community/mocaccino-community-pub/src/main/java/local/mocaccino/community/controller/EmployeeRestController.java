@@ -18,9 +18,20 @@
 
 package local.mocaccino.community.controller;
 
+import local.mocaccino.community.model.Contest;
+import local.mocaccino.community.model.Employee;
+import local.mocaccino.community.repository.ContestRestRepository;
 import local.mocaccino.community.repository.EmployeeRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.net.URISyntaxException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/references")
@@ -28,6 +39,85 @@ public class EmployeeRestController {
 
     @Autowired
     EmployeeRestRepository employeeRestRepository;
-    
-    // TODO
+
+    @Autowired
+    ContestRestRepository contestRestRepository;
+
+    @GetMapping("/subscribe")
+    public ResponseEntity<?> subscribe(
+            @RequestParam(value = "employeeId") @Min(1) String employeeId,
+            @RequestParam(value = "contestId") @Min(1) String contestId
+    ) throws URISyntaxException {
+        try {
+            Optional<Employee> employee = employeeRestRepository.findById(Long.parseUnsignedLong(employeeId));
+            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
+            if (employee.isPresent() && contest.isPresent()) {
+                employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/debar")
+    public ResponseEntity<?> debar(
+            @RequestParam(value = "employeeId") @Min(1)  String employeeId,
+            @RequestParam(value = "contestId") @Min(1)  String contestId
+    ) throws URISyntaxException {
+        try {
+            Optional<Employee> employee = employeeRestRepository.findById(Long.parseUnsignedLong(employeeId));
+            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
+            if (employee.isPresent() && contest.isPresent()) {
+                employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/subscribe/{username}")
+    public ResponseEntity<?> subscribeByUsername(
+            @PathVariable(value = "username") @NotBlank @Size(min = 6, max = 20) String username,
+            @RequestParam(value = "contestId") @Min(1) String contestId
+    )
+            throws URISyntaxException {
+        try {
+            Employee employee = employeeRestRepository.findByUsername(username);
+            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
+            if (employee != null && contest.isPresent()) {
+                employeeRestRepository.subscribe(employee.getId(), contest.get().getId());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/debar/{username}")
+    public ResponseEntity<?> debarByUsername(
+            @PathVariable(value = "username") @NotBlank @Size(min = 6, max = 20) String username,
+            @RequestParam(value = "contestId") @Min(1) String contestId
+    )
+            throws URISyntaxException {
+        try {
+            Employee employee = employeeRestRepository.findByUsername(username);
+            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
+            if (employee != null && contest.isPresent()) {
+                employeeRestRepository.debar(employee.getId(), contest.get().getId());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
