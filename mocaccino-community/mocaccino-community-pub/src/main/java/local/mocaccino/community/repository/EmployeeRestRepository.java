@@ -41,7 +41,9 @@ public interface EmployeeRestRepository
 	@Query(nativeQuery = true, value = "SELECT * FROM EMPLOYEE WHERE USERNAME LIKE ?1%")
 	List<Employee> likeByUsername(String username);
 
-	void subscribe();
+	@Query(nativeQuery = true, value = "INSERT INTO EMPLOYEE_CONTEST VALUES(?1%,?2%)")
+	void subscribe(Long idEmployee, Long idContest);
 
-	void debar();
+	@Query(nativeQuery = true, value = "DELETE FROM EMPLOYEE_CONTEST WHERE ID_EMPLOYEE=?1% AND ID_CONTEST=?2%")
+	void debar(Long idEmployee, Long idContest);
 }
