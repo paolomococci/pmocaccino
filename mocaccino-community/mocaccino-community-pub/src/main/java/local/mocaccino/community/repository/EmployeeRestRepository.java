@@ -24,6 +24,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
+import java.util.Optional;
 
 @RepositoryRestResource
 public interface EmployeeRestRepository
@@ -48,5 +49,5 @@ public interface EmployeeRestRepository
 	void debar(Long idEmployee, Long idContest);
 
 	@Query(nativeQuery = true, value = "SELECT * FROM EMPLOYEE WHERE USERNAME=?1%")
-	Employee findByUsername(String username);
+	Optional<Employee> findByUsername(String username);
 }
