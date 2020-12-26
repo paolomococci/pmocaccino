@@ -61,7 +61,7 @@ public class Employee {
 	@Column(name = "USERNAME", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
 	private String username;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_COMPANY")
 	private Company company;
 
