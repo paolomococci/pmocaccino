@@ -20,6 +20,7 @@ package local.mocaccino.community.controller;
 
 import local.mocaccino.community.model.Contest;
 import local.mocaccino.community.model.Employee;
+import local.mocaccino.community.reference.EmployeeToContestReference;
 import local.mocaccino.community.repository.ContestRestRepository;
 import local.mocaccino.community.repository.EmployeeRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.net.URISyntaxException;
 import java.util.Optional;
 
 @RestController
@@ -47,8 +47,7 @@ public class EmployeeRestController {
     public ResponseEntity<?> subscribeByUsername(
             @PathVariable(value = "username") @NotBlank @Size(min = 6, max = 20) String username,
             @RequestParam(value = "contestId") @Min(1) String contestId
-    )
-            throws URISyntaxException {
+    ) {
         try {
             Optional<Employee> employee = employeeRestRepository
                     .findByUsername(username);
@@ -69,8 +68,7 @@ public class EmployeeRestController {
     public ResponseEntity<?> debarByUsername(
             @PathVariable(value = "username") @NotBlank @Size(min = 6, max = 20) String username,
             @RequestParam(value = "contestId") @Min(1) String contestId
-    )
-            throws URISyntaxException {
+    ) {
         try {
             Optional<Employee> employee = employeeRestRepository
                     .findByUsername(username);
@@ -81,6 +79,54 @@ public class EmployeeRestController {
                         employee.get().getId(),
                         contest.get().getId()
                 );
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("/subscribe")
+    public ResponseEntity<?> subscribe(
+            @RequestBody EmployeeToContestReference reference
+    ) {
+        try {
+            if (reference.isValid()) {
+                Optional<Employee> employee = employeeRestRepository
+                        .findById(reference.getEmployeeId());
+                Optional<Contest> contest = contestRestRepository
+                        .findById(reference.getContestId());
+                if (employee.isPresent() && contest.isPresent()) {
+                    employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
+                } else {
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            exception.getMessage();
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PostMapping("/debar")
+    public ResponseEntity<?> debar(
+            @RequestBody EmployeeToContestReference reference
+    ) {
+        try {
+            if (reference.isValid()) {
+                Optional<Employee> employee = employeeRestRepository
+                        .findById(reference.getEmployeeId());
+                Optional<Contest> contest = contestRestRepository
+                        .findById(reference.getContestId());
+                if (employee.isPresent() && contest.isPresent()) {
+                    employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
+                } else {
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
