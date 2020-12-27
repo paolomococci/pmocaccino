@@ -43,44 +43,6 @@ public class EmployeeRestController {
     @Autowired
     ContestRestRepository contestRestRepository;
 
-    @GetMapping("/subscribe")
-    public ResponseEntity<?> subscribe(
-            @RequestParam(value = "employeeId") @Min(1) String employeeId,
-            @RequestParam(value = "contestId") @Min(1) String contestId
-    ) throws URISyntaxException {
-        try {
-            Optional<Employee> employee = employeeRestRepository.findById(Long.parseUnsignedLong(employeeId));
-            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
-            if (employee.isPresent() && contest.isPresent()) {
-                employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception exception) {
-            exception.getMessage();
-        }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping("/debar")
-    public ResponseEntity<?> debar(
-            @RequestParam(value = "employeeId") @Min(1)  String employeeId,
-            @RequestParam(value = "contestId") @Min(1)  String contestId
-    ) throws URISyntaxException {
-        try {
-            Optional<Employee> employee = employeeRestRepository.findById(Long.parseUnsignedLong(employeeId));
-            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
-            if (employee.isPresent() && contest.isPresent()) {
-                employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception exception) {
-            exception.getMessage();
-        }
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
     @GetMapping("/subscribe/{username}")
     public ResponseEntity<?> subscribeByUsername(
             @PathVariable(value = "username") @NotBlank @Size(min = 6, max = 20) String username,
@@ -88,8 +50,10 @@ public class EmployeeRestController {
     )
             throws URISyntaxException {
         try {
-            Optional<Employee> employee = employeeRestRepository.findByUsername(username);
-            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
+            Optional<Employee> employee = employeeRestRepository
+                    .findByUsername(username);
+            Optional<Contest> contest = contestRestRepository
+                    .findById(Long.parseUnsignedLong(contestId));
             if (employee.isPresent() && contest.isPresent()) {
                 employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
             } else {
@@ -108,10 +72,15 @@ public class EmployeeRestController {
     )
             throws URISyntaxException {
         try {
-            Optional<Employee> employee = employeeRestRepository.findByUsername(username);
-            Optional<Contest> contest = contestRestRepository.findById(Long.parseUnsignedLong(contestId));
+            Optional<Employee> employee = employeeRestRepository
+                    .findByUsername(username);
+            Optional<Contest> contest = contestRestRepository
+                    .findById(Long.parseUnsignedLong(contestId));
             if (employee.isPresent() && contest.isPresent()) {
-                employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
+                employeeRestRepository.debar(
+                        employee.get().getId(),
+                        contest.get().getId()
+                );
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
