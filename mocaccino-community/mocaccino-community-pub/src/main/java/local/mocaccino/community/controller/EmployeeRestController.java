@@ -53,7 +53,13 @@ public class EmployeeRestController {
                     .findByUsername(username);
             Optional<Contest> contest = contestRestRepository
                     .findById(Long.parseUnsignedLong(contestId));
-            if (employee.isPresent() && contest.isPresent()) {
+            if (
+                    employee.isPresent() &&
+                            contest.isPresent() &&
+                            employeeRestRepository.numberOfReference(
+                                    employee.get().getId(), contest.get().getId()
+                            ) == 0
+            ) {
                 employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -74,7 +80,13 @@ public class EmployeeRestController {
                     .findByUsername(username);
             Optional<Contest> contest = contestRestRepository
                     .findById(Long.parseUnsignedLong(contestId));
-            if (employee.isPresent() && contest.isPresent()) {
+            if (
+                    employee.isPresent() &&
+                    contest.isPresent() &&
+                    employeeRestRepository.numberOfReference(
+                            employee.get().getId(), contest.get().getId()
+                    ) == 1
+            ) {
                 employeeRestRepository.debar(
                         employee.get().getId(),
                         contest.get().getId()
@@ -93,7 +105,12 @@ public class EmployeeRestController {
             @RequestBody EmployeeToContestReference reference
     ) {
         try {
-            if (reference.isValid()) {
+            if (
+                    reference.isValid() &&
+                    employeeRestRepository.numberOfReference(
+                            reference.getEmployeeId(), reference.getContestId()
+                    ) == 0
+            ) {
                 Optional<Employee> employee = employeeRestRepository
                         .findById(reference.getEmployeeId());
                 Optional<Contest> contest = contestRestRepository
@@ -117,7 +134,12 @@ public class EmployeeRestController {
             @RequestBody EmployeeToContestReference reference
     ) {
         try {
-            if (reference.isValid()) {
+            if (
+                    reference.isValid() &&
+                    employeeRestRepository.numberOfReference(
+                            reference.getEmployeeId(), reference.getContestId()
+                    ) == 1
+            ) {
                 Optional<Employee> employee = employeeRestRepository
                         .findById(reference.getEmployeeId());
                 Optional<Contest> contest = contestRestRepository
