@@ -48,6 +48,15 @@ public interface EmployeeRestRepository
 	@Query(nativeQuery = true, value = "SELECT * FROM EMPLOYEE WHERE USERNAME = :username")
 	Optional<Employee> findByUsername(@Param("username") String username);
 
+	@Query(
+			nativeQuery = true,
+			value = "SELECT COUNT(*) FROM EMPLOYEE_CONTEST WHERE ID_EMPLOYEE = :idEmployee AND ID_CONTEST = :idContest"
+	)
+	Integer numberOfReference(
+			@Param("idEmployee") Long idEmployee,
+			@Param("idContest") Long idContest
+	);
+
 	@Transactional
 	@Modifying
 	@Query(
