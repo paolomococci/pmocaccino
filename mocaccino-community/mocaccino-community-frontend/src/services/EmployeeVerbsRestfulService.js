@@ -43,24 +43,26 @@ class EmployeeVerbsRestfulService {
         return restful.get(`/employees/search/likeByUsername?username=${username}`);
     }
 
-    createReferenceToCompany() {
-        // TODO
-    }
+    // reference's methods
 
     readCompanyMembership(uri) {
         return restful.get(`${uri}/company`);
     }
 
-    deleteCompanyMembership() {
-        // TODO
+    updateReferenceToCompany(uri, data) {
+        return axios.patch(uri, data);
     }
 
-    createContestParticipation() {
-        // TODO
+    deleteCompanyMembership(uri) {
+        return axios.patch(uri, {company: null});
     }
 
     readContestParticipation(uri) {
         return restful.get(`${uri}/contests`);
+    }
+
+    updateContestParticipation() {
+        // TODO
     }
 
     deleteContestParticipation() {
