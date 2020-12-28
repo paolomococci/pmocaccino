@@ -18,7 +18,7 @@
 
 package local.mocaccino.community.model;
 
-import local.mocaccino.community.validator.constraint.AlphaConstraint;
+import local.mocaccino.community.validator.constraint.NameConstraint;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -34,7 +34,7 @@ public class Company {
     @Column(name = "ID")
     private Long id;
 
-    @AlphaConstraint
+    @NameConstraint
     @Size(min = 8, max = 30)
     @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(31)")
     private String name;
