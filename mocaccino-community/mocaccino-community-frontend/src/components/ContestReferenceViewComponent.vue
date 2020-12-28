@@ -4,7 +4,7 @@
         variant="outline-secondary" 
         size="sm" 
         @click="showModalDetail">view participants</b-button>
-      <b-modal ref="view-reference-participants" hide-footer :title="uri">
+      <b-modal size="xl" scrollable ref="view-reference-participants" hide-footer :title="uri">
         <div class="d-block text-center">
           <h3>participants</h3>
           <b-table 
