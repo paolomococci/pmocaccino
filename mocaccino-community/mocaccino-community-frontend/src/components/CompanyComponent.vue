@@ -26,7 +26,7 @@
                 :nameField="row.item.name" 
                 :uri="row.item._links.self.href" 
                 @updateView="updateView"/>
-              <edit-reference-company 
+              <view-reference-staff 
                 :uri="row.item._links.self.href"/>
               <b-button 
                 variant="outline-danger" 
@@ -48,14 +48,14 @@
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 import CompanyAddComponent from '@/components/CompanyAddComponent.vue'
 import CompanyEditorComponent from '@/components/CompanyEditorComponent.vue'
-import CompanyReferenceEditorComponent from '@/components/CompanyReferenceEditorComponent.vue'
+import CompanyReferenceViewComponent from '@/components/CompanyReferenceViewComponent.vue'
 
 export default {
   name: 'CompanyComponent',
   components: {
     'add-company': CompanyAddComponent,
     'edit-company': CompanyEditorComponent,
-    'edit-reference-company': CompanyReferenceEditorComponent
+    'view-reference-staff': CompanyReferenceViewComponent
   },
   data: () => ({
     fields: [
