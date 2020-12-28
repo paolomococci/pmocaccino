@@ -1,0 +1,80 @@
+<template>
+    <section>
+      <b-button 
+        variant="outline-secondary" 
+        size="sm" 
+        @click="showModalDetail">view references</b-button>
+      <b-modal ref="modal-view-reference" hide-footer :title="uri">
+        <div class="d-block text-center">
+          <h3>references</h3>
+          <b-form  @submit.stop.prevent>
+          <!-- company name -->
+          <b-form-group>
+            <label for="reference-company-name">company name</label>
+            <b-form-input 
+              v-model="company.name" 
+              id="reference-company-name"></b-form-input>
+          </b-form-group>
+          <!-- company URI -->
+          <b-form-group>
+            <label for="reference-company-uri">company URI</label>
+            <b-form-input 
+              v-model="company._links.self.href" 
+              id="reference-company-uri"></b-form-input>
+          </b-form-group>
+          </b-form>
+        </div>
+        <b-button 
+          class="mt-3" 
+          variant="outline-secondary" 
+          block 
+          @click="hideModalDetail">toggle</b-button>
+      </b-modal>
+    </section>
+</template>
+
+<script>
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
+
+export default {
+    name: 'EmployeeReferenceViewComponent',
+  data: () => ({
+    company: {"name":"","_links":{"self":{"href":""},"company":{"href":""},"employees":{"href":""}}},
+    contests: []
+  }),
+  props: {
+    uri: String
+  },
+  methods: {
+    showModalDetail() {
+      this.$refs['modal-view-reference'].show();
+    },
+    hideModalDetail() {
+      this.$refs['modal-view-reference'].hide();
+    },
+    retrieveCompany() {
+      EmployeeVerbsRestfulService.readCompanyMembership(this.uri)
+        .then(response => {
+          this.company = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    retrieveContests() {
+      EmployeeVerbsRestfulService.readContestParticipation(this.uri)
+        .then(response => {
+          this.contests = response.data._embedded.contests;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+  },
+  mounted() {
+    this.retrieveCompany();
+  }
+}
+</script>
