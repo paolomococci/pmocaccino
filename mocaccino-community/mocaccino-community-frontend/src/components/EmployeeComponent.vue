@@ -46,7 +46,7 @@
                 :professionField="row.item.profession"
                 :uri="row.item._links.self.href" 
                 @updateView="updateView"/>
-              <edit-reference-employee 
+              <view-reference-employee 
                 :uri="row.item._links.self.href"/>
               <b-button 
                 variant="outline-danger" 
@@ -68,14 +68,14 @@
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
 import EmployeeEditorComponent from '@/components/EmployeeEditorComponent.vue'
-import EmployeeReferenceEditorComponent from '@/components/EmployeeReferenceEditorComponent.vue'
+import EmployeeReferenceViewComponent from '@/components/EmployeeReferenceViewComponent.vue'
 
 export default {
   name: 'EmployeeComponent',
   components: {
     'add-employee': EmployeeAddComponent,
     'edit-employee': EmployeeEditorComponent,
-    'edit-reference-employee': EmployeeReferenceEditorComponent
+    'view-reference-employee': EmployeeReferenceViewComponent
   },
   data: () => ({
     fields: [
