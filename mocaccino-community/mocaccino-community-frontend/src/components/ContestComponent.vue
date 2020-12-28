@@ -37,7 +37,7 @@
                 :dateField="row.item.date"
                 :uri="row.item._links.self.href" 
                 @updateView="updateView"/>
-              <edit-reference-contest 
+              <view-reference-participants 
                 :uri="row.item._links.self.href"/>
               <b-button 
                 variant="outline-danger" 
@@ -59,14 +59,14 @@
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 import ContestAddComponent from '@/components/ContestAddComponent.vue'
 import ContestEditorComponent from '@/components/ContestEditorComponent.vue'
-import ContestReferenceEditorComponent from '@/components/ContestReferenceEditorComponent.vue'
+import ContestReferenceViewComponent from '@/components/ContestReferenceViewComponent.vue'
 
 export default {
   name: 'ContestComponent',
   components: {
     'add-contest': ContestAddComponent,
     'edit-contest': ContestEditorComponent,
-    'edit-reference-contest': ContestReferenceEditorComponent
+    'view-reference-participants': ContestReferenceViewComponent
   },
   data: () => ({
     fields: [
