@@ -58,7 +58,10 @@ export default {
           console.log(e);
         });
     },
-    createReferenceToCompany() {
+    settingUpCompanyMembership() {
+      // TODO
+    },
+    ruleOutCompanyMembership() {
       // TODO
     },
     retrieveContests() {
@@ -71,13 +74,10 @@ export default {
           console.log(e);
         });
     },
-    createReferenceToContest() {
-      // TODO
-    },
-    settingUpCompanyMembership() {
-      // TODO
-    },
     settingUpContestParticipation() {
+      // TODO
+    },
+    ruleOutContestParticipation() {
       // TODO
     }
   },
