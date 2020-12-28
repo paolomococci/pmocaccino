@@ -36,7 +36,7 @@ class ContestVerbsRestfulService {
     }
 
     readListOfEmployee(uri) {
-        return restful.get(`${uri}/employees`);
+        return restful.get(`${uri}/participants`);
     }
 }
 
