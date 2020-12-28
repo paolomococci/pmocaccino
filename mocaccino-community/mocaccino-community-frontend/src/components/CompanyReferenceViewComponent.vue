@@ -4,7 +4,7 @@
         variant="outline-secondary" 
         size="sm" 
         @click="showModalDetail">view staff</b-button>
-      <b-modal ref="modal-view-reference" hide-footer :title="uri">
+      <b-modal size="xl" scrollable ref="modal-view-reference" hide-footer :title="uri">
         <div class="d-block text-center">
           <h3>staff</h3>
           <b-table 
