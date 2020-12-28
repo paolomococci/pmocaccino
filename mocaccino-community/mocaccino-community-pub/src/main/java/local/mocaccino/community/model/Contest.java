@@ -18,7 +18,8 @@
 
 package local.mocaccino.community.model;
 
-import local.mocaccino.community.validator.constraint.AlphaConstraint;
+import local.mocaccino.community.validator.constraint.CharConstraint;
+import local.mocaccino.community.validator.constraint.NameConstraint;
 
 import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
@@ -38,17 +39,17 @@ public class Contest {
     @Column(name = "ID")
     private Long id;
 
-    @AlphaConstraint
+    @NameConstraint
     @Size(min = 10, max = 20)
     @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
     private String name;
 
-    @AlphaConstraint
+    @CharConstraint
     @Size(min = 8, max = 30)
     @Column(name = "TITLE", columnDefinition = "VARCHAR(31)")
     private String title;
 
-    @AlphaConstraint
+    @CharConstraint
     @Size(min = 20, max = 50)
     @Column(name = "DESCRIPTION", columnDefinition = "VARCHAR(51)")
     private String description;
