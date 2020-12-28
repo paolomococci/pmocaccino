@@ -110,9 +110,9 @@ export default {
         variant: 'info',
         solid: true,
         appendToast: true,
-        autoHideDelay: 5000
+        autoHideDelay: 6000
       });
-      await setTimeout(5000);
+      await setTimeout(6000);
       this.employees = null;
       this.retrieveEmployees();
     },
