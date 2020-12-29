@@ -123,6 +123,9 @@ export default {
         });
       this.updateView();
     },
+    deleteItemConfirm() {
+      // TODO
+    },
     searchByUsername() {
       EmployeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
         .then(response => {
