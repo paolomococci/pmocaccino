@@ -2,7 +2,6 @@
   <section>
     <b-button 
       variant="outline-primary" 
-      size="sm" 
       @click="showModalDetail">edit</b-button>
     <b-modal ref="modal-edit" hide-footer :title="uri">
       <div class="d-block text-center">
