@@ -40,12 +40,13 @@
                   @updateView="updateView"/>
                 <view-reference-participants 
                   :uri="row.item._links.self.href"/>
-                <b-button 
-                  variant="outline-danger" 
-                  @click="deleteItem(row.item._links.self.href)">delete</b-button>
-                <b-button 
-                  variant="outline-secondary" 
-                  @click="row.toggleDetails">toggle details</b-button>
+                <b-dropdown right text="more actions">
+                  <b-dropdown-item 
+                    @click="deleteItem(row.item._links.self.href)">delete item</b-dropdown-item>
+                  <b-dropdown-divider/>
+                  <b-dropdown-item 
+                    @click="row.toggleDetails">toggle details</b-dropdown-item>
+                </b-dropdown>
               </b-button-group>
             </b-row>
           </b-card>
