@@ -2,7 +2,6 @@
     <section>
       <b-button 
         variant="outline-secondary" 
-        size="sm" 
         @click="showModalDetail">view references</b-button>
       <b-modal ref="modal-view-reference" hide-footer :title="uri">
         <div class="d-block text-center">
@@ -13,14 +12,16 @@
             <label for="reference-company-name">company name</label>
             <b-form-input 
               v-model="company.name" 
-              id="reference-company-name"></b-form-input>
+              id="reference-company-name"
+              readonly></b-form-input>
           </b-form-group>
           <!-- company URI -->
           <b-form-group>
             <label for="reference-company-uri">company URI</label>
             <b-form-input 
               v-model="company._links.self.href" 
-              id="reference-company-uri"></b-form-input>
+              id="reference-company-uri"
+              readonly></b-form-input>
           </b-form-group>
           </b-form>
         </div>
