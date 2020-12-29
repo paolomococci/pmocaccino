@@ -2,13 +2,18 @@
     <section>
       <b-button 
         variant="outline-warning" 
-        size="sm" 
         @click="showModalDetail">references</b-button>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
           <h3>references</h3>
           <b-form  @submit.stop.prevent>
-            <!-- TODO -->
+          <!-- company reference -->
+          <b-form-group>
+            <label for="reference-company-name">company name</label>
+            <b-form-input 
+              v-model="company.name" 
+              id="reference-company-name"></b-form-input>
+          </b-form-group>
           </b-form>
         </div>
         <b-button 
@@ -32,7 +37,7 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 export default {
     name: 'EmployeeReferenceEditorComponent',
   data: () => ({
-    company: null,
+    company: '',
     contests: []
   }),
   props: {
@@ -51,7 +56,7 @@ export default {
     retrieveCompany() {
       EmployeeVerbsRestfulService.readCompanyMembership(this.uri)
         .then(response => {
-          this.company = response.data._embedded.company;
+          this.company = response.data;
           console.log(response.data);
         })
         .catch(e => {
@@ -82,7 +87,7 @@ export default {
     }
   },
   mounted() {
-    // TODO
+    this.retrieveCompany();
   }
 }
 </script>
