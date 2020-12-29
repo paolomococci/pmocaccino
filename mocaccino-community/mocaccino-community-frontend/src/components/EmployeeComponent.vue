@@ -38,24 +38,24 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-row>
-              <edit-employee 
-                :usernameField="row.item.username" 
-                :nameField="row.item.name" 
-                :surnameField="row.item.surname" 
-                :emailField="row.item.email"
-                :professionField="row.item.profession"
-                :uri="row.item._links.self.href" 
-                @updateView="updateView"/>
-              <view-reference-employee 
-                :uri="row.item._links.self.href"/>
-              <b-button 
-                variant="outline-danger" 
-                size="sm" 
-                @click="deleteItem(row.item._links.self.href)">delete</b-button>
-              <b-button 
-                variant="outline-secondary" 
-                size="sm" 
-                @click="row.toggleDetails">toggle details</b-button>
+              <b-button-group size="sm">
+                <edit-employee 
+                  :usernameField="row.item.username" 
+                  :nameField="row.item.name" 
+                  :surnameField="row.item.surname" 
+                  :emailField="row.item.email"
+                  :professionField="row.item.profession"
+                  :uri="row.item._links.self.href" 
+                  @updateView="updateView"/>
+                <view-reference-employee 
+                  :uri="row.item._links.self.href"/>
+                <b-button 
+                  variant="outline-danger" 
+                  @click="deleteItem(row.item._links.self.href)">delete</b-button>
+                <b-button 
+                  variant="outline-secondary" 
+                  @click="row.toggleDetails">toggle details</b-button>
+              </b-button-group>
             </b-row>
           </b-card>
         </template>
