@@ -2,7 +2,6 @@
     <section>
       <b-button 
         variant="outline-secondary" 
-        size="sm" 
         @click="showModalDetail">view staff</b-button>
       <b-modal size="xl" scrollable ref="modal-view-reference" hide-footer :title="uri">
         <div class="d-block text-center">
