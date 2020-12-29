@@ -38,7 +38,7 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-row>
-              <b-button-group size="sm">
+              <b-button-group>
                 <edit-employee 
                   :usernameField="row.item.username" 
                   :nameField="row.item.name" 
@@ -111,11 +111,12 @@ export default {
         variant: 'info',
         solid: true,
         appendToast: true,
-        autoHideDelay: 6000
+        autoHideDelay: 2000
       });
-      await setTimeout(6000);
-      this.employees = null;
-      this.retrieveEmployees();
+      await setTimeout(() => {
+          this.employees = null;
+          this.retrieveEmployees();
+        }, 2000);
     },
     deleteItem(uri) {
       EmployeeVerbsRestfulService.delete(uri)
@@ -152,6 +153,6 @@ export default {
 
 <style>
   button {
-    margin: 3px;
+    margin: 2px;
   }
 </style>
