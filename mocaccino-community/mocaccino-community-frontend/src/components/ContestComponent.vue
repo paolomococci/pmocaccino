@@ -118,6 +118,9 @@ export default {
         });
       this.updateView();
     },
+    deleteItemConfirm() {
+      // TODO
+    },
     searchByTitle() {
       ContestVerbsRestfulService.searchByTitle(this.textToSearchFor)
         .then(response => {
