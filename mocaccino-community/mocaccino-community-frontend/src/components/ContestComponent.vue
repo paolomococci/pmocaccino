@@ -30,23 +30,23 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-row>
-              <edit-contest 
-                :nameField="row.item.name" 
-                :titleField="row.item.title" 
-                :descriptionField="row.item.description" 
-                :dateField="row.item.date"
-                :uri="row.item._links.self.href" 
-                @updateView="updateView"/>
-              <view-reference-participants 
-                :uri="row.item._links.self.href"/>
-              <b-button 
-                variant="outline-danger" 
-                size="sm" 
-                @click="deleteItem(row.item._links.self.href)">delete</b-button>
-              <b-button 
-                variant="outline-secondary" 
-                size="sm" 
-                @click="row.toggleDetails">toggle details</b-button>
+              <b-button-group size="sm">
+                <edit-contest 
+                  :nameField="row.item.name" 
+                  :titleField="row.item.title" 
+                  :descriptionField="row.item.description" 
+                  :dateField="row.item.date"
+                  :uri="row.item._links.self.href" 
+                  @updateView="updateView"/>
+                <view-reference-participants 
+                  :uri="row.item._links.self.href"/>
+                <b-button 
+                  variant="outline-danger" 
+                  @click="deleteItem(row.item._links.self.href)">delete</b-button>
+                <b-button 
+                  variant="outline-secondary" 
+                  @click="row.toggleDetails">toggle details</b-button>
+              </b-button-group>
             </b-row>
           </b-card>
         </template>
