@@ -71,6 +71,7 @@ export default {
       }
     ],
     companies: [],
+    messageBoxToConfirmDeletion: '',
     textToSearchFor: ''
   }),
   methods: {
@@ -106,8 +107,22 @@ export default {
       this.updateView();
     },
     deleteItemConfirm(uri) {
-      // TODO
-      this.deleteItem(uri);
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to delete this item', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'danger',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          this.deleteItem(uri);
+        }
+      });
     },
     searchByName() {
       CompanyVerbsRestfulService.searchByName(this.textToSearchFor)
