@@ -30,7 +30,7 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-row>
-              <b-button-group size="sm">
+              <b-button-group>
                 <edit-contest 
                   :nameField="row.item.name" 
                   :titleField="row.item.title" 
@@ -106,11 +106,12 @@ export default {
         variant: 'info',
         solid: true,
         appendToast: true,
-        autoHideDelay: 6000
+        autoHideDelay: 2000
       });
-      await setTimeout(6000);
-      this.contests = null;
-      this.retrieveContests();
+      await setTimeout(() => {
+          this.contests = null;
+          this.retrieveContests();
+        }, 2000);
     },
     deleteItem(uri) {
       ContestVerbsRestfulService.delete(uri)
@@ -147,6 +148,6 @@ export default {
 
 <style>
   button {
-    margin: 3px;
+    margin: 2px;
   }
 </style>
