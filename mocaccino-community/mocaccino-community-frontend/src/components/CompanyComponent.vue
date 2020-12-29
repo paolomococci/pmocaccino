@@ -103,6 +103,9 @@ export default {
         });
       this.updateView();
     },
+    deleteItemConfirm() {
+      // TODO
+    },
     searchByName() {
       CompanyVerbsRestfulService.searchByName(this.textToSearchFor)
         .then(response => {
