@@ -125,8 +125,8 @@ export default {
       this.messageBoxToConfirmDeletion = '';
       this.$bvModal.msgBoxConfirm('are you sure you want to delete this item', {
         title: 'please confirm',
-        size: 'sm',
-        buttonSize: 'sm',
+        size: 'md',
+        buttonSize: 'md',
         okVariant: 'danger',
         okTitle: 'yes',
         cancelTitle: 'no',
