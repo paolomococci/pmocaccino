@@ -22,7 +22,7 @@
               <b-col><output v-text="row.item._links.self.href"></output></b-col>
             </b-row>
             <b-row>
-              <b-button-group size="sm">
+              <b-button-group>
                 <edit-company 
                   :nameField="row.item.name" 
                   :uri="row.item._links.self.href" 
@@ -91,11 +91,12 @@ export default {
         variant: 'info',
         solid: true,
         appendToast: true,
-        autoHideDelay: 6000
+        autoHideDelay: 2000
       });
-      await setTimeout(6000);
-      this.companies = null;
-      this.retrieveCompanies();
+      await setTimeout(() => {
+          this.companies = null;
+          this.retrieveCompanies();
+        }, 2000);
     },
     deleteItem(uri) {
       CompanyVerbsRestfulService.delete(uri)
@@ -132,6 +133,6 @@ export default {
 
 <style>
   button {
-    margin: 3px;
+    margin: 2px;
   }
 </style>
