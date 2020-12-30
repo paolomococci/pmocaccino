@@ -51,10 +51,13 @@
                   :uri="row.item._links.self.href"/>
                 <b-dropdown right text="more actions">
                   <b-dropdown-item 
-                    @click="deleteItemConfirm(row.item._links.self.href)">delete item</b-dropdown-item>
-                  <b-dropdown-divider/>
-                  <b-dropdown-item 
                     @click="row.toggleDetails">toggle details</b-dropdown-item>
+                  <b-dropdown-divider/>
+                  <del-ref-to-company
+                    :uri="row.item._links.self.href"/>
+                  <b-dropdown-item 
+                    @click="deleteItemConfirm(row.item._links.self.href)"
+                    >delete item</b-dropdown-item>
                 </b-dropdown>
               </b-button-group>
             </b-row>
@@ -70,13 +73,15 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
 import EmployeeEditorComponent from '@/components/EmployeeEditorComponent.vue'
 import EmployeeReferenceViewComponent from '@/components/EmployeeReferenceViewComponent.vue'
+import EmployeeDelRefToCompanyComponent from '@/components/EmployeeDelRefToCompanyComponent.vue'
 
 export default {
   name: 'EmployeeComponent',
   components: {
     'add-employee': EmployeeAddComponent,
     'edit-employee': EmployeeEditorComponent,
-    'view-reference-employee': EmployeeReferenceViewComponent
+    'view-reference-employee': EmployeeReferenceViewComponent,
+    'del-ref-to-company': EmployeeDelRefToCompanyComponent
   },
   data: () => ({
     fields: [
