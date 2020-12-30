@@ -11,6 +11,7 @@
           <b-form-group>
             <label>contest name</label>
             <!-- TODO -->
+            <b-form-select></b-form-select>
           </b-form-group>
           </b-form>
         </div>
@@ -23,7 +24,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
-          @click="ruleOutContestParticipation">delete</b-button>
+          @click="deleteConfirm">delete</b-button>
       </b-modal>
     </section>
 </template>
@@ -60,8 +61,26 @@ export default {
         });
     },
     ruleOutContestParticipation() {
-      // TODO
       this.hideModalDetail();
+      // TODO
+    },
+    deleteConfirm() {
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to delete this reference', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'danger',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          this.ruleOutContestParticipation();
+        }
+      });
     }
   },
   mounted() {
