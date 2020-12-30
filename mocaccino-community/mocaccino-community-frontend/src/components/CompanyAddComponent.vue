@@ -13,13 +13,14 @@
           <!-- name field -->
           <label for="feedback-name">name</label>
           <b-form-input 
+            required
             v-model="companyName" 
-            :state="acceptable" 
+            :state="acceptableName" 
             id="feedback-name"></b-form-input>
-          <b-form-invalid-feedback :state="acceptable">
+          <b-form-invalid-feedback :state="acceptableName">
             name of new company must be 8 to 30 characters long
           </b-form-invalid-feedback>
-          <b-form-valid-feedback :state="acceptable">
+          <b-form-valid-feedback :state="acceptableName">
             all right
           </b-form-valid-feedback>
         </b-form>
@@ -33,7 +34,7 @@
         class="mt-3" 
         variant="outline-primary" 
         block 
-        :disabled="!isAcceptable()" 
+        :disabled="!isAcceptableName()" 
         @click="addCompany">save</b-button>
     </b-modal>
   </section>
@@ -48,12 +49,12 @@ export default {
     companyName: ''
   }),
   computed: {
-    acceptable() {
-      return this.isAcceptable();
+    acceptableName() {
+      return this.isAcceptableName();
     }
   },
   methods: {
-    isAcceptable() {
+    isAcceptableName() {
       return this.companyName.length > 7 && this.companyName.length < 31;
     },
     showModalDetail() {
