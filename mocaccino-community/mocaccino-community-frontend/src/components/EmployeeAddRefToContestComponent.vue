@@ -11,6 +11,7 @@
           <b-form-group>
             <label>contest name</label>
             <!-- TODO -->
+            <b-form-select></b-form-select>
           </b-form-group>
           </b-form>
         </div>
