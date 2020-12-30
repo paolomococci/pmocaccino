@@ -53,7 +53,9 @@
                   <b-dropdown-item 
                     @click="row.toggleDetails">toggle details</b-dropdown-item>
                   <b-dropdown-divider/>
-                  <del-ref-to-company
+                  <add-ref-to-company 
+                    :uri="row.item._links.self.href"/>
+                  <del-ref-to-company 
                     :uri="row.item._links.self.href"/>
                   <b-dropdown-item 
                     @click="deleteItemConfirm(row.item._links.self.href)"
@@ -73,6 +75,7 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
 import EmployeeEditorComponent from '@/components/EmployeeEditorComponent.vue'
 import EmployeeReferenceViewComponent from '@/components/EmployeeReferenceViewComponent.vue'
+import EmployeeAddRefToCompanyComponent from '@/components/EmployeeAddRefToCompanyComponent.vue'
 import EmployeeDelRefToCompanyComponent from '@/components/EmployeeDelRefToCompanyComponent.vue'
 
 export default {
@@ -81,6 +84,7 @@ export default {
     'add-employee': EmployeeAddComponent,
     'edit-employee': EmployeeEditorComponent,
     'view-reference-employee': EmployeeReferenceViewComponent,
+    'add-ref-to-company': EmployeeAddRefToCompanyComponent,
     'del-ref-to-company': EmployeeDelRefToCompanyComponent
   },
   data: () => ({
