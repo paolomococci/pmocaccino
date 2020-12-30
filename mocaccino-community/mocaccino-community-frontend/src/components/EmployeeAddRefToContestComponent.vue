@@ -1,8 +1,8 @@
 <template>
     <section>
-      <b-button 
+      <b-dropdown-item 
         variant="outline-warning" 
-        @click="showModalDetail">references</b-button>
+        @click="showModalDetail">add reference to contest</b-dropdown-item>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
           <h3>references</h3>
