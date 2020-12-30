@@ -7,11 +7,13 @@
         <div class="d-block text-center">
           <h3>references</h3>
           <b-form  @submit.stop.prevent>
-          <!-- contest reference -->
+          <!-- contest reference to add -->
           <b-form-group>
-            <label>contest name</label>
-            <!-- TODO -->
-            <b-form-select v-model="contest" :options="contests"></b-form-select>
+            <label for="reference-contest">contest</label>
+            <b-form-select 
+              v-model="contest" 
+              :options="contests" 
+              id="reference-contest"></b-form-select>
           </b-form-group>
           </b-form>
         </div>
