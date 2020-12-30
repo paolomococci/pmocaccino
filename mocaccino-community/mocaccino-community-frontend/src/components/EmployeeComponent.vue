@@ -59,6 +59,8 @@
                     :uri="row.item._links.self.href"/>
                   <add-ref-to-contest 
                     :uri="row.item._links.self.href"/>
+                  <del-ref-to-contest 
+                    :uri="row.item._links.self.href"/>
                   <b-dropdown-item 
                     @click="deleteItemConfirm(row.item._links.self.href)"
                     >delete item</b-dropdown-item>
@@ -80,6 +82,7 @@ import EmployeeReferenceViewComponent from '@/components/EmployeeReferenceViewCo
 import EmployeeAddRefToCompanyComponent from '@/components/EmployeeAddRefToCompanyComponent.vue'
 import EmployeeDelRefToCompanyComponent from '@/components/EmployeeDelRefToCompanyComponent.vue'
 import EmployeeAddRefToContestComponent from '@/components/EmployeeAddRefToContestComponent.vue'
+import EmployeeDelRefToContestComponent from '@/components/EmployeeDelRefToContestComponent.vue'
 
 export default {
   name: 'EmployeeComponent',
@@ -89,7 +92,8 @@ export default {
     'view-reference-employee': EmployeeReferenceViewComponent,
     'add-ref-to-company': EmployeeAddRefToCompanyComponent,
     'del-ref-to-company': EmployeeDelRefToCompanyComponent,
-    'add-ref-to-contest': EmployeeAddRefToContestComponent
+    'add-ref-to-contest': EmployeeAddRefToContestComponent,
+    'del-ref-to-contest': EmployeeDelRefToContestComponent
   },
   data: () => ({
     fields: [
