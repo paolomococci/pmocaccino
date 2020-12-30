@@ -1,7 +1,6 @@
 <template>
     <section>
       <b-dropdown-item 
-        variant="outline-warning" 
         @click="showModalDetail">delete reference to contest</b-dropdown-item>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
