@@ -1,8 +1,8 @@
 <template>
     <section>
-      <b-button 
+      <b-dropdown-item 
         variant="outline-warning" 
-        @click="showModalDetail">references</b-button>
+        @click="showModalDetail">delete reference to company</b-dropdown-item>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
           <h3>references</h3>
@@ -26,7 +26,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
-          @click="ruleOutCompanyMembership">delete</b-button>
+          @click="ruleOutCompanyMembership()">delete</b-button>
       </b-modal>
     </section>
 </template>
@@ -63,8 +63,8 @@ export default {
         });
     },
     ruleOutCompanyMembership() {
-      // TODO
       this.hideModalDetail();
+      EmployeeVerbsRestfulService.deleteCompanyMembership(this.uri);
     }
   },
   mounted() {
