@@ -9,11 +9,8 @@
           <b-form  @submit.stop.prevent>
           <!-- contest reference -->
           <b-form-group>
-            <label for="reference-contest-name">contest name</label>
-            <b-form-input 
-              readonly
-              v-model="contest.name" 
-              id="reference-contest-name"></b-form-input>
+            <label>contest name</label>
+            <!-- TODO -->
           </b-form-group>
           </b-form>
         </div>
@@ -55,7 +52,7 @@ export default {
     retrieveContests() {
       EmployeeVerbsRestfulService.readContestParticipation(this.uri)
         .then(response => {
-          this.contests = response.data;
+          this.contests = response.data._embedded.contests;
           console.log(response.data);
         })
         .catch(e => {
