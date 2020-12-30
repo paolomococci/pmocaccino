@@ -35,6 +35,7 @@ import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 export default {
     name: 'EmployeeAddRefToContestComponent',
   data: () => ({
+    contest: '',
     contests: []
   }),
   props: {
