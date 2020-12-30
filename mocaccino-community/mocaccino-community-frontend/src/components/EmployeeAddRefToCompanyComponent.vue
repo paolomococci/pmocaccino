@@ -11,7 +11,7 @@
           <b-form-group>
             <label>company name</label>
             <!-- TODO -->
-            <b-form-select></b-form-select>
+            <b-form-select v-model="company" :options="companies"></b-form-select>
           </b-form-group>
           </b-form>
         </div>
