@@ -26,7 +26,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
-          @click="ruleOutCompanyMembership()">delete</b-button>
+          @click="deleteConfirm">delete</b-button>
       </b-modal>
     </section>
 </template>
@@ -65,6 +65,24 @@ export default {
     ruleOutCompanyMembership() {
       this.hideModalDetail();
       EmployeeVerbsRestfulService.deleteCompanyMembership(this.uri);
+    },
+    deleteConfirm() {
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to delete this reference', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'danger',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          this.ruleOutCompanyMembership();
+        }
+      });
     }
   },
   mounted() {
