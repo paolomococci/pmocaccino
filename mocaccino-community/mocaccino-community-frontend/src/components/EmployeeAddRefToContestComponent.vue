@@ -11,7 +11,7 @@
           <b-form-group>
             <label>contest name</label>
             <!-- TODO -->
-            <b-form-select></b-form-select>
+            <b-form-select v-model="contest" :options="contests"></b-form-select>
           </b-form-group>
           </b-form>
         </div>
