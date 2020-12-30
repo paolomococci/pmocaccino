@@ -9,11 +9,8 @@
           <b-form  @submit.stop.prevent>
           <!-- contest reference -->
           <b-form-group>
-            <label for="reference-contest-name">contest name</label>
+            <label>contest name</label>
             <!-- TODO -->
-            <b-form-input 
-              v-model="contest.name" 
-              id="reference-contest-name"></b-form-input>
           </b-form-group>
           </b-form>
         </div>
@@ -68,7 +65,7 @@ export default {
     }
   },
   mounted() {
-    this.retrieveCompany();
+    this.retrieveContests();
   }
 }
 </script>
