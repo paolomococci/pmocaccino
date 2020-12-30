@@ -7,11 +7,13 @@
         <div class="d-block text-center">
           <h3>references</h3>
           <b-form  @submit.stop.prevent>
-          <!-- company reference -->
+          <!-- company reference to add -->
           <b-form-group>
-            <label>company name</label>
-            <!-- TODO -->
-            <b-form-select v-model="company" :options="companies"></b-form-select>
+            <label for="reference-company">company</label>
+            <b-form-select 
+              v-model="company" 
+              :options="companies" 
+              id="reference-company"></b-form-select>
           </b-form-group>
           </b-form>
         </div>
