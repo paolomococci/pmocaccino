@@ -35,7 +35,8 @@ import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 export default {
     name: 'EmployeeAddRefToCompanyComponent',
   data: () => ({
-    company: ''
+    company: '',
+    companies: []
   }),
   props: {
     uri: String
@@ -53,7 +54,7 @@ export default {
     retrieveCompanies() {
       CompanyVerbsRestfulService.readAll()
         .then(response => {
-          this.company = response.data._embedded.company;
+          this.companies = response.data._embedded.companies;
           console.log(response.data);
         })
         .catch(e => {
