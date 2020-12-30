@@ -23,7 +23,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
-          @click="settingUpContestParticipation">update</b-button>
+          @click="addConfirm">update</b-button>
       </b-modal>
     </section>
 </template>
@@ -60,8 +60,26 @@ export default {
         });
     },
     settingUpContestParticipation() {
-      // TODO
       this.hideModalDetail();
+      // TODO
+    },
+    addConfirm() {
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to add this reference', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'warning',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          this.settingUpContestParticipation();
+        }
+      });
     }
   },
   mounted() {
