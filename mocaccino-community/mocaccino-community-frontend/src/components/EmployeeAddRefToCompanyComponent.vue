@@ -9,11 +9,8 @@
           <b-form  @submit.stop.prevent>
           <!-- company reference -->
           <b-form-group>
-            <label for="reference-company-name">company name</label>
+            <label>company name</label>
             <!-- TODO -->
-            <b-form-input 
-              v-model="company.name" 
-              id="reference-company-name"></b-form-input>
           </b-form-group>
           </b-form>
         </div>
