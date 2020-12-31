@@ -2,7 +2,7 @@
     <section>
       <b-button 
         variant="outline-secondary" 
-        @click="showModalDetail">view staff</b-button>
+        @click="showModalDetail">staff</b-button>
       <b-modal size="xl" scrollable ref="modal-view-reference" hide-footer :title="uri">
         <div class="d-block text-center">
           <h3>staff</h3>
