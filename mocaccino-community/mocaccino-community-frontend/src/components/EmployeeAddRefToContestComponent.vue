@@ -15,17 +15,15 @@
             <label for="reference-contest">contest</label>
             <b-form-select 
               v-model="contest" 
-              :options="options" 
+              :options="contests" 
+              value-field="_links.self.href" 
+              text-field="name"
+              class="mb-3" 
               id="reference-contest"></b-form-select>
             <!-- todo verify -->
-            <div class="mt-3">selected: <output v-text="contest"></output></div>
+            <div class="mt-3">value selected: <output v-text="contest"></output></div>
           </b-form-group>
           </b-form>
-          <h3>contests</h3>
-          <b-table 
-            :items="contests" 
-            striped 
-            responsive="sm"></b-table>
         </div>
         <b-button 
           class="mt-3" 
@@ -47,9 +45,8 @@ import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 export default {
     name: 'EmployeeAddRefToContestComponent',
   data: () => ({
-    contest: null,
-    contests: [],
-    options: []
+    contest: '',
+    contests: []
   }),
   props: {
     uri: String
@@ -73,9 +70,6 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    },
-    settingOptions() {
-      // TODO
     },
     settingUpContestParticipation() {
       this.hideModalDetail();
