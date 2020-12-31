@@ -15,17 +15,15 @@
             <label for="reference-company">company</label>
             <b-form-select 
               v-model="company" 
-              :options="options" 
+              :options="companies" 
+              value-field="_links.self.href" 
+              text-field="name"
+              class="mb-3" 
               id="reference-company"></b-form-select>
             <!-- todo verify -->
-            <div class="mt-3">selected: <output v-text="company"></output></div>
+            <div class="mt-3">value selected: <output v-text="company"></output></div>
           </b-form-group>
           </b-form>
-          <h3>companies</h3>
-          <b-table 
-            :items="companies" 
-            striped 
-            responsive="sm"></b-table>
         </div>
         <b-button 
           class="mt-3" 
@@ -47,9 +45,8 @@ import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 export default {
     name: 'EmployeeAddRefToCompanyComponent',
   data: () => ({
-    company: null,
-    companies: [],
-    options: []
+    company: '',
+    companies: []
   }),
   props: {
     uri: String
@@ -73,9 +70,6 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    },
-    settingOptions() {
-      // TODO
     },
     settingUpCompanyMembership() {
       this.hideModalDetail();
