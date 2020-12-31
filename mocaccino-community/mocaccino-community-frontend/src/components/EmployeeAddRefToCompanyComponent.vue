@@ -4,7 +4,7 @@
         @click="showModalDetail">add reference to company</b-dropdown-item>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
-          <h3>references</h3>
+          <h3>add the company reference</h3>
           <b-form  @submit.stop.prevent>
           <!-- company reference to add -->
           <b-form-group>
@@ -13,6 +13,8 @@
               v-model="company" 
               :options="companies" 
               id="reference-company"></b-form-select>
+            <!-- todo verify -->
+            <div class="mt-3">selected: <output v-text="company"></output></div>
           </b-form-group>
           </b-form>
         </div>
