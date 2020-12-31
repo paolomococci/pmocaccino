@@ -2,7 +2,11 @@
     <section>
       <b-dropdown-item 
         @click="showModalDetail">add reference to company</b-dropdown-item>
-      <b-modal ref="modal-edit-reference" hide-footer :title="uri">
+      <b-modal 
+        size="xl" 
+        ref="modal-edit-reference" 
+        hide-footer 
+        :title="uri">
         <div class="d-block text-center">
           <h3>add the company reference</h3>
           <b-form  @submit.stop.prevent>
@@ -11,12 +15,17 @@
             <label for="reference-company">company</label>
             <b-form-select 
               v-model="company" 
-              :options="companies" 
+              :options="options" 
               id="reference-company"></b-form-select>
             <!-- todo verify -->
             <div class="mt-3">selected: <output v-text="company"></output></div>
           </b-form-group>
           </b-form>
+          <h3>companies</h3>
+          <b-table 
+            :items="companies" 
+            striped 
+            responsive="sm"></b-table>
         </div>
         <b-button 
           class="mt-3" 
@@ -38,8 +47,9 @@ import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 export default {
     name: 'EmployeeAddRefToCompanyComponent',
   data: () => ({
-    company: '',
-    companies: []
+    company: null,
+    companies: [],
+    options: []
   }),
   props: {
     uri: String
@@ -63,6 +73,9 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    settingOptions() {
+      // TODO
     },
     settingUpCompanyMembership() {
       this.hideModalDetail();
