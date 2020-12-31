@@ -2,7 +2,11 @@
     <section>
       <b-dropdown-item 
         @click="showModalDetail">delete reference to company</b-dropdown-item>
-      <b-modal ref="modal-edit-reference" hide-footer :title="uri">
+      <b-modal 
+        size="xl" 
+        ref="modal-edit-reference" 
+        hide-footer 
+        :title="uri">
         <div class="d-block text-center">
           <h3>remove the reference to the company</h3>
           <b-form  @submit.stop.prevent>
