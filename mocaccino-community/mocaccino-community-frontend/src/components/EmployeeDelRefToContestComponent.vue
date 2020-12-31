@@ -20,8 +20,6 @@
               text-field="name"
               class="mb-3" 
               id="reference-contest"></b-form-select>
-            <!-- todo verify -->
-            <div class="mt-3">value selected: <output v-text="contest"></output></div>
           </b-form-group>
           </b-form>
         </div>
