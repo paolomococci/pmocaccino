@@ -21,6 +21,7 @@ package local.mocaccino.community.controller;
 import local.mocaccino.community.model.Contest;
 import local.mocaccino.community.model.Employee;
 import local.mocaccino.community.reference.EmployeeToContestReference;
+import local.mocaccino.community.reference.EmployeeToContestUrisReference;
 import local.mocaccino.community.repository.ContestRestRepository;
 import local.mocaccino.community.repository.EmployeeRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -156,5 +157,21 @@ public class EmployeeRestController {
             exception.getMessage();
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/subscribe")
+    public ResponseEntity<?> subscribeUpdate(
+            @RequestBody EmployeeToContestUrisReference reference
+    ) {
+        // TODO
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+    @PatchMapping("/debar")
+    public ResponseEntity<?> debarUpdate(
+            @RequestBody EmployeeToContestUrisReference reference
+    ) {
+        // TODO
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 }
