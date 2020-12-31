@@ -2,8 +2,12 @@
     <section>
       <b-button 
         variant="outline-secondary" 
-        @click="showModalDetail">view references</b-button>
-      <b-modal ref="modal-view-reference" hide-footer :title="uri">
+        @click="showModalDetail">references</b-button>
+      <b-modal 
+        size="xl"
+        ref="modal-view-reference" 
+        hide-footer 
+        :title="uri">
         <div class="d-block text-center">
           <h3>references</h3>
           <b-form  @submit.stop.prevent>
@@ -24,6 +28,12 @@
               readonly></b-form-input>
           </b-form-group>
           </b-form>
+          <h3>contests</h3>
+          <b-table 
+            :items="contests" 
+            :fields="fields" 
+            striped 
+            responsive="sm"></b-table>
         </div>
         <b-button 
           class="mt-3" 
@@ -41,7 +51,26 @@ export default {
     name: 'EmployeeReferenceViewComponent',
   data: () => ({
     company: {"name":"","_links":{"self":{"href":""},"company":{"href":""},"employees":{"href":""}}},
-    contests: []
+    contests: [],
+    fields: [
+      {
+        key: 'date',
+        sortable: true
+      },
+      {
+        key: 'name'
+      },
+      {
+        key: 'title'
+      },
+      {
+        key: 'description'
+      },
+      {
+        key: '_links.self.href',
+        label: 'URI'
+      }
+    ]
   }),
   props: {
     uri: String
@@ -76,6 +105,7 @@ export default {
   },
   mounted() {
     this.retrieveCompany();
+    this.retrieveContests();
   }
 }
 </script>
