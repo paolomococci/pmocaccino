@@ -4,15 +4,17 @@
         @click="showModalDetail">delete reference to contest</b-dropdown-item>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
-          <h3>references</h3>
+          <h3>select a contest to be dereferenced</h3>
           <b-form  @submit.stop.prevent>
-          <!-- contest reference to delete -->
+          <!-- contest reference to remove -->
           <b-form-group>
             <label for="reference-contest">contest</label>
             <b-form-select 
               v-model="contest" 
               :options="contests" 
               id="reference-contest"></b-form-select>
+            <!-- todo verify -->
+            <div class="mt-3">selected: <output v-text="contest"></output></div>
           </b-form-group>
           </b-form>
         </div>
