@@ -2,7 +2,11 @@
     <section>
       <b-dropdown-item 
         @click="showModalDetail">add reference to contest</b-dropdown-item>
-      <b-modal ref="modal-edit-reference" hide-footer :title="uri">
+      <b-modal 
+        size="xl" 
+        ref="modal-edit-reference" 
+        hide-footer 
+        :title="uri">
         <div class="d-block text-center">
           <h3>select a contest to refer to</h3>
           <b-form  @submit.stop.prevent>
@@ -11,12 +15,17 @@
             <label for="reference-contest">contest</label>
             <b-form-select 
               v-model="contest" 
-              :options="contests" 
+              :options="options" 
               id="reference-contest"></b-form-select>
             <!-- todo verify -->
             <div class="mt-3">selected: <output v-text="contest"></output></div>
           </b-form-group>
           </b-form>
+          <h3>contests</h3>
+          <b-table 
+            :items="contests" 
+            striped 
+            responsive="sm"></b-table>
         </div>
         <b-button 
           class="mt-3" 
@@ -38,8 +47,9 @@ import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 export default {
     name: 'EmployeeAddRefToContestComponent',
   data: () => ({
-    contest: '',
-    contests: []
+    contest: null,
+    contests: [],
+    options: []
   }),
   props: {
     uri: String
@@ -63,6 +73,9 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    settingOptions() {
+      // TODO
     },
     settingUpContestParticipation() {
       this.hideModalDetail();
