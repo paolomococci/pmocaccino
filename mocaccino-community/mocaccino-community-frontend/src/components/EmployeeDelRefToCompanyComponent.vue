@@ -4,9 +4,9 @@
         @click="showModalDetail">delete reference to company</b-dropdown-item>
       <b-modal ref="modal-edit-reference" hide-footer :title="uri">
         <div class="d-block text-center">
-          <h3>references</h3>
+          <h3>remove the reference to the company</h3>
           <b-form  @submit.stop.prevent>
-          <!-- company reference -->
+          <!-- company reference to remove -->
           <b-form-group>
             <label for="reference-company-name">company name</label>
             <b-form-input 
