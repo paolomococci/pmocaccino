@@ -20,6 +20,8 @@
               text-field="name"
               class="mb-3" 
               id="reference-contest"></b-form-select>
+            <!-- todo verify -->
+            <div class="mt-3">value selected: <output v-text="contest"></output></div>
           </b-form-group>
           </b-form>
         </div>
@@ -32,6 +34,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
+          :disabled="isRefSelected"
           @click="deleteConfirm">delete</b-button>
       </b-modal>
     </section>
@@ -49,10 +52,12 @@ export default {
   props: {
     uri: String
   },
+  computed: {
+    isRefSelected() {
+      return (this.contest != '') ? false : true;
+    }
+  },
   methods: {
-    isAcceptable() {
-      return false;
-    },
     showModalDetail() {
       this.$refs['modal-edit-reference'].show();
     },
@@ -71,11 +76,15 @@ export default {
     },
     ruleOutContestParticipation() {
       this.hideModalDetail();
-      // TODO
+      var data = {
+        employeeUri: this.uri,
+        contestUri: this.contest
+      };
+      EmployeeVerbsRestfulService.deleteContestParticipation(data);
     },
     deleteConfirm() {
       this.messageBoxToConfirmDeletion = '';
-      this.$bvModal.msgBoxConfirm('are you sure you want to delete this reference', {
+      this.$bvModal.msgBoxConfirm('are you sure you want to remove this reference', {
         title: 'please confirm',
         size: 'md',
         buttonSize: 'md',
