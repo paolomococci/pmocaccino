@@ -50,9 +50,6 @@ export default {
     uri: String
   },
   methods: {
-    isAcceptable() {
-      return false;
-    },
     showModalDetail() {
       this.$refs['modal-edit-reference'].show();
     },
