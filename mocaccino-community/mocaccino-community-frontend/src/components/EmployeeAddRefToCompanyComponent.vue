@@ -32,6 +32,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
+          :disabled="isRefSelected"
           @click="addConfirm">update</b-button>
       </b-modal>
     </section>
@@ -48,6 +49,11 @@ export default {
   }),
   props: {
     uri: String
+  },
+  computed: {
+    isRefSelected() {
+      return (this.company != '') ? false : true;
+    }
   },
   methods: {
     showModalDetail() {
