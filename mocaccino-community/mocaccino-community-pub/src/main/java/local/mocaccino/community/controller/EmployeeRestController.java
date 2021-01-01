@@ -133,23 +133,45 @@ public class EmployeeRestController {
     @PostMapping("/debar")
     public ResponseEntity<?> debar(
             @RequestBody EmployeeToContestReference reference
+    ) throws Exception {
+        if (
+                reference.isValid() &&
+                employeeRestRepository.numberOfReference(
+                        reference.getEmployeeId(), reference.getContestId()
+                ) == 1
+        ) {
+            Optional<Employee> employee = employeeRestRepository
+                    .findById(reference.getEmployeeId());
+            Optional<Contest> contest = contestRestRepository
+                    .findById(reference.getContestId());
+            if (employee.isPresent() && contest.isPresent()) {
+                employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PatchMapping("/subscribe")
+    public ResponseEntity<?> subscribeUpdate(
+            @RequestBody EmployeeToContestUrisReference reference
     ) {
         try {
-            if (
-                    reference.isValid() &&
-                    employeeRestRepository.numberOfReference(
-                            reference.getEmployeeId(), reference.getContestId()
-                    ) == 1
-            ) {
-                Optional<Employee> employee = employeeRestRepository
-                        .findById(reference.getEmployeeId());
-                Optional<Contest> contest = contestRestRepository
-                        .findById(reference.getContestId());
-                if (employee.isPresent() && contest.isPresent()) {
-                    employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
-                } else {
-                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-                }
+            Optional<Employee> employee = employeeRestRepository.findById(
+                    Long.parseUnsignedLong(
+                            reference.getEmployeeUri().toString().replaceAll(".*/", "")
+                    )
+            );
+            Optional<Contest> contest = contestRestRepository.findById(
+                    Long.parseUnsignedLong(
+                            reference.getContestUri().toString().replaceAll(".*/", "")
+                    )
+            );
+            if (employee.isPresent() && contest.isPresent()) {
+                employeeRestRepository.subscribe(employee.get().getId(), contest.get().getId());
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -159,19 +181,25 @@ public class EmployeeRestController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PatchMapping("/subscribe")
-    public ResponseEntity<?> subscribeUpdate(
-            @RequestBody EmployeeToContestUrisReference reference
-    ) {
-        // TODO
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-    }
-
     @PatchMapping("/debar")
     public ResponseEntity<?> debarUpdate(
             @RequestBody EmployeeToContestUrisReference reference
-    ) {
-        // TODO
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    ) throws Exception {
+        Optional<Employee> employee = employeeRestRepository.findById(
+                Long.parseUnsignedLong(
+                        reference.getEmployeeUri().toString().replaceAll(".*/", "")
+                )
+        );
+        Optional<Contest> contest = contestRestRepository.findById(
+                Long.parseUnsignedLong(
+                        reference.getContestUri().toString().replaceAll(".*/", "")
+                )
+        );
+        if (employee.isPresent() && contest.isPresent()) {
+            employeeRestRepository.debar(employee.get().getId(), contest.get().getId());
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
