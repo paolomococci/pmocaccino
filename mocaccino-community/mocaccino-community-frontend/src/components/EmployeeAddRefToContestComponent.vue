@@ -20,6 +20,8 @@
               text-field="name"
               class="mb-3" 
               id="reference-contest"></b-form-select>
+            <!-- todo verify -->
+            <div class="mt-3">value selected: <output v-text="contest"></output></div>
           </b-form-group>
           </b-form>
         </div>
@@ -32,6 +34,7 @@
           class="mt-3" 
           variant="outline-primary" 
           block 
+          :disabled="isRefSelected"
           @click="addConfirm">update</b-button>
       </b-modal>
     </section>
@@ -39,6 +42,7 @@
 
 <script>
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 export default {
     name: 'EmployeeAddRefToContestComponent',
@@ -49,10 +53,12 @@ export default {
   props: {
     uri: String
   },
+  computed: {
+    isRefSelected() {
+      return (this.contest != '') ? false : true;
+    }
+  },
   methods: {
-    isAcceptable() {
-      return false;
-    },
     showModalDetail() {
       this.$refs['modal-edit-reference'].show();
     },
@@ -71,7 +77,11 @@ export default {
     },
     settingUpContestParticipation() {
       this.hideModalDetail();
-      // TODO
+      var data = {
+        employeeUri: this.uri,
+        contestUri: this.contest
+      };
+      EmployeeVerbsRestfulService.updateContestParticipation(data);
     },
     addConfirm() {
       this.messageBoxToConfirmDeletion = '';
