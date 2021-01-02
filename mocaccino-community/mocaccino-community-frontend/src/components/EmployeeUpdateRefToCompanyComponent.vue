@@ -20,9 +20,6 @@
               text-field="name"
               class="mb-3" 
               id="reference-company"></b-form-select>
-            <!-- todo verify -->
-            <div class="mt-3">value uri: <output v-text="uri"></output></div>
-            <div class="mt-3">value selected: <output v-text="company"></output></div>
           </b-form-group>
           </b-form>
         </div>
