@@ -53,7 +53,7 @@
                   <b-dropdown-item 
                     @click="row.toggleDetails">toggle details</b-dropdown-item>
                   <b-dropdown-divider/>
-                  <add-ref-to-company 
+                  <update-ref-to-company 
                     :uri="row.item._links.self.href"/>
                   <del-ref-to-company 
                     :uri="row.item._links.self.href"/>
@@ -79,7 +79,7 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 import EmployeeAddComponent from '@/components/EmployeeAddComponent.vue'
 import EmployeeEditorComponent from '@/components/EmployeeEditorComponent.vue'
 import EmployeeReferenceViewComponent from '@/components/EmployeeReferenceViewComponent.vue'
-import EmployeeAddRefToCompanyComponent from '@/components/EmployeeAddRefToCompanyComponent.vue'
+import EmployeeUpdateRefToCompanyComponent from '@/components/EmployeeUpdateRefToCompanyComponent.vue'
 import EmployeeDelRefToCompanyComponent from '@/components/EmployeeDelRefToCompanyComponent.vue'
 import EmployeeAddRefToContestComponent from '@/components/EmployeeAddRefToContestComponent.vue'
 import EmployeeDelRefToContestComponent from '@/components/EmployeeDelRefToContestComponent.vue'
@@ -90,7 +90,7 @@ export default {
     'add-employee': EmployeeAddComponent,
     'edit-employee': EmployeeEditorComponent,
     'view-reference-employee': EmployeeReferenceViewComponent,
-    'add-ref-to-company': EmployeeAddRefToCompanyComponent,
+    'update-ref-to-company': EmployeeUpdateRefToCompanyComponent,
     'del-ref-to-company': EmployeeDelRefToCompanyComponent,
     'add-ref-to-contest': EmployeeAddRefToContestComponent,
     'del-ref-to-contest': EmployeeDelRefToContestComponent
