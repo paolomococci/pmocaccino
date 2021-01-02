@@ -1,7 +1,7 @@
 <template>
     <section>
       <b-dropdown-item 
-        @click="showModalDetail">add reference to company</b-dropdown-item>
+        @click="showModalDetail">update reference to company</b-dropdown-item>
       <b-modal 
         size="xl" 
         ref="modal-edit-reference" 
@@ -20,6 +20,9 @@
               text-field="name"
               class="mb-3" 
               id="reference-company"></b-form-select>
+            <!-- todo verify -->
+            <div class="mt-3">value uri: <output v-text="uri"></output></div>
+            <div class="mt-3">value selected: <output v-text="company"></output></div>
           </b-form-group>
           </b-form>
         </div>
@@ -40,9 +43,10 @@
 
 <script>
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 export default {
-    name: 'EmployeeAddRefToCompanyComponent',
+    name: 'EmployeeUpdateRefToCompanyComponent',
   data: () => ({
     company: '',
     companies: []
@@ -74,7 +78,10 @@ export default {
     },
     settingUpCompanyMembership() {
       this.hideModalDetail();
-      // TODO
+      var data = {
+        company: this.company
+      };
+      EmployeeVerbsRestfulService.updateReferenceToCompany(this.uri, data);
     },
     addConfirm() {
       this.messageBoxToConfirmDeletion = '';
