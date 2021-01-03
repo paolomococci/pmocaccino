@@ -81,6 +81,12 @@ export default {
     }
   }),
   validations: {
+    form: {
+      contestName: {},
+      contestTitle: {},
+      contestDescription: {},
+      contestDate: {}
+    }
   },
   methods: {
     onValidateForm(companyName) {
