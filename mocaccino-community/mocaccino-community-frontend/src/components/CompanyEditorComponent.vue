@@ -42,18 +42,16 @@ import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 
 export default {
   name: 'CompanyEditorComponent',
+  mixins: [validationMixin],
   data: () => ({
     companyName: ''
   }),
   props: {
     uri: String,
     nameField: String
-  },,
-  validations: {
-    // TODO
   },
+  validations: {},
   methods: {
-    // TODO
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
