@@ -79,7 +79,22 @@ export default {
       // TODO
     },
     onConfirm() {
-      // TODO
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to update this item', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'warning',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          // TODO
+        }
+      });
     },
     showModalDetail() {
       this.$refs['modal-edit'].show();
