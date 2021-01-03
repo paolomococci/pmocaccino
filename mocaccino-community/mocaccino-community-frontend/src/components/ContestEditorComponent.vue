@@ -85,6 +85,12 @@ export default {
     dateField: String
   },
   validations: {
+    form: {
+      contestName: {},
+      contestTitle: {},
+      contestDescription: {},
+      contestDate: {}
+    }
   },
   methods: {
     onValidateForm(companyName) {
