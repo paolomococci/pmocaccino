@@ -69,10 +69,12 @@ export default {
   name: 'ContestAddComponent',
   mixins: [validationMixin],
   data: () => ({
-    contestName: '',
-    contestTitle: '',
-    contestDescription: '',
-    contestDate: ''
+    form: {
+      contestName: '',
+      contestTitle: '',
+      contestDescription: '',
+      contestDate: ''
+    }
   }),
   validations: {
   },
