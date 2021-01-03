@@ -82,6 +82,18 @@ export default {
   validations: {
   },
   methods: {
+    onValidateForm(companyName) {
+      // TODO
+    },
+    onResetForm() {
+      // TODO
+    },
+    onSubmitForm() {
+      // TODO
+    },
+    onConfirm() {
+      // TODO
+    },
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
