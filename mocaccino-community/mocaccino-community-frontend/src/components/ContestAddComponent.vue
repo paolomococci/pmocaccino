@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import { validationMixin } from "vuelidate";
-import { required, minLength, maxLength, helpers } from "vuelidate/lib/validators";
+import { validationMixin } from 'vuelidate'
+import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
 export default {
