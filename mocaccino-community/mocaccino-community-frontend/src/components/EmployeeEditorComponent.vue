@@ -103,11 +103,13 @@ export default {
   name: 'EmployeeEditorComponent',
   mixins: [validationMixin],
   data: () => ({
-    employeeUsername: '',
-    employeeName: '',
-    employeeSurname: '',
-    employeeEmail: '',
-    employeeProfession: ''
+    form: {
+      employeeUsername: '',
+      employeeName: '',
+      employeeSurname: '',
+      employeeEmail: '',
+      employeeProfession: ''
+    }
   }),
   props: {
     uri: String,
