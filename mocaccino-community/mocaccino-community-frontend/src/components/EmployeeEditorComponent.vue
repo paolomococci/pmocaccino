@@ -95,6 +95,8 @@
 </template>
 
 <script>
+import { validationMixin } from "vuelidate";
+import { required, minLength, maxLength, helpers } from "vuelidate/lib/validators";
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 export default {
@@ -114,29 +116,8 @@ export default {
     emailField: String,
     professionField: String
   },
-  computed: {
-    acceptableUsername() {
-      return this.isAcceptableUsername();
-    },
-    acceptableName() {
-      return this.isAcceptableName();
-    },
-    acceptableSurname() {
-      return this.isAcceptableSurname();
-    },
-    acceptableEmail() {
-      return this.isAcceptableEmail();
-    },
-    acceptableProfession() {
-      return this.isAcceptableProfession();
-    },
-    validateForm() {
-      return this.acceptableUsername && 
-        this.acceptableName && 
-        this.acceptableSurname && 
-        this.acceptableEmail && 
-        this.acceptableProfession;
-    }
+  validations: {
+    // TODO
   },
   methods: {
     isAcceptableUsername() {
