@@ -89,10 +89,10 @@ export default {
     },
     updateContest() {
       var data = {
-        name: this.contestName,
-        title: this.contestTitle,
-        description: this.contestDescription,
-        date: this.contestDate
+        name: this.form.contestName,
+        title: this.form.contestTitle,
+        description: this.form.contestDescription,
+        date: this.form.contestDate
       };
       ContestVerbsRestfulService.partialUpdate(this.uri, data)
         .then(response => {
