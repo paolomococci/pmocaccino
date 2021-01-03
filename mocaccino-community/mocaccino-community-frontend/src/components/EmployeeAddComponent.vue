@@ -119,6 +119,13 @@ export default {
     }
   }),
   validations: {
+    form: {
+      employeeUsername: {},
+      employeeName: {},
+      employeeSurname: {},
+      employeeEmail: {},
+      employeeProfession: {}
+    }
   },
   methods: {
     onValidateForm(companyName) {
