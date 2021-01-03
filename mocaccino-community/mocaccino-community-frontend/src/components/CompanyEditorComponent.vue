@@ -40,6 +40,8 @@ import { validationMixin } from "vuelidate";
 import { required, minLength, maxLength, helpers } from "vuelidate/lib/validators";
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 
+const charactersAcceptedAsValid = helpers.regex('charactersAcceptedAsValid', /^[a-zA-Z0-9-_]*$/);
+
 export default {
   name: 'CompanyEditorComponent',
   mixins: [validationMixin],
