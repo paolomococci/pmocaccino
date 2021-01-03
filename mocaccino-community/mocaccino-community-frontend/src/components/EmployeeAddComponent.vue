@@ -91,8 +91,7 @@
         class="mt-3" 
         variant="outline-primary" 
         block 
-        :disabled="!validateForm"
-        @click="addEmployee">save</b-button>
+        type="submit">save</b-button>
     </b-modal>
   </section>
 </template>
