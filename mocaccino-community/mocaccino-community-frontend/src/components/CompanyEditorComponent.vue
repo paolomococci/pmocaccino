@@ -54,7 +54,16 @@ export default {
     uri: String,
     nameField: String
   },
-  validations: {},
+  validations: {
+    form: {
+      companyName: {
+        required,
+        minLength: minLength(8),
+        maxLength: maxLength(30),
+        charactersAcceptedAsValid
+      }
+    }
+  },
   methods: {
     showModalDetail() {
       this.$refs['modal-edit'].show();
