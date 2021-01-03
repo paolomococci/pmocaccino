@@ -86,10 +86,24 @@ export default {
   },
   validations: {
     form: {
-      contestName: {},
-      contestTitle: {},
-      contestDescription: {},
-      contestDate: {}
+      contestName: {
+        required,
+        minLength: minLength(10),
+        maxLength: maxLength(20)
+        },
+      contestTitle: {
+        required,
+        minLength: minLength(8),
+        maxLength: maxLength(30)
+        },
+      contestDescription: {
+        required,
+        minLength: minLength(20),
+        maxLength: maxLength(50)
+      },
+      contestDate: {
+        required
+      }
     }
   },
   methods: {
