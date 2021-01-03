@@ -66,10 +66,12 @@ export default {
   name: 'ContestEditorComponent',
   mixins: [validationMixin],
   data: () => ({
-    contestName: '',
-    contestTitle: '',
-    contestDescription: '',
-    contestDate: ''
+    form: {
+      contestName: '',
+      contestTitle: '',
+      contestDescription: '',
+      contestDate: ''
+    }
   }),
   props: {
     uri: String,
