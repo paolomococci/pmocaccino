@@ -124,6 +124,13 @@ export default {
     professionField: String
   },
   validations: {
+    form: {
+      employeeUsername: {},
+      employeeName: {},
+      employeeSurname: {},
+      employeeEmail: {},
+      employeeProfession: {}
+    }
   },
   methods: {
     onValidateForm(companyName) {
