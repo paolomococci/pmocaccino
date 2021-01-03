@@ -29,8 +29,7 @@
         class="mt-3" 
         variant="outline-primary" 
         block 
-        :disabled="!isAcceptable()" 
-        @click="updateCompany">update</b-button>
+        type="submit">update</b-button>
     </b-modal>
   </section>
 </template>
