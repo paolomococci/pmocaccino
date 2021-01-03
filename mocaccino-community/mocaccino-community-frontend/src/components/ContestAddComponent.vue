@@ -54,8 +54,7 @@
         class="mt-3" 
         variant="outline-primary" 
         block 
-        :disabled="!validateForm"
-        @click="addContest">save</b-button>
+        type="submit">save</b-button>
     </b-modal>
   </section>
 </template>
