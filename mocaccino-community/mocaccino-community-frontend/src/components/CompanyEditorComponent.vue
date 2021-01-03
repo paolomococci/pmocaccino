@@ -60,7 +60,7 @@ export default {
     },
     updateCompany() {
       var data = {
-        name: this.companyName
+        name: this.form.companyName
       };
       CompanyVerbsRestfulService.partialUpdate(this.uri, data)
         .then(response => {
