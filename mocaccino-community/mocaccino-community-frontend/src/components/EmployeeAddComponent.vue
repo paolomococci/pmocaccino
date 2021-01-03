@@ -104,6 +104,7 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 
 export default {
   name: 'EmployeeAddComponent',
+  mixins: [validationMixin],
   data: () => ({
     employeeUsername: '',
     employeeName: '',
@@ -112,24 +113,8 @@ export default {
     employeeProfession: ''
   }),
   validations: {
-    // TODO
   },
   methods: {
-    isAcceptableUsername() {
-      return this.employeeUsername.length > 5 && this.employeeUsername.length < 21;
-    },
-    isAcceptableName() {
-      return this.employeeName.length > 2 && this.employeeName.length < 15;
-    },
-    isAcceptableSurname() {
-      return this.employeeSurname.length > 2 && this.employeeSurname.length < 21;
-    },
-    isAcceptableEmail() {
-      return this.employeeEmail.length > 7 && this.employeeEmail.length < 61;
-    },
-    isAcceptableProfession() {
-      return this.employeeProfession.length > 4 && this.employeeProfession.length < 31;
-    },
     showModalDetail() {
       this.$refs['modal-add'].show();
     },
@@ -138,11 +123,11 @@ export default {
     },
     addEmployee() {
       var data = {
-        username: this.employeeUsername,
-        name: this.employeeName,
-        surname: this.employeeSurname,
-        email: this.employeeEmail,
-        profession: this.employeeProfession
+        username: this.form.employeeUsername,
+        name: this.form.employeeName,
+        surname: this.form.employeeSurname,
+        email: this.form.employeeEmail,
+        profession: this.form.employeeProfession
       };
       EmployeeVerbsRestfulService.create(data)
         .then(response => {
