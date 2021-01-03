@@ -120,11 +120,31 @@ export default {
   }),
   validations: {
     form: {
-      employeeUsername: {},
-      employeeName: {},
-      employeeSurname: {},
-      employeeEmail: {},
-      employeeProfession: {}
+      employeeUsername: {
+        required,
+        minLength: minLength(6),
+        maxLength: maxLength(20)
+      },
+      employeeName: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(14)
+      },
+      employeeSurname: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(20)
+      },
+      employeeEmail: {
+        required,
+        minLength: minLength(8),
+        maxLength: maxLength(60)
+      },
+      employeeProfession: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(30)
+      }
     }
   },
   methods: {
