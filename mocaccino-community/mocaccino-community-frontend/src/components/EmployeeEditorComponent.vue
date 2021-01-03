@@ -101,6 +101,7 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 
 export default {
   name: 'EmployeeEditorComponent',
+  mixins: [validationMixin],
   data: () => ({
     employeeUsername: '',
     employeeName: '',
@@ -117,10 +118,8 @@ export default {
     professionField: String
   },
   validations: {
-    // TODO
   },
   methods: {
-    // TODO
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
