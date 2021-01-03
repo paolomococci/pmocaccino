@@ -64,6 +64,18 @@ export default {
     }
   },
   methods: {
+    onValidateForm(companyName) {
+      // TODO
+    },
+    onResetForm() {
+      // TODO
+    },
+    onSubmitForm() {
+      // TODO
+    },
+    onConfirm() {
+      // TODO
+    },
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
