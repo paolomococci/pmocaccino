@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import { validationMixin } from "vuelidate";
+import { required, minLength, maxLength, helpers } from "vuelidate/lib/validators";
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
 export default {
@@ -71,21 +73,8 @@ export default {
     contestDescription: '',
     contestDate: ''
   }),
-  computed: {
-    acceptableName() {
-      return this.isAcceptableName();
-    },
-    acceptableTitle() {
-      return this.isAcceptableTitle();
-    },
-    acceptableDescription() {
-      return this.isAcceptableDescription();
-    },
-    validateForm() {
-      return this.acceptableName && 
-        this.acceptableTitle && 
-        this.acceptableDescription;
-    }
+  validations: {
+    // TODO
   },
   methods: {
     isAcceptableName() {
