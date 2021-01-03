@@ -44,7 +44,9 @@ export default {
   name: 'CompanyEditorComponent',
   mixins: [validationMixin],
   data: () => ({
-    companyName: ''
+    form: {
+      companyName: ''
+    }
   }),
   props: {
     uri: String,
