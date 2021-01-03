@@ -67,6 +67,7 @@ import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
 export default {
   name: 'ContestAddComponent',
+  mixins: [validationMixin],
   data: () => ({
     contestName: '',
     contestTitle: '',
@@ -74,18 +75,8 @@ export default {
     contestDate: ''
   }),
   validations: {
-    // TODO
   },
   methods: {
-    isAcceptableName() {
-      return this.contestName.length > 9 && this.contestName.length < 21;
-    },
-    isAcceptableTitle() {
-      return this.contestTitle.length > 7 && this.contestTitle.length < 31;
-    },
-    isAcceptableDescription() {
-      return this.contestDescription.length > 19 && this.contestDescription.length < 51;
-    },
     showModalDetail() {
       this.$refs['modal-add'].show();
     },
@@ -94,10 +85,10 @@ export default {
     },
     addContest() {
       var data = {
-        name: this.contestName,
-        title: this.contestTitle,
-        description: this.contestDescription,
-        date: this.contestDate
+        name: this.form.contestName,
+        title: this.form.contestTitle,
+        description: this.form.contestDescription,
+        date: this.form.contestDate
       };
       ContestVerbsRestfulService.create(data)
         .then(response => {
