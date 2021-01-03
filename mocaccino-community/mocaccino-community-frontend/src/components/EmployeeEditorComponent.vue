@@ -128,11 +128,11 @@ export default {
     },
     updateEmployee() {
       var data = {
-        name: this.employeeName,
-        surname: this.employeeSurname,
-        email: this.employeeEmail,
+        name: this.form.employeeName,
+        surname: this.form.employeeSurname,
+        email: this.form.employeeEmail,
         profession: this.employeeProfession,
-        username: this.employeeUsername
+        username: this.form.employeeUsername
       };
       EmployeeVerbsRestfulService.partialUpdate(this.uri, data)
         .then(response => {
