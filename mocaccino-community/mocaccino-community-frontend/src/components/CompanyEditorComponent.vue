@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import { validationMixin } from "vuelidate";
+import { required, minLength, maxLength, helpers } from "vuelidate/lib/validators";
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 
 export default {
@@ -48,10 +50,7 @@ export default {
     nameField: String
   },
   methods: {
-    isAcceptable() {
-      if (this.companyName == null) this.companyName = '';
-      return this.companyName.length > 7 && this.companyName.length < 31;
-    },
+    // TODO
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
