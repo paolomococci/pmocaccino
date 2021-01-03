@@ -81,18 +81,7 @@ export default {
     // TODO
   },
   methods: {
-    isAcceptableName() {
-      if (this.contestName == null) this.contestName = '';
-      return this.contestName.length > 9 && this.contestName.length < 21;
-    },
-    isAcceptableTitle() {
-      if (this.contestTitle == null) this.contestTitle = '';
-      return this.contestTitle.length > 7 && this.contestTitle.length < 31;
-    },
-    isAcceptableDescription() {
-      if (this.contestDescription == null) this.contestDescription = '';
-      return this.contestDescription.length > 19 && this.contestDescription.length < 51;
-    },
+    // TODO
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
