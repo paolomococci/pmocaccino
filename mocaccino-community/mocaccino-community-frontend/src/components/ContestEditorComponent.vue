@@ -64,6 +64,7 @@ import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
 export default {
   name: 'ContestEditorComponent',
+  mixins: [validationMixin],
   data: () => ({
     contestName: '',
     contestTitle: '',
@@ -78,10 +79,8 @@ export default {
     dateField: String
   },
   validations: {
-    // TODO
   },
   methods: {
-    // TODO
     showModalDetail() {
       this.$refs['modal-edit'].show();
     },
