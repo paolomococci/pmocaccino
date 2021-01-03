@@ -27,6 +27,11 @@
         @click="hideModalDetail">cancel</b-button>
       <b-button 
         class="mt-3" 
+        variant="outline-warning" 
+        block 
+        @click="onResetForm()">reset</b-button>
+      <b-button 
+        class="mt-3" 
         variant="outline-primary" 
         block 
         type="submit">update</b-button>
