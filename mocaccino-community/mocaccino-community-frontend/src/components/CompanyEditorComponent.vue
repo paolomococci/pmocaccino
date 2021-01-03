@@ -48,6 +48,9 @@ export default {
   props: {
     uri: String,
     nameField: String
+  },,
+  validations: {
+    // TODO
   },
   methods: {
     // TODO
