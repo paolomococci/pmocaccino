@@ -159,7 +159,12 @@ export default {
       });
     },
     onSubmitForm() {
-      // TODO
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) {
+        this.onResetForm();
+        return;
+      }
+      this.onConfirm();
     },
     onConfirm() {
       this.messageBoxToConfirmDeletion = '';
