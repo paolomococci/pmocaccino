@@ -49,7 +49,7 @@
               :state="onValidateFormEmployeeSurname('employeeSurname')" 
               aria-describedby="input-surname-feedback-invalid"></b-form-input>
             <b-form-invalid-feedback id="input-surname-feedback-invalid">
-              must be 6 to 20 characters long; moreover only numeric and alphabetic characters are accepted, both uppercase and lowercase
+              must be 3 to 20 characters long; moreover only alphabetic characters are accepted, both uppercase and lowercase
             </b-form-invalid-feedback>
             <b-form-valid-feedback id="input-surname-feedback-valid">
               all right
@@ -64,7 +64,7 @@
               :state="onValidateFormEmployeeEmail('employeeEmail')" 
               aria-describedby="input-email-feedback-invalid"></b-form-input>
             <b-form-invalid-feedback id="input-email-feedback-invalid">
-              must be 6 to 20 characters long; moreover only numeric and alphabetic characters are accepted, both uppercase and lowercase
+              must be 8 to 60 characters long
             </b-form-invalid-feedback>
             <b-form-valid-feedback id="input-email-feedback-valid">
               all right
