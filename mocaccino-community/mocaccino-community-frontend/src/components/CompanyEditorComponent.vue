@@ -74,7 +74,8 @@ export default {
   },
   methods: {
     onValidateForm(companyName) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[companyName];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       // TODO
