@@ -22,16 +22,17 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- name field -->
-          <b-form-group>
-            <label for="feedback-name">name</label>
+          <b-form-group id="input-name-group" label="name" label-for="input-name">
             <b-form-input 
-              v-model="employeeName" 
-              :state="acceptableName" 
-              id="feedback-name"></b-form-input>
-            <b-form-invalid-feedback :state="acceptableName">
-              name of new employee must be 3 to 14 characters long
+              id="input-name" 
+              name="input-name" 
+              v-model="$v.form.employeeName.$model" 
+              :state="onValidateFormEmployeeName('employeeName')" 
+              aria-describedby="input-name-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-name-feedback-invalid">
+              must be 3 to 14 characters long; moreover only alphabetic characters are accepted, both uppercase and lowercase
             </b-form-invalid-feedback>
-            <b-form-valid-feedback :state="acceptableName">
+            <b-form-valid-feedback id="input-name-feedback-valid">
               all right
             </b-form-valid-feedback>
           </b-form-group>
