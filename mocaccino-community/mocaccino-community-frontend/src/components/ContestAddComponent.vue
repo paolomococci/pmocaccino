@@ -145,7 +145,7 @@ export default {
       const { $dirty, $error } = this.$v.form[contestDescription];
       return $dirty ? !$error : null;
     },
-    onValidateFormContestDate(contestDate) {
+    onValidateFormContestDate() {
       // TODO
     },
     onResetForm() {
