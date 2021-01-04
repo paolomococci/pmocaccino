@@ -150,7 +150,7 @@ export default {
     }
   },
   methods: {
-    onValidateForm(companyName) {
+    onValidateForm(employeeUsername) {
       // TODO
     },
     onResetForm() {
