@@ -223,11 +223,11 @@ export default {
     }
   },
   mounted() {
-    this.employeeUsername = this.usernameField;
-    this.employeeName = this.nameField;
-    this.employeeSurname = this.surnameField;
-    this.employeeEmail = this.emailField;
-    this.employeeProfession = this.professionField;
+    this.form.employeeUsername = this.usernameField;
+    this.form.employeeName = this.nameField;
+    this.form.employeeSurname = this.surnameField;
+    this.form.employeeEmail = this.emailField;
+    this.form.employeeProfession = this.professionField;
   }
 }
 </script>
