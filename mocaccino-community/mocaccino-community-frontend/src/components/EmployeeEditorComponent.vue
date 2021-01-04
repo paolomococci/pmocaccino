@@ -193,7 +193,16 @@ export default {
       return $dirty ? !$error : null;
     },
     onResetForm() {
-      // TODO
+      this.form = {
+        employeeUsername: '',
+        employeeName: '',
+        employeeSurname: '',
+        employeeEmail: '',
+        employeeProfession: ''
+      };
+      this.$nextTick(() => {
+        this.$v.$reset();
+      });
     },
     onSubmitForm() {
       // TODO
