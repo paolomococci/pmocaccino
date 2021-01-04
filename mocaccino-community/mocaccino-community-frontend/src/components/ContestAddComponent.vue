@@ -26,13 +26,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- title field -->
-          <label for="feedback-title">title</label>
-          <b-form-input 
-            placeholder="must be 8 to 30 characters long"
-            required
-            v-model="contestTitle" 
-            :state="acceptableTitle" 
-            id="feedback-title"></b-form-input>
+          <b-form-group id="input-title-group" label="title" label-for="input-title">
+            <b-form-input 
+              id="input-title" 
+              name="input-title" 
+              v-model="$v.form.contestTitle.$model" 
+              :state="onValidateFormContestTitle('contestTitle')" 
+              aria-describedby="input-title-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-title-feedback-invalid">
+              must be 8 to 30 characters long, moreover the symbols are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-title-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- description field -->
           <label for="feedback-description">description</label>
           <b-form-input 
