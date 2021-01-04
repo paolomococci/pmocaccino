@@ -56,14 +56,17 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- date field -->
-          <label for="contest-date-picker">choose a date</label>
-          <b-form-datepicker 
-            id="contest-date-picker" 
-            v-model="contestDate" 
-            menu-class="w-100" 
-            calendar-width="100%" 
-            class="mb-2"
-            locale="en-US"></b-form-datepicker>
+          <b-form-group id="input-date-group" label="choose a date" label-for="contest-date-picker">
+            <b-form-datepicker 
+              id="contest-date-picker" 
+              v-model="contestDate" 
+              menu-class="w-100" 
+              calendar-width="100%" 
+              class="mb-2"
+              locale="en-US" 
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+          </b-form-group>
+          <!-- buttons -->
           <b-button 
             class="mt-3" 
             variant="outline-secondary" 
