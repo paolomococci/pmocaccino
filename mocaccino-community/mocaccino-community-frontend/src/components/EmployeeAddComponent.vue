@@ -109,7 +109,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength, email, helpers } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, alpha, alphaNum, email, helpers } from 'vuelidate/lib/validators'
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 const employeeUsernameRegex = helpers.regex('employeeUsernameRegex', /^[a-zA-Z0-9]*$/);
