@@ -106,7 +106,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, email, helpers } from 'vuelidate/lib/validators'
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
 const templateCharactersAcceptedAsValid = helpers.regex('templateCharactersAcceptedAsValid', /^[a-z]*$/);
@@ -141,22 +141,26 @@ export default {
       employeeName: {
         required,
         minLength: minLength(3),
-        maxLength: maxLength(14)
+        maxLength: maxLength(14),
+        employeeNameSurnameProfessionRegex
       },
       employeeSurname: {
         required,
         minLength: minLength(3),
-        maxLength: maxLength(20)
+        maxLength: maxLength(20),
+        employeeNameSurnameProfessionRegex
       },
       employeeEmail: {
         required,
         minLength: minLength(8),
-        maxLength: maxLength(60)
+        maxLength: maxLength(60),
+        email
       },
       employeeProfession: {
         required,
         minLength: minLength(5),
-        maxLength: maxLength(30)
+        maxLength: maxLength(30),
+        employeeNameSurnameProfessionRegex
       }
     }
   },
