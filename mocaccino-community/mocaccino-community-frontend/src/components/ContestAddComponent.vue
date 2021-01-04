@@ -11,13 +11,20 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- name field -->
-          <label for="feedback-name">name</label>
-          <b-form-input 
-            placeholder="must be 10 to 20 characters long"
-            required
-            v-model="contestName" 
-            :state="acceptableName" 
-            id="feedback-name"></b-form-input>
+          <b-form-group id="input-name-group" label="name" label-for="input-name">
+            <b-form-input 
+              id="input-name" 
+              name="input-name" 
+              v-model="$v.form.contestName.$model" 
+              :state="onValidateFormContestName('contestName')" 
+              aria-describedby="input-name-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-name-feedback-invalid">
+              must be 10 to 20 characters long, moreover the symbols and white space are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-name-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- title field -->
           <label for="feedback-title">title</label>
           <b-form-input 
