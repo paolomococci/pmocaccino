@@ -71,19 +71,21 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- profession field -->
-          <b-form-group>
-            <label for="feedback-profession">profession</label>
+          <b-form-group id="input-profession-group" label="profession" label-for="input-profession">
             <b-form-input 
-              v-model="employeeProfession" 
-              :state="acceptableProfession" 
-              id="feedback-profession"></b-form-input>
-            <b-form-invalid-feedback :state="acceptableProfession">
-              profession of new employee must be 5 to 30 characters long
+              id="input-profession" 
+              name="input-profession" 
+              v-model="$v.form.employeeProfession.$model" 
+              :state="onValidateFormEmployeeProfession('employeeProfession')" 
+              aria-describedby="input-profession-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-profession-feedback-invalid">
+              must be 5 to 30 characters long; moreover only alphabetic characters are accepted, both uppercase and lowercase
             </b-form-invalid-feedback>
-            <b-form-valid-feedback :state="acceptableProfession">
+            <b-form-valid-feedback id="input-profession-feedback-valid">
               all right
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- buttons -->
           <b-button 
             class="mt-3" 
             variant="outline-secondary" 
