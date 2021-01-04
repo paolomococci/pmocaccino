@@ -22,6 +22,7 @@
               all right
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- buttons -->
           <b-button 
             class="mt-3" 
             variant="outline-secondary" 
