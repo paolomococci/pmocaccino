@@ -138,7 +138,8 @@ export default {
   },
   methods: {
     onValidateFormContestName(contestName) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[contestName];
+      return $dirty ? !$error : null;
     },
     onValidateFormContestTitle(contestTitle) {
       // TODO
