@@ -149,8 +149,11 @@ export default {
       const { $dirty, $error } = this.$v.form[contestDescription];
       return $dirty ? !$error : null;
     },
-    onValidateFormContestDate() {
-      // TODO
+    onValidateFormContestDate(contestDate) {
+      var today = new Date();
+      today.setHours(0,0,0,0);
+      const { $dirty, $error } = this.$v.form[contestDate];
+      return ($dirty && contestDate<today) ? !$error : null;
     },
     onResetForm() {
       this.form = {
