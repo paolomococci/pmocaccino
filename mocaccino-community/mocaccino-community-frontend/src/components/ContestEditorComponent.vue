@@ -196,10 +196,10 @@ export default {
     }
   },
   mounted() {
-    this.contestName = this.nameField;
-    this.contestTitle = this.titleField;
-    this.contestDescription = this.descriptionField;
-    this.contestDate = this.dateField;
+    this.form.contestName = this.nameField;
+    this.form.contestTitle = this.titleField;
+    this.form.contestDescription = this.descriptionField;
+    this.form.contestDate = this.dateField;
   }
 }
 </script>
