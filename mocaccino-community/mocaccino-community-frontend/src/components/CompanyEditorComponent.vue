@@ -107,7 +107,7 @@ export default {
         centered: true
       }).then(value => {
         if(value) {
-          // TODO
+          this.updateCompany();
         }
       });
     },
