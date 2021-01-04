@@ -78,7 +78,12 @@ export default {
       return $dirty ? !$error : null;
     },
     onResetForm() {
-      // TODO
+      this.form = {
+        companyName: ''
+      };
+      this.$nextTick(() => {
+        this.$v.$reset();
+      });
     },
     onSubmitForm() {
       // TODO
