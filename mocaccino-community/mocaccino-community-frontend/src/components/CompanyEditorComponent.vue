@@ -7,17 +7,21 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
-          <label for="feedback-name">name</label>
-          <b-form-input 
-            v-model="companyName" 
-            :state="acceptable" 
-            id="feedback-name"></b-form-input>
-          <b-form-invalid-feedback :state="acceptable">
-            must be 8 to 30 characters long, moreover the symbols and white space are prohibited
-          </b-form-invalid-feedback>
-          <b-form-valid-feedback :state="acceptable">
-            all right
-          </b-form-valid-feedback>
+          <!-- name field -->
+          <b-form-group id="input-name-group" label="name" label-for="input-name">
+            <b-form-input 
+              id="input-name" 
+              name="input-name" 
+              v-model="$v.form.companyName.$model" 
+              :state="onValidateForm('companyName')" 
+              aria-describedby="input-name-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-name-feedback-invalid">
+              must be 8 to 30 characters long, moreover the symbols and white space are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-name-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <b-button 
             class="mt-3" 
             variant="outline-secondary" 
@@ -125,7 +129,7 @@ export default {
     }
   },
   mounted() {
-    this.companyName = this.nameField;
+    this.form.companyName = this.nameField;
   }
 }
 </script>
