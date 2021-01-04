@@ -56,16 +56,17 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- email field -->
-          <b-form-group>
-            <label for="feedback-email">email</label>
+          <b-form-group id="input-email-group" label="email" label-for="input-email">
             <b-form-input 
-              v-model="employeeEmail" 
-              :state="acceptableEmail" 
-              id="feedback-email"></b-form-input>
-            <b-form-invalid-feedback :state="acceptableEmail">
-              email of new employee must be 8 to 60 characters long
+              id="input-email" 
+              name="input-email" 
+              v-model="$v.form.employeeEmail.$model" 
+              :state="onValidateFormEmployeeEmail('employeeEmail')" 
+              aria-describedby="input-email-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-email-feedback-invalid">
+              must be 6 to 20 characters long; moreover only numeric and alphabetic characters are accepted, both uppercase and lowercase
             </b-form-invalid-feedback>
-            <b-form-valid-feedback :state="acceptableEmail">
+            <b-form-valid-feedback id="input-email-feedback-valid">
               all right
             </b-form-valid-feedback>
           </b-form-group>
