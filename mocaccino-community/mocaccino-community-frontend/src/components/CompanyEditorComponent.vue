@@ -13,7 +13,7 @@
               id="input-name" 
               name="input-name" 
               v-model="$v.form.companyName.$model" 
-              :state="onValidateForm('companyName')" 
+              :state="onValidateFormCompanyName('companyName')" 
               aria-describedby="input-name-feedback-invalid"></b-form-input>
             <b-form-invalid-feedback id="input-name-feedback-invalid">
               must be 8 to 30 characters long, moreover the symbols and white space are prohibited
@@ -73,7 +73,7 @@ export default {
     }
   },
   methods: {
-    onValidateForm(companyName) {
+    onValidateFormCompanyName(companyName) {
       const { $dirty, $error } = this.$v.form[companyName];
       return $dirty ? !$error : null;
     },
