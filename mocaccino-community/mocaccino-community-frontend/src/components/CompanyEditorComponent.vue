@@ -6,35 +6,35 @@
     <b-modal ref="modal-edit" hide-footer :title="uri">
       <div class="d-block text-center">
         <h3>fields</h3>
-        <b-form  @submit.stop.prevent>
+        <b-form  @submit.stop.prevent="onSubmitForm">
           <label for="feedback-name">name</label>
           <b-form-input 
             v-model="companyName" 
             :state="acceptable" 
             id="feedback-name"></b-form-input>
           <b-form-invalid-feedback :state="acceptable">
-            name of new company must be 8 to 30 characters long
+            must be 8 to 30 characters long, moreover the symbols and white space are prohibited
           </b-form-invalid-feedback>
           <b-form-valid-feedback :state="acceptable">
             all right
           </b-form-valid-feedback>
+          <b-button 
+            class="mt-3" 
+            variant="outline-secondary" 
+            block 
+            @click="hideModalDetail">cancel</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-warning" 
+            block 
+            @click="onResetForm()">reset</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-primary" 
+            block 
+            type="submit">update</b-button>
         </b-form>
       </div>
-      <b-button 
-        class="mt-3" 
-        variant="outline-secondary" 
-        block 
-        @click="hideModalDetail">cancel</b-button>
-      <b-button 
-        class="mt-3" 
-        variant="outline-warning" 
-        block 
-        @click="onResetForm()">reset</b-button>
-      <b-button 
-        class="mt-3" 
-        variant="outline-primary" 
-        block 
-        type="submit">update</b-button>
     </b-modal>
   </section>
 </template>
