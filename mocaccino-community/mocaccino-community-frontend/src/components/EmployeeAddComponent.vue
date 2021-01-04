@@ -150,7 +150,19 @@ export default {
     }
   },
   methods: {
-    onValidateForm(employeeUsername) {
+    onValidateFormEmployeeUsername(employeeUsername) {
+      // TODO
+    },
+    onValidateFormEmployeeName(employeeName) {
+      // TODO
+    },
+    onValidateFormEmployeeSurname(employeeSurname) {
+      // TODO
+    },
+    onValidateFormEmployeeEmail(employeeEmail) {
+      // TODO
+    },
+    onValidateFormEmployeeProfession(employeeProfession) {
       // TODO
     },
     onResetForm() {
