@@ -8,16 +8,17 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- username field -->
-          <b-form-group>
-            <label for="feedback-username">username</label>
+          <b-form-group id="input-username-group" label="username" label-for="input-username">
             <b-form-input 
-              v-model="employeeUsername" 
-              :state="acceptableUsername" 
-              id="feedback-username"></b-form-input>
-            <b-form-invalid-feedback :state="acceptableUsername">
-              username of new employee must be 6 to 20 characters long
+              id="input-username" 
+              name="input-username" 
+              v-model="$v.form.employeeUsername.$model" 
+              :state="onValidateFormEmployeeUsername('employeeUsername')" 
+              aria-describedby="input-username-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-username-feedback-invalid">
+              must be 6 to 20 characters long; moreover only numeric and alphabetic characters are accepted, both uppercase and lowercase
             </b-form-invalid-feedback>
-            <b-form-valid-feedback :state="acceptableUsername">
+            <b-form-valid-feedback id="input-username-feedback-valid">
               all right
             </b-form-valid-feedback>
           </b-form-group>
