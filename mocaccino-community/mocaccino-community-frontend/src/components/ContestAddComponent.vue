@@ -9,7 +9,7 @@
     <b-modal ref="modal-add" hide-footer title="enter the details of a new contest">
       <div class="d-block text-center">
         <h3>fields</h3>
-        <b-form  @submit.stop.prevent>
+        <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- name field -->
           <label for="feedback-name">name</label>
           <b-form-input 
@@ -43,23 +43,23 @@
             calendar-width="100%" 
             class="mb-2"
             locale="en-US"></b-form-datepicker>
+          <b-button 
+            class="mt-3" 
+            variant="outline-secondary" 
+            block 
+            @click="hideModalDetail">cancel</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-warning" 
+            block 
+            @click="onResetForm()">reset</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-primary" 
+            block 
+            type="submit">save</b-button>
         </b-form>
       </div>
-      <b-button 
-        class="mt-3" 
-        variant="outline-secondary" 
-        block 
-        @click="hideModalDetail">cancel</b-button>
-      <b-button 
-        class="mt-3" 
-        variant="outline-warning" 
-        block 
-        @click="onResetForm()">reset</b-button>
-      <b-button 
-        class="mt-3" 
-        variant="outline-primary" 
-        block 
-        type="submit">save</b-button>
     </b-modal>
   </section>
 </template>
