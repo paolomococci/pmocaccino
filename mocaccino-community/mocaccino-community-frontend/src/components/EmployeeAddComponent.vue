@@ -172,16 +172,20 @@ export default {
       return $dirty ? !$error : null;
     },
     onValidateFormEmployeeName(employeeName) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[employeeName];
+      return $dirty ? !$error : null;
     },
     onValidateFormEmployeeSurname(employeeSurname) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[employeeSurname];
+      return $dirty ? !$error : null;
     },
     onValidateFormEmployeeEmail(employeeEmail) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[employeeEmail];
+      return $dirty ? !$error : null;
     },
     onValidateFormEmployeeProfession(employeeProfession) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[employeeProfession];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       // TODO
