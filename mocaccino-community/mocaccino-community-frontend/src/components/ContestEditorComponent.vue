@@ -142,10 +142,12 @@ export default {
       return $dirty ? !$error : null;
     },
     onValidateFormContestTitle(contestTitle) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[contestTitle];
+      return $dirty ? !$error : null;
     },
     onValidateFormContestDescription(contestDescription) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[contestDescription];
+      return $dirty ? !$error : null;
     },
     onValidateFormContestDate(contestDate) {
       // TODO
