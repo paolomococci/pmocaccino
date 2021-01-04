@@ -13,15 +13,15 @@
           <!-- name field -->
           <b-form-group id="input-name-group" label="name" label-for="input-name">
             <b-form-input 
-              id="input-name"
-              name="input-name"
+              id="input-name" 
+              name="input-name" 
               v-model="$v.form.companyName.$model" 
               :state="onValidateForm('companyName')" 
               aria-describedby="input-name-feedback-invalid"></b-form-input>
             <b-form-invalid-feedback id="input-name-feedback-invalid">
               must be 8 to 30 characters long, moreover the symbols and white space are prohibited
             </b-form-invalid-feedback>
-            <b-form-valid-feedback>
+            <b-form-valid-feedback id="input-name-feedback-valid">
               all right
             </b-form-valid-feedback>
           </b-form-group>
