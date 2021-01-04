@@ -115,8 +115,7 @@ import {
   maxLength, 
   alpha, 
   alphaNum, 
-  email, 
-  helpers
+  email
  } from 'vuelidate/lib/validators'
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
 
