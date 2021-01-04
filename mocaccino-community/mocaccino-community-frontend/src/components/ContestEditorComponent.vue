@@ -153,7 +153,14 @@ export default {
       // TODO
     },
     onResetForm() {
-      // TODO
+      this.form = {
+        contestName: '',
+        contestTitle: '',
+        contestDescription: ''
+      };
+      this.$nextTick(() => {
+        this.$v.$reset();
+      });
     },
     onSubmitForm() {
       // TODO
