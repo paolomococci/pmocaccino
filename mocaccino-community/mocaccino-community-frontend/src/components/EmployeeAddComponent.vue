@@ -9,7 +9,7 @@
     <b-modal ref="modal-add" hide-footer title="enter the details of a new employee">
       <div class="d-block text-center">
         <h3>fields</h3>
-        <b-form  @submit.stop.prevent>
+        <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- username field -->
           <b-form-group>
             <label for="feedback-username">username</label>
@@ -80,23 +80,23 @@
               all right
             </b-form-valid-feedback>
           </b-form-group>
+          <b-button 
+            class="mt-3" 
+            variant="outline-secondary" 
+            block 
+            @click="hideModalDetail">cancel</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-warning" 
+            block 
+            @click="onResetForm()">reset</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-primary" 
+            block 
+            type="submit">save</b-button>
         </b-form>
       </div>
-      <b-button 
-        class="mt-3" 
-        variant="outline-secondary" 
-        block 
-        @click="hideModalDetail">cancel</b-button>
-      <b-button 
-        class="mt-3" 
-        variant="outline-warning" 
-        block 
-        @click="onResetForm()">reset</b-button>
-      <b-button 
-        class="mt-3" 
-        variant="outline-primary" 
-        block 
-        type="submit">save</b-button>
     </b-modal>
   </section>
 </template>
