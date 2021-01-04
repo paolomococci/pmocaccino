@@ -109,7 +109,7 @@ export default {
     }
   },
   methods: {
-    onValidateForm(companyName) {
+    onValidateForm(contestName) {
       // TODO
     },
     onResetForm() {
