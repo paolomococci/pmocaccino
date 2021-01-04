@@ -106,10 +106,16 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength, email, helpers } from 'vuelidate/lib/validators'
+import { 
+  required, 
+  minLength, 
+  maxLength, 
+  alpha, 
+  alphaNum, 
+  email, 
+  helpers
+ } from 'vuelidate/lib/validators'
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
-
-const templateCharactersAcceptedAsValid = helpers.regex('templateCharactersAcceptedAsValid', /^[a-z]*$/);
 
 export default {
   name: 'EmployeeEditorComponent',
@@ -136,19 +142,20 @@ export default {
       employeeUsername: {
         required,
         minLength: minLength(6),
-        maxLength: maxLength(20)
+        maxLength: maxLength(20),
+        alphaNum
       },
       employeeName: {
         required,
         minLength: minLength(3),
         maxLength: maxLength(14),
-        employeeNameSurnameProfessionRegex
+        alpha
       },
       employeeSurname: {
         required,
         minLength: minLength(3),
         maxLength: maxLength(20),
-        employeeNameSurnameProfessionRegex
+        alpha
       },
       employeeEmail: {
         required,
@@ -160,7 +167,7 @@ export default {
         required,
         minLength: minLength(5),
         maxLength: maxLength(30),
-        employeeNameSurnameProfessionRegex
+        alpha
       }
     }
   },
