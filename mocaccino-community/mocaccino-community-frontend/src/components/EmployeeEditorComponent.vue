@@ -38,16 +38,17 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- surname field -->
-          <b-form-group>
-            <label for="feedback-surname">surname</label>
+          <b-form-group id="input-surname-group" label="surname" label-for="input-surname">
             <b-form-input 
-              v-model="employeeSurname" 
-              :state="acceptableSurname" 
-              id="feedback-surname"></b-form-input>
-            <b-form-invalid-feedback :state="acceptableSurname">
-              surname of new employee must be 3 to 20 characters long
+              id="input-surname" 
+              name="input-surname" 
+              v-model="$v.form.employeeSurname.$model" 
+              :state="onValidateFormEmployeeSurname('employeeSurname')" 
+              aria-describedby="input-surname-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-surname-feedback-invalid">
+              must be 6 to 20 characters long; moreover only numeric and alphabetic characters are accepted, both uppercase and lowercase
             </b-form-invalid-feedback>
-            <b-form-valid-feedback :state="acceptableSurname">
+            <b-form-valid-feedback id="input-surname-feedback-valid">
               all right
             </b-form-valid-feedback>
           </b-form-group>
