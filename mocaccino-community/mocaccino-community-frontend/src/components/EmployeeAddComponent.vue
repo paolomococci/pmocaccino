@@ -168,7 +168,8 @@ export default {
   },
   methods: {
     onValidateFormEmployeeUsername(employeeUsername) {
-      // TODO
+      const { $dirty, $error } = this.$v.form[employeeUsername];
+      return $dirty ? !$error : null;
     },
     onValidateFormEmployeeName(employeeName) {
       // TODO
