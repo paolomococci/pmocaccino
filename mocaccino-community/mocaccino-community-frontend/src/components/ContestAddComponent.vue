@@ -41,13 +41,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- description field -->
-          <label for="feedback-description">description</label>
-          <b-form-input 
-            placeholder="must be 20 to 50 characters long"
-            required
-            v-model="contestDescription" 
-            :state="acceptableDescription" 
-            id="feedback-description"></b-form-input>
+          <b-form-group id="input-description-group" label="description" label-for="input-description">
+            <b-form-input 
+              id="input-description" 
+              name="input-description" 
+              v-model="$v.form.contestDescription.$model" 
+              :state="onValidateFormContestDescription('contestDescription')" 
+              aria-describedby="input-description-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-description-feedback-invalid">
+              must be 20 to 50 characters long, moreover the symbols are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-description-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- date field -->
           <label for="contest-date-picker">choose a date</label>
           <b-form-datepicker 
