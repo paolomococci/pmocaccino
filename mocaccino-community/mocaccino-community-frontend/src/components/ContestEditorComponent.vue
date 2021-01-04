@@ -8,38 +8,62 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- name field -->
-          <label for="feedback-name">name</label>
-          <b-form-input 
-            placeholder="must be 10 to 20 characters long"
-            required
-            v-model="contestName" 
-            :state="acceptableName" 
-            id="feedback-name"></b-form-input>
+          <b-form-group id="input-name-group" label="name" label-for="input-name">
+            <b-form-input 
+              id="input-name" 
+              name="input-name" 
+              v-model="$v.form.contestName.$model" 
+              :state="onValidateFormContestName('contestName')" 
+              aria-describedby="input-name-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-name-feedback-invalid">
+              must be 10 to 20 characters long, moreover the symbols and white space are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-name-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- title field -->
-          <label for="feedback-title">title</label>
-          <b-form-input 
-            placeholder="must be 8 to 30 characters long"
-            required
-            v-model="contestTitle" 
-            :state="acceptableTitle" 
-            id="feedback-title"></b-form-input>
+          <b-form-group id="input-title-group" label="title" label-for="input-title">
+            <b-form-input 
+              id="input-title" 
+              name="input-title" 
+              v-model="$v.form.contestTitle.$model" 
+              :state="onValidateFormContestTitle('contestTitle')" 
+              aria-describedby="input-title-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-title-feedback-invalid">
+              must be 8 to 30 characters long, moreover the symbols are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-title-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- description field -->
-          <label for="feedback-description">description</label>
-          <b-form-input 
-            placeholder="must be 20 to 50 characters long"
-            required
-            v-model="contestDescription" 
-            :state="acceptableDescription" 
-            id="feedback-description"></b-form-input>
+          <b-form-group id="input-description-group" label="description" label-for="input-description">
+            <b-form-input 
+              id="input-description" 
+              name="input-description" 
+              v-model="$v.form.contestDescription.$model" 
+              :state="onValidateFormContestDescription('contestDescription')" 
+              aria-describedby="input-description-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-description-feedback-invalid">
+              must be 20 to 50 characters long, moreover the symbols are prohibited
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-description-feedback-valid">
+              all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- date field -->
-          <label for="contest-date-picker">choose a date</label>
-          <b-form-datepicker 
-            id="contest-date-picker" 
-            v-model="contestDate" 
-            menu-class="w-100" 
-            calendar-width="100%" 
-            class="mb-2"
-            locale="en-US"></b-form-datepicker>
+          <b-form-group id="input-date-group" label="choose a date" label-for="contest-date-picker">
+            <b-form-datepicker 
+              id="contest-date-picker" 
+              v-model="contestDate" 
+              menu-class="w-100" 
+              calendar-width="100%" 
+              class="mb-2"
+              locale="en-US" 
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+          </b-form-group>
+          <!-- buttons -->
           <b-button 
             class="mt-3" 
             variant="outline-secondary" 
