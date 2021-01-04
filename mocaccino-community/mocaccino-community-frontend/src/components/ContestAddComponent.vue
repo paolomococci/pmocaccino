@@ -93,7 +93,8 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
-const templateCharactersAcceptedAsValid = helpers.regex('templateCharactersAcceptedAsValid', /^[a-z]*$/);
+const contestNameRegex = helpers.regex('contestNameRegex', /^[a-zA-Z0-9-_]*$/);
+const contestTitleAndDescriptionRegex = helpers.regex('contestTitleAndDescriptionRegex', /^[a-zA-Z0-9-_\s]*$/);
 
 export default {
   name: 'ContestAddComponent',
@@ -111,17 +112,20 @@ export default {
       contestName: {
         required,
         minLength: minLength(10),
-        maxLength: maxLength(20)
+        maxLength: maxLength(20),
+        contestNameRegex
         },
       contestTitle: {
         required,
         minLength: minLength(8),
-        maxLength: maxLength(30)
+        maxLength: maxLength(30),
+        contestTitleAndDescriptionRegex
         },
       contestDescription: {
         required,
         minLength: minLength(20),
-        maxLength: maxLength(50)
+        maxLength: maxLength(50),
+        contestTitleAndDescriptionRegex
       },
       contestDate: {
         required
