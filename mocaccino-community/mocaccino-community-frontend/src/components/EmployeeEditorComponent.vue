@@ -83,21 +83,21 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
-        <b-button 
-          class="mt-3" 
-          variant="outline-secondary" 
-          block 
-          @click="hideModalDetail">cancel</b-button>
-        <b-button 
-          class="mt-3" 
-          variant="outline-warning" 
-          block 
-          @click="onResetForm()">reset</b-button>
-        <b-button 
-          class="mt-3" 
-          variant="outline-primary" 
-          block 
-          type="submit">update</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-secondary" 
+            block 
+            @click="hideModalDetail">cancel</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-warning" 
+            block 
+            @click="onResetForm()">reset</b-button>
+          <b-button 
+            class="mt-3" 
+            variant="outline-primary" 
+            block 
+            type="submit">update</b-button>
         </b-form>
       </div>
     </b-modal>
