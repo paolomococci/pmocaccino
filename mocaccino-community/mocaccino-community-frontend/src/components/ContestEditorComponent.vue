@@ -109,7 +109,16 @@ export default {
     }
   },
   methods: {
-    onValidateForm(contestName) {
+    onValidateFormContestName(contestName) {
+      // TODO
+    },
+    onValidateFormContestTitle(contestTitle) {
+      // TODO
+    },
+    onValidateFormContestDescription(contestDescription) {
+      // TODO
+    },
+    onValidateFormContestDate(contestDate) {
       // TODO
     },
     onResetForm() {
