@@ -57,6 +57,7 @@
             <b-form-datepicker 
               id="contest-date-picker" 
               name="contest-date-picker" 
+              min="minDate" 
               v-model="$v.form.contestDate.$model" 
               :state="onValidateFormContestDate('contestDate')" 
               aria-describedby="input-description-feedback-invalid"
@@ -95,6 +96,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
@@ -111,7 +113,8 @@ export default {
       contestTitle: '',
       contestDescription: '',
       contestDate: ''
-    }
+    }, 
+    minDate: moment()
   }),
   props: {
     uri: String,
