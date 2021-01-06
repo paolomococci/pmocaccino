@@ -18,6 +18,7 @@
 
 package local.mocaccino.community.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import local.mocaccino.community.validator.constraint.CharConstraint;
 import local.mocaccino.community.validator.constraint.NameConstraint;
 
@@ -56,6 +57,7 @@ public class Contest {
 
     @FutureOrPresent
     @Column(name = "DATE")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     @ManyToMany(targetEntity = Employee.class,
