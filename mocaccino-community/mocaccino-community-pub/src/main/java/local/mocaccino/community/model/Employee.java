@@ -19,6 +19,7 @@
 package local.mocaccino.community.model;
 
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
+import local.mocaccino.community.validator.constraint.AlphaDashConstraint;
 import local.mocaccino.community.validator.constraint.AlphaNumericConstraint;
 
 import javax.persistence.*;
@@ -51,7 +52,7 @@ public class Employee {
 	@Column(name = "EMAIL", columnDefinition = "VARCHAR(61)")
 	private String email;
 
-	@AlphaConstraint
+	@AlphaDashConstraint
 	@Size(min = 5, max = 30)
 	@Column(name = "PROFESSION", columnDefinition = "VARCHAR(31)")
 	private String profession;
