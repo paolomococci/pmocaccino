@@ -59,12 +59,21 @@
           <b-form-group id="input-date-group" label="choose a date" label-for="contest-date-picker">
             <b-form-datepicker 
               id="contest-date-picker" 
-              v-model="contestDate" 
+              name="contest-date-picker" 
+              v-model="$v.form.contestDate.$model" 
+              :state="onValidateFormContestDate('contestDate')" 
+              aria-describedby="input-description-feedback-invalid"
               menu-class="w-100" 
               calendar-width="100%" 
               class="mb-2"
               locale="en-US" 
               v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="input-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-description-feedback-valid">
+              all right
+            </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
           <b-button 
@@ -146,10 +155,8 @@ export default {
       return $dirty ? !$error : null;
     },
     onValidateFormContestDate(contestDate) {
-      var today = new Date();
-      today.setHours(0,0,0,0);
       const { $dirty, $error } = this.$v.form[contestDate];
-      return ($dirty || contestDate<today) ? !$error : null;
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
