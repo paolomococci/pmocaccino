@@ -23,11 +23,9 @@ import local.mocaccino.community.validator.constraint.CharConstraint;
 import local.mocaccino.community.validator.constraint.NameConstraint;
 
 import javax.persistence.*;
-import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Size;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -55,10 +53,9 @@ public class Contest {
     @Column(name = "DESCRIPTION", columnDefinition = "VARCHAR(51)")
     private String description;
 
-    @FutureOrPresent
     @Column(name = "DATE")
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date date;
+    private LocalDate date;
 
     @ManyToMany(targetEntity = Employee.class,
             mappedBy = "contests",
@@ -82,7 +79,7 @@ public class Contest {
         return description;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -103,11 +100,7 @@ public class Contest {
     }
 
     public void setDate(String date) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            this.date = simpleDateFormat.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.date = LocalDate.parse(date, dateTimeFormatter);
     }
 }
