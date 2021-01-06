@@ -79,7 +79,7 @@
               :state="onValidateFormEmployeeProfession('employeeProfession')" 
               aria-describedby="input-profession-feedback-invalid"></b-form-input>
             <b-form-invalid-feedback id="input-profession-feedback-invalid">
-              must be 5 to 30 characters long; moreover only alphabetic characters are accepted, both uppercase and lowercase
+              must be 5 to 30 characters long; moreover only alphabetic and dash characters are accepted
             </b-form-invalid-feedback>
             <b-form-valid-feedback id="input-profession-feedback-valid">
               all right
@@ -115,9 +115,12 @@ import {
   maxLength, 
   alpha, 
   alphaNum, 
-  email
+  email, 
+  helpers
  } from 'vuelidate/lib/validators'
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
+
+const employeeProfessionRegex = helpers.regex('employeeProfessionRegex', /^[a-zA-Z-]*$/);
 
 export default {
   name: 'EmployeeAddComponent',
@@ -161,7 +164,7 @@ export default {
         required,
         minLength: minLength(5),
         maxLength: maxLength(30),
-        alpha
+        employeeProfessionRegex
       }
     }
   },
