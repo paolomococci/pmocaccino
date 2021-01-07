@@ -6,6 +6,10 @@
 
 <script>
 export default {
-    name: 'EmployeeSearchResultComponent'
+    name: 'EmployeeSearchResultComponent',
+  data: () => ({}),
+  methods: {},
+  computed: {},
+  mounted() {}
 }
 </script>
