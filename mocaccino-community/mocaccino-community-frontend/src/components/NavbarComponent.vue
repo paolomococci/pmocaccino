@@ -11,8 +11,17 @@
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" :placeholder="placeholderSearch" v-model="textToSearch"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit" @click="search" :disabled="disabledSearchAvailability">search</b-button>
+          <b-form-input 
+            size="sm" 
+            class="mr-sm-2" 
+            :placeholder="placeholderSearch" 
+            v-model="textToSearch"></b-form-input>
+          <b-button 
+            size="sm" 
+            class="my-2 my-sm-0" 
+            type="submit" 
+            @click="search" 
+            :disabled="disabledSearchAvailability">search</b-button>
         </b-nav-form>
         <b-nav-item-dropdown right>
           <template #button-content>
@@ -39,7 +48,8 @@ export default {
       this.$bvToast.toast('you have typed a text to search for', {
         title: `search text: ${this.$store.state.textToSearch}`,
         solid: true
-      })
+      });
+      this.textToSearch = '';
     }
   },
   computed: {
