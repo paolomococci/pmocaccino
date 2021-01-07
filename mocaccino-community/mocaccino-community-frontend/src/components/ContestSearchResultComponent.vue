@@ -6,6 +6,10 @@
 
 <script>
 export default {
-    name: 'ContestSearchResultComponent'
+    name: 'ContestSearchResultComponent',
+  data: () => ({}),
+  methods: {},
+  computed: {},
+  mounted() {}
 }
 </script>
