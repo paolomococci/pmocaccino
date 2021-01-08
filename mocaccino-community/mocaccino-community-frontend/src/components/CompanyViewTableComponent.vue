@@ -7,7 +7,22 @@
 <script>
 export default {
     name: 'CompanyViewTableComponent',
-  data: () => ({}),
+  data: () => ({
+    fields: [
+      {
+        key: 'name',
+        label: 'names',
+        sortable: true
+      },
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ],
+    companies: [],
+    messageBoxToConfirmDeletion: '',
+    textToSearchFor: ''
+  }),
   methods: {},
   computed: {},
   mounted() {}
