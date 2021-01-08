@@ -139,16 +139,6 @@ export default {
           this.deleteItem(uri);
         }
       });
-    },
-    searchByTitle() {
-      ContestVerbsRestfulService.searchByTitle(this.textToSearchFor)
-        .then(response => {
-          this.contests = response.data._embedded.contests;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
     }
   },
   computed: {
