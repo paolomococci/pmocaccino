@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
+
 export default {
     name: 'ContestViewTableComponent',
   data: () => ({
@@ -27,7 +29,18 @@ export default {
     messageBoxToConfirmDeletion: '',
     textToSearchFor: ''
   }),
-  methods: {},
+  methods: {
+    retrieveContests() {
+      ContestVerbsRestfulService.readAll()
+        .then(response => {
+          this.contests = response.data._embedded.contests;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
   computed: {},
   mounted() {}
 }
