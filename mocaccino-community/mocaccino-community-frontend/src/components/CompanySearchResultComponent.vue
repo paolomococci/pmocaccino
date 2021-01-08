@@ -9,7 +9,22 @@ import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
 
 export default {
     name: 'CompanySearchResultComponent',
-  data: () => ({}),
+  data: () => ({
+    fields: [
+      {
+        key: 'name',
+        label: 'names',
+        sortable: true
+      },
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ],
+    companies: [],
+    messageBoxToConfirmDeletion: '',
+    textToSearchFor: ''
+  }),
   methods: {
     searchByName() {
       CompanyVerbsRestfulService.searchByName(this.textToSearchFor)
