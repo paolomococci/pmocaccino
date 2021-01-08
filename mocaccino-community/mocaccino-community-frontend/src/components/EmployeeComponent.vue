@@ -160,16 +160,6 @@ export default {
           this.deleteItem(uri);
         }
       });
-    },
-    searchByUsername() {
-      EmployeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
-        .then(response => {
-          this.employees = response.data._embedded.employees;
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
     }
   },
   computed: {
