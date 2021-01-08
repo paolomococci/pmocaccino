@@ -9,7 +9,22 @@ import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService
 
 export default {
     name: 'EmployeeSearchResultComponent',
-  data: () => ({}),
+  data: () => ({
+    fields: [
+      {
+        key: 'username',
+        label: 'usernames',
+        sortable: true
+      },
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ],
+    employees: [],
+    messageBoxToConfirmDeletion: '',
+    textToSearchFor: ''
+  }),
   methods: {
     searchByUsername() {
       EmployeeVerbsRestfulService.searchByUsername(this.textToSearchFor)
