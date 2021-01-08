@@ -9,7 +9,26 @@ import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
 
 export default {
     name: 'ContestSearchResultComponent',
-  data: () => ({}),
+  data: () => ({
+    fields: [
+      {
+        key: 'date',
+        label: 'dates',
+        sortable: true
+      },
+      {
+        key: 'name',
+        label: 'names'
+      },
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ],
+    contests: [],
+    messageBoxToConfirmDeletion: '',
+    textToSearchFor: ''
+  }),
   methods: {
     searchByTitle() {
       ContestVerbsRestfulService.searchByTitle(this.textToSearchFor)
