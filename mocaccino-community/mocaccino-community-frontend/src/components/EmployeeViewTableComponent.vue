@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
+
 export default {
     name: 'EmployeeViewTableComponent',
   data: () => ({
@@ -23,7 +25,18 @@ export default {
     messageBoxToConfirmDeletion: '',
     textToSearchFor: ''
   }),
-  methods: {},
+  methods: {
+    retrieveEmployees() {
+      EmployeeVerbsRestfulService.readAll()
+        .then(response => {
+          this.employees = response.data._embedded.employees;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
   computed: {},
   mounted() {}
 }
