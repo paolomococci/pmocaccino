@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
+
 export default {
     name: 'CompanyViewTableComponent',
   data: () => ({
@@ -23,7 +25,18 @@ export default {
     messageBoxToConfirmDeletion: '',
     textToSearchFor: ''
   }),
-  methods: {},
+  methods: {
+    retrieveCompanies() {
+      CompanyVerbsRestfulService.readAll()
+        .then(response => {
+          this.companies = response.data._embedded.companies;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
   computed: {},
   mounted() {}
 }
