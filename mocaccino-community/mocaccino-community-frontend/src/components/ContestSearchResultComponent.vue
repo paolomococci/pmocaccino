@@ -1,6 +1,53 @@
 <template>
     <section>
-        <!-- TODO-->
+      <b-table 
+        :items="contests" 
+        :fields="fields" 
+        striped 
+        responsive="sm">
+        <template #cell(showDetails)="row">
+          <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
+            details
+          </b-form-checkbox>
+        </template>
+        <template #row-details="row">
+          <b-card>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>title:</b></b-col>
+              <b-col><output v-text="row.item.title"></output></b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>description:</b></b-col>
+              <b-col><output v-text="row.item.description"></output></b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
+              <b-col><output v-text="row.item._links.self.href"></output></b-col>
+            </b-row>
+            <b-row>
+              <b-button-group>
+                <edit-contest 
+                  :nameField="row.item.name" 
+                  :titleField="row.item.title" 
+                  :descriptionField="row.item.description" 
+                  :dateField="row.item.date"
+                  :uri="row.item._links.self.href" 
+                  @updateView="updateView"/>
+                <view-reference-participants 
+                  :uri="row.item._links.self.href"/>
+                <b-dropdown right text="more actions">
+                  <b-dropdown-item 
+                    @click="row.toggleDetails">toggle details</b-dropdown-item>
+                  <b-dropdown-divider/>
+                  <b-dropdown-item 
+                    @click="deleteItemConfirm(row.item._links.self.href)"
+                    >delete item</b-dropdown-item>
+                </b-dropdown>
+              </b-button-group>
+            </b-row>
+          </b-card>
+        </template>
+      </b-table>
     </section>
 </template>
 
