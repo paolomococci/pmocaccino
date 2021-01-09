@@ -1,6 +1,42 @@
 <template>
     <section>
-        <!-- TODO-->
+      <b-table 
+        :items="companies" 
+        :fields="fields" 
+        striped 
+        responsive="sm">
+        <template #cell(showDetails)="row">
+          <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
+            details
+          </b-form-checkbox>
+        </template>
+        <template #row-details="row">
+          <b-card>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
+              <b-col><output v-text="row.item._links.self.href"></output></b-col>
+            </b-row>
+            <b-row>
+              <b-button-group>
+                <edit-company 
+                  :nameField="row.item.name" 
+                  :uri="row.item._links.self.href" 
+                  @updateView="updateView"/>
+                <view-reference-staff 
+                  :uri="row.item._links.self.href"/>
+                <b-dropdown right text="more actions">
+                  <b-dropdown-item 
+                    @click="row.toggleDetails">toggle details</b-dropdown-item>
+                  <b-dropdown-divider/>
+                  <b-dropdown-item 
+                    @click="deleteItemConfirm(row.item._links.self.href)"
+                    >delete item</b-dropdown-item>
+                </b-dropdown>
+              </b-button-group>
+            </b-row>
+          </b-card>
+        </template>
+      </b-table>
     </section>
 </template>
 
