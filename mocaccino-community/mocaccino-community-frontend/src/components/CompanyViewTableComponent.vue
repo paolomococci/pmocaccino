@@ -77,6 +77,8 @@ export default {
     }
   },
   computed: {},
-  mounted() {}
+  mounted() {
+    this.retrieveCompanies();
+  }
 }
 </script>
