@@ -6,9 +6,23 @@
 
 <script>
 import EmployeeVerbsRestfulService from '../services/EmployeeVerbsRestfulService'
+import EmployeeEditorComponent from '@/components/EmployeeEditorComponent.vue'
+import EmployeeReferenceViewComponent from '@/components/EmployeeReferenceViewComponent.vue'
+import EmployeeUpdateRefToCompanyComponent from '@/components/EmployeeUpdateRefToCompanyComponent.vue'
+import EmployeeDelRefToCompanyComponent from '@/components/EmployeeDelRefToCompanyComponent.vue'
+import EmployeeAddRefToContestComponent from '@/components/EmployeeAddRefToContestComponent.vue'
+import EmployeeDelRefToContestComponent from '@/components/EmployeeDelRefToContestComponent.vue'
 
 export default {
     name: 'EmployeeViewTableComponent',
+  components: {
+    'edit-employee': EmployeeEditorComponent,
+    'view-reference-employee': EmployeeReferenceViewComponent,
+    'update-ref-to-company': EmployeeUpdateRefToCompanyComponent,
+    'del-ref-to-company': EmployeeDelRefToCompanyComponent,
+    'add-ref-to-contest': EmployeeAddRefToContestComponent,
+    'del-ref-to-contest': EmployeeDelRefToContestComponent
+  },
   data: () => ({
     fields: [
       {
