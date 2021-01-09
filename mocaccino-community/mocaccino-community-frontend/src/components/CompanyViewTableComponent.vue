@@ -22,8 +22,7 @@ export default {
       }
     ],
     companies: [],
-    messageBoxToConfirmDeletion: '',
-    textToSearchFor: ''
+    messageBoxToConfirmDeletion: ''
   }),
   methods: {
     retrieveCompanies() {
