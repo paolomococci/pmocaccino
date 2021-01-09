@@ -22,8 +22,7 @@ export default {
       }
     ],
     employees: [],
-    messageBoxToConfirmDeletion: '',
-    textToSearchFor: ''
+    messageBoxToConfirmDeletion: ''
   }),
   methods: {
     retrieveEmployees() {
