@@ -49,6 +49,13 @@ export default {
           this.employees = null;
           this.searchByUsername();
         }, 2000);
+    },
+    deleteItem(uri) {
+      EmployeeVerbsRestfulService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
     }
   },
   computed: {},
