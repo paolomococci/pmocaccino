@@ -46,12 +46,12 @@ export default {
         variant: 'info',
         solid: true,
         appendToast: true,
-        autoHideDelay: 2000
+        autoHideDelay: 1000
       });
       await setTimeout(() => {
           this.contests = null;
           this.retrieveContests();
-        }, 2000);
+        }, 1000);
     },
     deleteItem(uri) {
       ContestVerbsRestfulService.delete(uri)
