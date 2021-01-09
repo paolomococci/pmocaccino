@@ -81,6 +81,8 @@ export default {
       return this.$store.state.textToSearch;
     }
   },
-  mounted() {}
+  mounted() {
+    this.searchByName();
+  }
 }
 </script>
