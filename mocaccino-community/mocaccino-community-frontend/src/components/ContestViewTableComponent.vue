@@ -26,8 +26,7 @@ export default {
       }
     ],
     contests: [],
-    messageBoxToConfirmDeletion: '',
-    textToSearchFor: ''
+    messageBoxToConfirmDeletion: ''
   }),
   methods: {
     retrieveContests() {
