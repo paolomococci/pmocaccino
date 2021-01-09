@@ -80,7 +80,11 @@ export default {
       });
     }
   },
-  computed: {},
+  computed: {
+    textToSearch() {
+      return this.$store.state.textToSearch;
+    }
+  },
   mounted() {}
 }
 </script>
