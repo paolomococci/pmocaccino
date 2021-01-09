@@ -35,6 +35,20 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    async updateView() {
+      this.$bvToast.toast('data of employees being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 2000
+      });
+      await setTimeout(() => {
+          this.employees = null;
+          this.retrieveEmployees();
+        }, 2000);
     }
   },
   computed: {},
