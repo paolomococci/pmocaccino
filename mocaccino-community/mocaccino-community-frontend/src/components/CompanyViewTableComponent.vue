@@ -6,9 +6,15 @@
 
 <script>
 import CompanyVerbsRestfulService from '../services/CompanyVerbsRestfulService'
+import CompanyEditorComponent from '@/components/CompanyEditorComponent.vue'
+import CompanyReferenceViewComponent from '@/components/CompanyReferenceViewComponent.vue'
 
 export default {
     name: 'CompanyViewTableComponent',
+  components: {
+    'edit-company': CompanyEditorComponent,
+    'view-reference-staff': CompanyReferenceViewComponent
+  },
   data: () => ({
     fields: [
       {
