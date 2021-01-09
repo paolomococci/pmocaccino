@@ -49,6 +49,13 @@ export default {
           this.companies = null;
           this.searchByName();
         }, 1000);
+    },
+    deleteItem(uri) {
+      CompanyVerbsRestfulService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
     }
   },
   computed: {},
