@@ -49,6 +49,31 @@ export default {
           this.employees = null;
           this.retrieveEmployees();
         }, 2000);
+    },
+    deleteItem(uri) {
+      EmployeeVerbsRestfulService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
+    },
+    deleteItemConfirm(uri) {
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to delete this item', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'danger',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          this.deleteItem(uri);
+        }
+      });
     }
   },
   computed: {},
