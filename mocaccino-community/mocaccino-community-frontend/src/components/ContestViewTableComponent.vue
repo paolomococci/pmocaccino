@@ -6,9 +6,15 @@
 
 <script>
 import ContestVerbsRestfulService from '../services/ContestVerbsRestfulService'
+import ContestEditorComponent from '@/components/ContestEditorComponent.vue'
+import ContestReferenceViewComponent from '@/components/ContestReferenceViewComponent.vue'
 
 export default {
     name: 'ContestViewTableComponent',
+  components: {
+    'edit-contest': ContestEditorComponent,
+    'view-reference-participants': ContestReferenceViewComponent
+  },
   data: () => ({
     fields: [
       {
