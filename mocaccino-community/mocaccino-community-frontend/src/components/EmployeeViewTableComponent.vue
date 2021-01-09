@@ -1,6 +1,70 @@
 <template>
     <section>
-        <!-- TODO-->
+      <b-table 
+        :items="employees" 
+        :fields="fields" 
+        striped 
+        responsive="sm">
+        <template #cell(showDetails)="row">
+          <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
+            details
+          </b-form-checkbox>
+        </template>
+        <template #row-details="row">
+          <b-card>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>name:</b></b-col>
+              <b-col><output v-text="row.item.name"></output></b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>surname:</b></b-col>
+              <b-col><output v-text="row.item.surname"></output></b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>email:</b></b-col>
+              <b-col><output v-text="row.item.email"></output></b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>profession:</b></b-col>
+              <b-col><output v-text="row.item.profession"></output></b-col>
+            </b-row>
+            <b-row class="mb-2">
+              <b-col sm="3" class="text-sm-right"><b>URI:</b></b-col>
+              <b-col><output v-text="row.item._links.self.href"></output></b-col>
+            </b-row>
+            <b-row>
+              <b-button-group>
+                <edit-employee 
+                  :usernameField="row.item.username" 
+                  :nameField="row.item.name" 
+                  :surnameField="row.item.surname" 
+                  :emailField="row.item.email"
+                  :professionField="row.item.profession"
+                  :uri="row.item._links.self.href" 
+                  @updateView="updateView"/>
+                <view-reference-employee 
+                  :uri="row.item._links.self.href"/>
+                <b-dropdown right text="more actions">
+                  <b-dropdown-item 
+                    @click="row.toggleDetails">toggle details</b-dropdown-item>
+                  <b-dropdown-divider/>
+                  <update-ref-to-company 
+                    :uri="row.item._links.self.href"/>
+                  <del-ref-to-company 
+                    :uri="row.item._links.self.href"/>
+                  <add-ref-to-contest 
+                    :uri="row.item._links.self.href"/>
+                  <del-ref-to-contest 
+                    :uri="row.item._links.self.href"/>
+                  <b-dropdown-item 
+                    @click="deleteItemConfirm(row.item._links.self.href)"
+                    >delete item</b-dropdown-item>
+                </b-dropdown>
+              </b-button-group>
+            </b-row>
+          </b-card>
+        </template>
+      </b-table>
     </section>
 </template>
 
