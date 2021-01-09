@@ -53,6 +53,13 @@ export default {
           this.contests = null;
           this.searchByTitle();
         }, 2000);
+    },
+    deleteItem(uri) {
+      ContestVerbsRestfulService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
     }
   },
   computed: {},
