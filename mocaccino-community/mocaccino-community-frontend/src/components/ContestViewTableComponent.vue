@@ -81,6 +81,8 @@ export default {
     }
   },
   computed: {},
-  mounted() {}
+  mounted() {
+    this.retrieveContests();
+  }
 }
 </script>
