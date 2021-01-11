@@ -21,9 +21,11 @@ package local.mocaccino.community.repository;
 import local.mocaccino.community.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+@RepositoryRestResource
 public interface CompanyRestRepository
         extends JpaRepository<Company, Long> {
 
