@@ -21,6 +21,7 @@ package local.mocaccino.community.repository;
 import local.mocaccino.community.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
@@ -29,6 +30,6 @@ import java.util.List;
 public interface CompanyRestRepository
         extends JpaRepository<Company, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * FROM COMPANY WHERE NAME LIKE ?1%")
-    List<Company> likeByName(String name);
+    @Query(nativeQuery = true, value = "SELECT * FROM COMPANY WHERE NAME LIKE :name")
+    List<Company> likeByName(@Param("name") String name);
 }
