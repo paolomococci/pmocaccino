@@ -21,6 +21,7 @@ package local.mocaccino.community.repository;
 import local.mocaccino.community.model.Contest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
@@ -29,9 +30,9 @@ import java.util.List;
 public interface ContestRestRepository
         extends JpaRepository<Contest, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT * FROM CONTEST WHERE NAME LIKE ?1%")
-    List<Contest> likeByName(String name);
+    @Query(nativeQuery = true, value = "SELECT * FROM CONTEST WHERE NAME LIKE :name%")
+    List<Contest> likeByName(@Param("name") String name);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM CONTEST WHERE TITLE LIKE ?1%")
-    List<Contest> likeByTitle(String title);
+    @Query(nativeQuery = true, value = "SELECT * FROM CONTEST WHERE TITLE LIKE :title")
+    List<Contest> likeByTitle(@Param("title") String title);
 }
