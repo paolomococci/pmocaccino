@@ -19,12 +19,17 @@
 package local.mocaccino.community.model;
 
 import local.mocaccino.community.validator.constraint.NameConstraint;
+import org.hibernate.search.engine.backend.types.Sortable;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.KeywordField;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@Indexed
 @Table(name = "COMPANY",
         uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"}))
 public class Company {
@@ -34,6 +39,8 @@ public class Company {
     @Column(name = "ID")
     private Long id;
 
+    @GenericField(sortable = Sortable.YES)
+    @KeywordField(sortable = Sortable.YES)
     @NameConstraint
     @Size(min = 8, max = 30)
     @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(31)")
