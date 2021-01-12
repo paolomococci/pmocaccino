@@ -18,10 +18,15 @@
 
 package local.mocaccino.community.controller.search;
 
+import local.mocaccino.community.service.ContestHibernateSearchService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/api/contest/search")
 public class ContestRestSearchController {
+
+    @Autowired
+    private ContestHibernateSearchService contestHibernateSearchService;
 }
