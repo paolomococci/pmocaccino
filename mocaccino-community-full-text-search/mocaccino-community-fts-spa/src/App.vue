@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <div id="nav">
+  <section id="app">
+    <nav id="nav">
       <router-link to="/">home</router-link> |
       <router-link to="/about">about</router-link>
-    </div>
+    </nav>
     <router-view/>
-  </div>
+  </section>
 </template>
 
 <style lang="scss">
