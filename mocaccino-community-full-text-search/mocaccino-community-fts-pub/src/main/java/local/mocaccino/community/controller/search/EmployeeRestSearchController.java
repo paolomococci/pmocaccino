@@ -18,10 +18,15 @@
 
 package local.mocaccino.community.controller.search;
 
+import local.mocaccino.community.service.EmployeeHibernateSearchService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/api/employee/search")
 public class EmployeeRestSearchController {
+    
+    @Autowired
+    private EmployeeHibernateSearchService employeeHibernateSearchService;
 }
