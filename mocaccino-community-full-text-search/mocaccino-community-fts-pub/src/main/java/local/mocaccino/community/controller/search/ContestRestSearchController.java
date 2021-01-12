@@ -20,7 +20,12 @@ package local.mocaccino.community.controller.search;
 
 import local.mocaccino.community.service.ContestHibernateSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -29,4 +34,11 @@ public class ContestRestSearchController {
 
     @Autowired
     private ContestHibernateSearchService contestHibernateSearchService;
+
+    @GetMapping
+    public ResponseEntity<?> search(
+            @RequestParam(value = "search", required = false) String query, Model model
+    ) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
 }
