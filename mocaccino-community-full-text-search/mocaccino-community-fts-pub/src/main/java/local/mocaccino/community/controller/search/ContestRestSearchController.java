@@ -18,6 +18,7 @@
 
 package local.mocaccino.community.controller.search;
 
+import local.mocaccino.community.model.Contest;
 import local.mocaccino.community.service.ContestHibernateSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/contest/search")
 public class ContestRestSearchController {
@@ -37,8 +40,13 @@ public class ContestRestSearchController {
 
     @GetMapping
     public ResponseEntity<?> search(
-            @RequestParam(value = "search", required = false) String query, Model model
+            @RequestParam(value = "query", required = false) String query, Model model
     ) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        List<Contest> contests = contestHibernateSearchService.contestNameFuzzySearch(query);
+        if (contests != null) {
+            // TODO
+            return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
