@@ -1,14 +1,19 @@
 <template>
-  <section>
-    <h1 v-text="msg"></h1>
-  </section>
+  <header>
+    <nav>
+      <navbar/>
+    </nav>
+    <help/>
+  </header>
 </template>
 
 <script>
+import NavbarComponent from '@/components/NavbarComponent'
+
 export default {
   name: 'HeaderComponent',
-  props: {
-    msg: String
+  components: {
+    navbar: NavbarComponent
   }
 }
 </script>
