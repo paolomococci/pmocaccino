@@ -1,19 +1,21 @@
 <template>
   <section>
-    <h1>{{msg}}</h1>
+    <vs-row vs-justify="center">
+      <vs-col type="flex" vs-justify="center" vs-align="center" vs-w="6">
+        <vs-card>
+          <section slot="header">
+            <h3>mocaccino</h3>
+          </section>
+          <section>
+            <span v-text="msg"></span>
+          </section>
+        </vs-card>
+      </vs-col>
+    </vs-row>
   </section>
 </template>
 
-<style scoped lang="scss">
-h1 {
-  font-size: 20px;
-  font-weight: lighter;
-  margin: 40px;
-}
-</style>
-
 <script>
-
 export default {
   name: 'WelcomeComponent',
   props: {
