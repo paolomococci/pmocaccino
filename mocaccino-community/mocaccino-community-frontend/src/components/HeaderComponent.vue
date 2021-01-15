@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <navbarComponent/>
+      <navbar-component/>
     </nav>
     <help/>
   </header>
@@ -14,14 +14,8 @@ import HelpComponent from '@/components/HelpComponent'
 export default {
   name: 'HeaderComponent',
   components: {
-    navbarComponent: NavbarComponent,
+    'navbar-component': NavbarComponent,
     help: HelpComponent
   }
 }
 </script>
-
-<style>
-  aside, footer {
-    margin: 1rem;
-  }
-</style>
