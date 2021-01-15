@@ -1,18 +1,21 @@
 <template>
-  <div id="app">
-    <nav id="nav">
-      <headerComponent/>
+  <header>
+    <nav>
+      <navbar-component/>
     </nav>
-    <router-view/>
-  </div>
+    <help/>
+  </header>
 </template>
 
 <script>
-import HeaderComponent from '@/components/HeaderComponent'
+import NavbarComponent from '@/components/NavbarComponent'
+import HelpComponent from '@/components/HelpComponent'
 
 export default {
+  name: 'HeaderComponent',
   components: {
-    headerComponent: HeaderComponent
+    'navbar-component': NavbarComponent,
+    help: HelpComponent
   }
 }
 </script>
