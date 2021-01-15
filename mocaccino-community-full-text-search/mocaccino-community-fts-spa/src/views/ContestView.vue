@@ -1,6 +1,6 @@
 <template>
   <main>
-    <welcome msg="home view"/>
+    <welcome msg="contest view"/>
     <!-- TODO -->
   </main>
 </template>
