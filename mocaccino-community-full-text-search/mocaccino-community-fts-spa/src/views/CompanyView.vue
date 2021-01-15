@@ -1,6 +1,6 @@
 <template>
   <main>
-    <welcome msg="home view"/>
+    <welcome msg="company view"/>
     <!-- TODO -->
   </main>
 </template>
