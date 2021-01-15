@@ -1,15 +1,21 @@
 <template>
   <div id="app">
     <nav id="nav">
-      <router-link to="/">home</router-link>
-      <router-link to="/about">about</router-link>
-      <router-link to="/company">company</router-link>
-      <router-link to="/contest">contest</router-link>
-      <router-link to="/employee">employee</router-link>
+      <header-component/>
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+import HeaderComponent from '@/components/HeaderComponent'
+
+export default {
+  components: {
+    'header-component': HeaderComponent
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -19,14 +25,11 @@
   text-align: center;
   color: #235;
 }
-
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #235;
-
     &.router-link-exact-active {
       color: #4b8;
     }
