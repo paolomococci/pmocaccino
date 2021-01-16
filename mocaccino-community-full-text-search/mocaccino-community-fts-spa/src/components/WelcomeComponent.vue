@@ -5,7 +5,7 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p v-text="msg"></p>
+            <p class="title is-3" v-text="msg"></p>
           </div>
         </div>
       </div>
