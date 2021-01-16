@@ -1,7 +1,15 @@
 <template>
   <section>
     <!-- TODO-->
-    <p><span v-text="msg"></span></p>
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p v-text="msg"></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
