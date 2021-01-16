@@ -1,6 +1,7 @@
 <template>
   <section>
-    <!-- TODO-->>
+    <!-- TODO-->
+    <p><span v-text="msg"></span></p>
   </section>
 </template>
 
