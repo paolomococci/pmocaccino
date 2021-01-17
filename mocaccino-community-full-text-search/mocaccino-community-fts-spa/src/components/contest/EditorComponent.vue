@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'EditorComponent',
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     msg: String
   },
