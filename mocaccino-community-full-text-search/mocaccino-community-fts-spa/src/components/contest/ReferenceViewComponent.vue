@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'ReferenceViewComponent',
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     msg: String
   },
