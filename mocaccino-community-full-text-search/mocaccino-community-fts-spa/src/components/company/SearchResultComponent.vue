@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'SearchResultComponent',
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     msg: String
   },
