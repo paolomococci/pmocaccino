@@ -7,8 +7,23 @@
 <script>
 export default {
   name: 'SearchResultComponent',
+  components: {
+    FontAwesomeIcon
+  },
   props: {
     msg: String
+  },
+  data: () => ({
+    // TODO
+  }),
+  methods: {
+    // TODO
+  },
+  computed: {
+    // TODO
+  },
+  mounted() {
+    // TODO
   }
 }
 </script>
