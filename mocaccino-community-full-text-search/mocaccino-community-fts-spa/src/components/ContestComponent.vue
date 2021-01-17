@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'ContestComponent',
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     msg: String
   },
