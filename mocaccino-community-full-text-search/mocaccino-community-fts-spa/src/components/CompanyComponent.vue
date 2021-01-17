@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'CompanyComponent',
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     msg: String
   },
