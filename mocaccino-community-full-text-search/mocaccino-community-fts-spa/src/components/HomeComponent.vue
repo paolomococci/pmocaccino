@@ -1,20 +1,33 @@
 <template>
   <section>
-    <h1 v-text="msg"></h1>
+    <!-- TODO-->
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-3" v-text="msg"></p>
+            <font-awesome-icon :icon="spinnerIcon" spin/>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
 export default {
   name: 'HomeComponent',
   components: {
-    // TODO
+    FontAwesomeIcon
   },
   props: {
     msg: String
   },
   data: () => ({
-    // TODO
+    spinnerIcon: faSpinner
   }),
   methods: {
     // TODO
