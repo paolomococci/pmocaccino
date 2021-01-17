@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'ViewTableComponent',
-  components: {
-    FontAwesomeIcon
-  },
   props: {
     msg: String
   },
