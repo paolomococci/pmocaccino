@@ -19,14 +19,12 @@
 package local.mocaccino.community.model;
 
 import local.mocaccino.community.validator.constraint.NameConstraint;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-@Indexed
 @Table(name = "COMPANY",
         uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"}))
 public class Company {
