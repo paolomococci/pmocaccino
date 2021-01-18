@@ -21,10 +21,6 @@ package local.mocaccino.community.model;
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import local.mocaccino.community.validator.constraint.AlphaDashConstraint;
 import local.mocaccino.community.validator.constraint.AlphaNumericConstraint;
-import org.hibernate.search.engine.backend.types.Sortable;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.KeywordField;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -32,7 +28,6 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
-@Indexed
 @Table(name = "EMPLOYEE",
 		uniqueConstraints = @UniqueConstraint(columnNames = {"USERNAME"}))
 public class Employee {
@@ -62,8 +57,6 @@ public class Employee {
 	@Column(name = "PROFESSION", columnDefinition = "VARCHAR(31)")
 	private String profession;
 
-	@GenericField(sortable = Sortable.YES)
-	@KeywordField(sortable = Sortable.YES)
 	@AlphaNumericConstraint
 	@Size(min = 6, max = 20)
 	@Column(name = "USERNAME", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
