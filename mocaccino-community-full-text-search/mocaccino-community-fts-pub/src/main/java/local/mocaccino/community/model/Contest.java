@@ -21,10 +21,6 @@ package local.mocaccino.community.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import local.mocaccino.community.validator.constraint.CharConstraint;
 import local.mocaccino.community.validator.constraint.NameConstraint;
-import org.hibernate.search.engine.backend.types.Sortable;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.KeywordField;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -33,7 +29,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
-@Indexed
 @Table(name = "CONTEST",
         uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"}))
 public class Contest {
@@ -43,8 +38,6 @@ public class Contest {
     @Column(name = "ID")
     private Long id;
 
-    @GenericField(sortable = Sortable.YES)
-    @KeywordField(sortable = Sortable.YES)
     @NameConstraint
     @Size(min = 10, max = 20)
     @Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
