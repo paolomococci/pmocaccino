@@ -21,6 +21,7 @@ package local.mocaccino.community.model;
 import local.mocaccino.community.validator.constraint.AlphaConstraint;
 import local.mocaccino.community.validator.constraint.AlphaDashConstraint;
 import local.mocaccino.community.validator.constraint.AlphaNumericConstraint;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -28,6 +29,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@Indexed
 @Table(name = "EMPLOYEE",
 		uniqueConstraints = @UniqueConstraint(columnNames = {"USERNAME"}))
 public class Employee {
