@@ -1,26 +1,61 @@
 <template>
   <section>
-    <h1 v-text="msg"></h1>
+    <!-- todo -->
   </section>
 </template>
 
 <script>
+import CompanyRestService from '../services/CompanyRestService'
+
 export default {
   name: 'ReferenceViewComponent',
-  props: {
-    msg: String
-  },
   data: () => ({
-    // TODO
+    fields: [
+      {
+        key: 'username',
+        sortable: true
+      },
+      {
+        key: 'name'
+      },
+      {
+        key: 'surname'
+      },
+      {
+        key: 'profession'
+      },
+      {
+        key: 'email'
+      }
+    ],
+    staff: []
   }),
-  methods: {
-    // TODO
+  props: {
+    uri: String
   },
-  computed: {
-    // TODO
+  methods: {
+    isAcceptable() {
+      return false;
+    },
+    showModalDetail() {
+      this.$refs['modal-view-reference'].show();
+    },
+    hideModalDetail() {
+      this.$refs['modal-view-reference'].hide();
+    },
+    retrieveStaffData() {
+      CompanyRestService.readListOfEmployee(this.uri)
+        .then(response => {
+          this.staff = response.data._embedded.employees;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   },
   mounted() {
-    // TODO
+    this.retrieveStaffData();
   }
 }
 </script>
