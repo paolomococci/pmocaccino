@@ -1,26 +1,61 @@
 <template>
   <section>
-    <h1 v-text="msg"></h1>
+    <!-- todo -->
   </section>
 </template>
 
 <script>
+import ContestRestService from '../services/ContestRestService'
+
 export default {
   name: 'ReferenceViewComponent',
-  props: {
-    msg: String
-  },
   data: () => ({
-    // TODO
+    fields: [
+      {
+        key: 'username',
+        sortable: true
+      },
+      {
+        key: 'name'
+      },
+      {
+        key: 'surname'
+      },
+      {
+        key: 'profession'
+      },
+      {
+        key: 'email'
+      }
+    ],
+    participants: []
   }),
-  methods: {
-    // TODO
+  props: {
+    uri: String
   },
-  computed: {
-    // TODO
+  methods: {
+    isAcceptable() {
+      return false;
+    },
+    showModalDetail() {
+      this.$refs['view-reference-participants'].show();
+    },
+    hideModalDetail() {
+      this.$refs['view-reference-participants'].hide();
+    },
+    retrieveListOfParticipants() {
+      ContestRestService.readListOfEmployee(this.uri)
+        .then(response => {
+          this.participants = response.data._embedded.employees;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   },
   mounted() {
-    // TODO
+    this.retrieveListOfParticipants();
   }
 }
 </script>
