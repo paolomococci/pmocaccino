@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import CompanyRestService from '../../services/CompanyRestService'
 import { validationMixin } from 'vuelidate'
 import {
   required,
@@ -12,7 +13,6 @@ import {
   maxLength,
   helpers
 } from 'vuelidate/lib/validators'
-import CompanyRestService from '../services/CompanyRestService'
 
 const charactersAcceptedAsValid = helpers
   .regex('charactersAcceptedAsValid', /^[a-zA-Z0-9-_]*$/);
