@@ -6,6 +6,7 @@
 
 <script>
 import EmployeeRestService from '../services/EmployeeRestService'
+import ContestRestService from '../services/ContestRestService'
 
 export default {
   name: 'AddRefToContestComponent',
