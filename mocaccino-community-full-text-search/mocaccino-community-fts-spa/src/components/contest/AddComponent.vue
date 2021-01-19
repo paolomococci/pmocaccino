@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import ContestRestService from '../../services/ContestRestService'
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
 import {
@@ -13,7 +14,6 @@ import {
   maxLength,
   helpers
 } from 'vuelidate/lib/validators'
-import ContestRestService from '../services/ContestRestService'
 
 const contestNameRegex = helpers.regex('contestNameRegex', /^[a-zA-Z0-9-_]*$/);
 const contestTitleAndDescriptionRegex = helpers.regex('contestTitleAndDescriptionRegex', /^[a-zA-Z0-9-_\s]*$/);
