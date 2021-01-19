@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import EmployeeRestService from '../services/EmployeeRestService'
+
 export default {
   name: 'UpdateRefToCompanyComponent',
   props: {
