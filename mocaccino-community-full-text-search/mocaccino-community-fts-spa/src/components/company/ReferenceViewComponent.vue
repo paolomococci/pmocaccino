@@ -5,10 +5,13 @@
 </template>
 
 <script>
-import CompanyRestService from '../services/CompanyRestService'
+import CompanyRestService from '../../services/CompanyRestService'
 
 export default {
   name: 'ReferenceViewComponent',
+  props: {
+    uri: String
+  },
   data: () => ({
     fields: [
       {
@@ -30,9 +33,6 @@ export default {
     ],
     staff: []
   }),
-  props: {
-    uri: String
-  },
   methods: {
     isAcceptable() {
       return false;
