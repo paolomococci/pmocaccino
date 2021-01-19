@@ -5,10 +5,13 @@
 </template>
 
 <script>
-import ContestRestService from '../services/ContestRestService'
+import ContestRestService from '../../services/ContestRestService'
 
 export default {
   name: 'ReferenceViewComponent',
+  props: {
+    uri: String
+  },
   data: () => ({
     fields: [
       {
@@ -30,9 +33,6 @@ export default {
     ],
     participants: []
   }),
-  props: {
-    uri: String
-  },
   methods: {
     isAcceptable() {
       return false;
