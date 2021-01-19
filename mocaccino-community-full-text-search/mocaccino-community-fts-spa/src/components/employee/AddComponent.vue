@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 v-text="msg"></h1>
+    <!-- todo -->
   </section>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: 'AddComponent',
   props: {
-    msg: String
+    // TODO
   },
   data: () => ({
     // TODO
