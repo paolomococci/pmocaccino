@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ContestRestService from '../services/ContestRestService'
+import ContestRestService from '../../services/ContestRestService'
 
 export default {
   name: 'ViewTableComponent',
