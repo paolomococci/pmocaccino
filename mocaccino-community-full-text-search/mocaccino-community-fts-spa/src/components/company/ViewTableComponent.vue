@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CompanyRestService from '../services/CompanyRestService'
+import CompanyRestService from '../../services/CompanyRestService'
 
 export default {
   name: 'ViewTableComponent',
