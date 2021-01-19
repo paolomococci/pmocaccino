@@ -6,6 +6,7 @@
 
 <script>
 import EmployeeRestService from '../services/EmployeeRestService'
+import CompanyRestService from '../services/CompanyRestService'
 
 export default {
   name: 'UpdateRefToCompanyComponent',
