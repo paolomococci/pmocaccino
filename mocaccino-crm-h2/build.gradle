@@ -21,7 +21,7 @@ repositories {
 
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
-	set('vaadinVersion', "14.4.8")
+	set('vaadinVersion', "14.4.10")
 }
 
 dependencies {
