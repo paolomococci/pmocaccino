@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "core-js": "^3.13.0",
-    "vue": "^2.6.11",
+    "core-js": "^3.13.1",
+    "vue": "^2.6.13",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
   },
@@ -39,7 +39,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.13"
   },
   "eslintConfig": {
     "root": true,
